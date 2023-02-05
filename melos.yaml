@@ -1,0 +1,40 @@
+name: digital_bank
+
+packages:
+  - packages/*
+
+scripts:
+  analyze:
+    description: |
+      Run `dart analyze` in all packages.
+       - Note: you can also rely on your IDEs Dart Analysis / Issues window.
+    run: |
+      melos exec -c 1 -- \
+        dart analyze . --fatal-infos
+
+  lint:all:
+    description: Run all static analysis checks.
+    run: melos run analyze && melos run format
+
+  format:
+    description: |
+      Build a specific example app for Android.
+       - Requires `flutter_plugin_tools` (`dart pub global activate flutter_plugin_tools`).
+       - Requires `clang-format` (can be installed via Brew on macOS).
+       - Requires `swiftformat` (can be installed via Brew on macOS).
+    run: |
+      dart pub global run flutter_plugin_tools format && \
+      swiftformat .
+
+  test:
+    description: Run `flutter test` for a specific package.
+    run: |
+      melos exec -c 6 --fail-fast -- \
+        "flutter test"
+    select-package:
+      dir-exists:
+        - test
+      ignore:
+        - '*web*'
+        - '*odm*'
+        - '*example*'

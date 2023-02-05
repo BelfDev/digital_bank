@@ -244,3 +244,6 @@ coverage/
 test/**/goldens/**/*.*
 test/**/failures/**/*.*
 !test/**/goldens/ci/*.*
+
+## Monorepo/Melos
+pubspec_overrides.yaml
