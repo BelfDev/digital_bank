@@ -25,7 +25,7 @@ class AccountRepository implements AccountRepositoryProtocol {
       return Outcome.success(result);
     } catch (e) {
       return Outcome.failure(
-        e.derive(RemoteApiFailure()),
+        e.deriveFailure(RemoteApiFailure()),
       );
     }
   }

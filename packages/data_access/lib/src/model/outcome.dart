@@ -108,7 +108,7 @@ class _FailureResult<S> extends Outcome<S> {
 }
 
 extension DeriveFailureExtension on Object {
-  FailureProtocol derive(
+  FailureProtocol deriveFailure(
     FailureProtocol fallback,
   ) {
     return this is FailureProtocol ? this as FailureProtocol : fallback;
