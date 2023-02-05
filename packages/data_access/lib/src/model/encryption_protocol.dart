@@ -1,5 +1,5 @@
 abstract class EncryptionProtocol<T> {
-  String encrypt(T input);
+  String encrypt();
 
-  T decrypt(String input);
+  T decrypt();
 }

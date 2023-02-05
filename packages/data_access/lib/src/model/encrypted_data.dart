@@ -1,26 +1,26 @@
 import 'package:meta/meta.dart';
 
-import 'encryption_protocol.dart';
-
 @immutable
-class EncryptedData<T> implements EncryptionProtocol<T> {
+class EncryptedData<T> {
   const EncryptedData({
     required this.payload,
   });
 
-  final T payload;
+  final String payload;
 
-  @override
-  T decrypt(String input) {
-    // TODO: implement decrypt
-    throw UnimplementedError();
+  static EncryptedData fromJson(
+    Map<String, dynamic> data,
+  ) {
+    return EncryptedData(
+      payload: data['encryptedResponse'] as String,
+    );
   }
 
-  @override
-  String encrypt(T input) {
-    // TODO: implement encrypt
-    throw UnimplementedError();
+  Map<String, dynamic> toJson(
+    Map<String, dynamic> data,
+  ) {
+    return {
+      'encryptedRequest': payload,
+    };
   }
-
-// TODO(BelfDev): Implement toJson and fromJson
 }
