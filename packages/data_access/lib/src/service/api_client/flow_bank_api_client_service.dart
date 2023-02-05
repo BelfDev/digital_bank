@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:configs/configs.dart';
 import 'package:data_access/src/model/account_application.dart';
 import 'package:data_access/src/model/account_application_feedback.dart';
@@ -31,12 +33,16 @@ class FlowBankApiClientService with EncryptionService {
     );
 
     if (response.statusCode == 200) {
-      final parser = BackgroundJsonParser(
-        response.body,
+      final encryptedJson = jsonDecode(response.body);
+      final encryptedData = EncryptedData.fromJson(encryptedJson);
+
+      final decryptedData = decrypt(encryptedData);
+      final payloadParser = BackgroundJsonParser(
+        decryptedData,
         AccountApplicationFeedback.fromJson,
       );
 
-      return parser.parseInBackground();
+      return payloadParser.parseInBackground();
     } else {
       // TODO(BelfDev): Add proper error handling
       throw Exception('Failed to load json');
