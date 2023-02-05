@@ -26,3 +26,19 @@ class AccountApplication {
     };
   }
 }
+
+extension AccountApplicationStubs on AccountApplication {
+  static AccountApplication get defaultStub {
+    return AccountApplication(
+      requestType: 'new_account',
+      firstName: 'John',
+      lastName: 'Doe',
+      photo: '<Base64 encoded photo taken in the page>',
+      dependents: [
+        "Maggie Doe",
+        "William Doe",
+        "John Doe Jr.",
+      ],
+    );
+  }
+}
