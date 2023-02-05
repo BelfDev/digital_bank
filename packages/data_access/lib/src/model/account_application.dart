@@ -15,4 +15,14 @@ class AccountApplication {
   final String lastName;
   final String photo;
   final List<String> dependents;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'requestType': requestType,
+      'firstName': firstName,
+      'lastName': lastName,
+      'photo': photo,
+      'dependents': dependents,
+    };
+  }
 }
