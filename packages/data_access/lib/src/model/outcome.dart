@@ -1,4 +1,4 @@
-import 'package:data_access/src/model/failure_protocol.dart';
+import 'package:data_access/src/model/failure/failure_protocol.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class Outcome<S> extends Equatable {
@@ -104,5 +104,13 @@ class _FailureResult<S> extends Outcome<S> {
     T Function(S data) onData,
   ) {
     return onFailure(_value);
+  }
+}
+
+extension DeriveFailureExtension on Object {
+  FailureProtocol derive(
+    FailureProtocol fallback,
+  ) {
+    return this is FailureProtocol ? this as FailureProtocol : fallback;
   }
 }
