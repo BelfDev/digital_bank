@@ -15,6 +15,12 @@ dependencies:
 
   cupertino_icons: ^1.0.5
 
+  # Internal packages
+  data_access:
+    path: ./packages/data_access
+  ds_components:
+    path: ./packages/ds_components
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -89,6 +89,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  data_access:
+    dependency: "direct main"
+    description:
+      path: "packages/data_access"
+      relative: true
+    source: path
+    version: "1.0.0"
+  ds_components:
+    dependency: "direct main"
+    description:
+      path: "packages/ds_components"
+      relative: true
+    source: path
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
