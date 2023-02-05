@@ -1,3 +1,5 @@
+import 'package:configs/configs.dart';
+import 'package:data_access/data_access.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,11 +31,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  String _accountNumber = '';
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  void _incrementCounter() async {
+    final repo = AccountRepository(
+      FlowBankApiClientService(
+        Environment.production,
+      ),
+    );
+
+    final result = await repo.createAccount(
+      AccountApplicationStubs.defaultStub,
+    );
+
+    result.fold((error) {
+      setState(() {
+        _accountNumber = 'ERROR';
+      });
+    }, (data) {
+      setState(() {
+        _accountNumber = data.accountNumber;
+      });
     });
   }
 
@@ -51,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '$_accountNumber',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
