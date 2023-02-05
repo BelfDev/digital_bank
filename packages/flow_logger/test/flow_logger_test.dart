@@ -1,16 +1,11 @@
 import 'package:flow_logger/flow_logger.dart';
 import 'package:test/test.dart';
 
+// TODO(BelfDev): Write tests
 void main() {
-  group('A group of tests', () {
-    final awesome = Awesome();
-
-    setUp(() {
-      // Additional setup goes here.
-    });
-
+  group('FlowLogger:', () {
     test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+      expect(true, isTrue);
     });
   });
 }
