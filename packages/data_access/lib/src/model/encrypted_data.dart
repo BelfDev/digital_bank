@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 @immutable
-class EncryptedData<T> {
+class EncryptedData {
   const EncryptedData({
     required this.payload,
   });
@@ -16,9 +16,7 @@ class EncryptedData<T> {
     );
   }
 
-  Map<String, dynamic> toJson(
-    Map<String, dynamic> data,
-  ) {
+  Map<String, dynamic> toJson() {
     return {
       'encryptedRequest': payload,
     };
