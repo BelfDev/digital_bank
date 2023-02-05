@@ -3,8 +3,14 @@ import 'package:meta/meta.dart';
 @immutable
 class AccountApplicationFeedback {
   const AccountApplicationFeedback({
-    required this.processNumber,
+    required this.accountNumber,
   });
 
-  final String processNumber;
+  final String accountNumber;
+
+  static AccountApplicationFeedback fromJson(Map<String, dynamic> data) {
+    return AccountApplicationFeedback(
+      accountNumber: data['accountNumber'],
+    );
+  }
 }
