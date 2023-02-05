@@ -1,4 +1,4 @@
-import 'package:logger/logger.dart';
+import 'package:flow_logger/flow_logger.dart';
 import 'package:test/test.dart';
 
 void main() {
