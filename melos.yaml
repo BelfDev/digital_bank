@@ -12,10 +12,6 @@ scripts:
       melos exec -c 1 -- \
         dart analyze . --fatal-infos
 
-  lint:all:
-    description: Run all static analysis checks.
-    run: melos run analyze && melos run format
-
   format:
     description: |
       Build a specific example app for Android.
@@ -25,6 +21,10 @@ scripts:
     run: |
       dart pub global run flutter_plugin_tools format && \
       swiftformat .
+
+  lint:all:
+    description: Run all static analysis checks.
+    run: melos run analyze && melos run format
 
   test:
     description: Run `flutter test` for a specific package.
