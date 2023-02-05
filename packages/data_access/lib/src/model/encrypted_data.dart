@@ -21,4 +21,6 @@ class EncryptedData<T> implements EncryptionProtocol<T> {
     // TODO: implement encrypt
     throw UnimplementedError();
   }
+
+// TODO(BelfDev): Implement toJson and fromJson
 }
