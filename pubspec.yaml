@@ -16,6 +16,8 @@ dependencies:
   cupertino_icons: ^1.0.5
 
   # Internal packages
+  configs:
+    path: ./packages/configs
   data_access:
     path: ./packages/data_access
   ds_components:
