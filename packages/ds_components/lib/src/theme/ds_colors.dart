@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 class DSColors {
   DSColors._();
 
+  static const smoothBlack = Color(0xFF121213);
+  static const smoothWhite = Color(0xFFF2F3F4);
+
   static const cyan = Color(0xFF00D4FF);
   static const vividGreen = Color(0xFF00F8AC);
   static const green = Color(0xFF78E1A3);
@@ -20,7 +23,6 @@ class DSColors {
   static const vividPurple = Color(0xFFCB97FF);
 
   static const white = Color(0xFFFFFFFF);
-  static const smoothWhite = Color(0xFFFDFDFD);
   static const paleWhite = Color(0xFFFCFCFC);
 
   static const paleBlue = Color(0xFFD7EAF2);
