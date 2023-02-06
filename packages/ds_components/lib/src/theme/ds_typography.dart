@@ -13,12 +13,24 @@ class DSTypography {
   // Regular
   // =======
 
-  static const regular32 = TextStyle(
+  static const secondaryRegular42 = TextStyle(
+    fontFamily: secondaryFontFamily,
+    fontWeight: FontWeight.w400,
+    color: DSColors.smoothBlack,
+    fontSize: 42,
+    height: 1.6,
+  );
+
+  static const regular20 = TextStyle(
     fontFamily: primaryFontFamily,
-    color: DSColors.grey,
-    fontSize: 32,
+    color: DSColors.smoothBlack,
+    fontWeight: FontWeight.w400,
+    fontSize: 20,
     height: 1.0,
   );
+
+  // TODO(BelfDev): Clean up unused styles
+  // OLD
 
   static const regular26 = TextStyle(
     fontFamily: primaryFontFamily,
@@ -34,13 +46,6 @@ class DSTypography {
     fontWeight: FontWeight.w400,
     fontSize: 22,
     height: 1.0,
-  );
-
-  static const regular20 = TextStyle(
-    fontFamily: primaryFontFamily,
-    fontWeight: FontWeight.w400,
-    color: DSColors.grey,
-    fontSize: 20,
   );
 
   static const regular18 = TextStyle(
