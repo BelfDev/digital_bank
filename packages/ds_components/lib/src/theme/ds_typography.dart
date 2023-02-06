@@ -13,11 +13,11 @@ class DSTypography {
   // Regular
   // =======
 
-  static const secondaryRegular42 = TextStyle(
+  static const secondaryRegular38 = TextStyle(
     fontFamily: secondaryFontFamily,
     fontWeight: FontWeight.w400,
     color: DSColors.smoothBlack,
-    fontSize: 42,
+    fontSize: 38,
     height: 1.6,
   );
 

@@ -231,7 +231,7 @@ class DSTheme {
   final ThemeData data;
 
   static const _baseTextTheme = TextTheme(
-    displayLarge: DSTypography.secondaryRegular42,
+    displayLarge: DSTypography.secondaryRegular38,
   );
 
   static final ThemeData _baseTheme = ThemeData(

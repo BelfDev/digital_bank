@@ -44,8 +44,8 @@ class DSArtworkScaffold extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               if (imageProvider != null) DSArtworkImage(imageProvider!),
-              const SizedBox(height: 32.0),
               body,
+              if (effectiveButton != null) const SizedBox(height: 48.0),
             ],
           ),
         ),
