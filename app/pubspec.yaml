@@ -35,3 +35,17 @@ flutter:
 
   assets:
     - .env
+    - assets/images/
+
+  fonts:
+    - family: gowun_dodum
+      fonts:
+        - asset: assets/fonts/GowunDodum-Regular.ttf
+          weight: 400
+
+    - family: gowun_batang
+      fonts:
+        - asset: assets/fonts/GowunBatang-Bold.ttf
+          weight: 500
+        - asset: assets/fonts/GowunBatang-Regular.ttf
+          weight: 400
