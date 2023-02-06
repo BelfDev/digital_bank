@@ -10,8 +10,6 @@ environment:
 dependencies:
   # Internal packages
   configs:
-    path: ../configs
-
   # Annotations
   meta: ^1.8.0
   # Networking

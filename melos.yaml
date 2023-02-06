@@ -2,6 +2,7 @@ name: digital_bank
 
 packages:
   - app/**
+  - features/**
   - packages/**
 
 command:
