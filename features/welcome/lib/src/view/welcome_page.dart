@@ -17,20 +17,23 @@ class WelcomePage extends StatelessWidget {
     return DSArtworkScaffold(
       imageProvider: const AssetImage(DSImages.bankingApp),
       padding: const EdgeInsets.symmetric(horizontal: 32.0),
-      body: RichText(
-        text: TextSpan(
-          children: [
-            ...sloganParts.map(
-              (part) => TextSpan(
-                text: '$part\n',
-                style: styles.displayLarge?.copyWith(
-                  fontWeight: part == sloganParts.last
-                      ? FontWeight.bold
-                      : FontWeight.w400,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: RichText(
+          text: TextSpan(
+            children: [
+              ...sloganParts.map(
+                (part) => TextSpan(
+                  text: '$part\n',
+                  style: styles.displayLarge?.copyWith(
+                    fontWeight: part == sloganParts.last
+                        ? FontWeight.bold
+                        : FontWeight.w400,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       floatingButton: DSElevatedButton(
