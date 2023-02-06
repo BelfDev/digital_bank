@@ -3,6 +3,7 @@ import 'package:data_access/data_access.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  Environment.production.init();
   runApp(const MyApp());
 }
 

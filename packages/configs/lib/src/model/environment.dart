@@ -8,6 +8,10 @@ enum Environment {
   const Environment();
 
   Future<void> init() async {
+    if (dotenv.isInitialized) {
+      // TODO(BelfDev): Create a better exception.
+      throw Exception('Environment already initialized');
+    }
     await dotenv.load(fileName: ".env");
   }
 
