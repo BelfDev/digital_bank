@@ -19,6 +19,8 @@ dependencies:
   configs:
   data_access:
   ds_components:
+  # Features
+  welcome:
 
 dev_dependencies:
   flutter_test:
