@@ -1,4 +1,5 @@
 import 'package:configs/configs.dart';
+import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:welcome/welcome.dart';
 
@@ -14,9 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: DSTheme.light().data,
+      darkTheme: DSTheme.dark().data,
       home: const WelcomePage(),
     );
   }
