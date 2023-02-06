@@ -123,7 +123,7 @@ class DSTheme {
       : this._(
           data: _baseTheme.copyWith(
             brightness: Brightness.dark,
-            scaffoldBackgroundColor: DSColors.blueBlack,
+            scaffoldBackgroundColor: DSColors.smoothBlack,
             canvasColor: DSColors.spaceBlack,
             dividerColor: DSColors.spaceBlack,
             disabledColor: DSColors.mirageBlack,
@@ -238,5 +238,22 @@ class DSTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     fontFamily: DSTypography.primaryFontFamily,
     textTheme: _baseTextTheme,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        shape: const RoundedRectangleBorder(
+          borderRadius: elevatedButtonBorderRadius,
+        ),
+        textStyle: DSTypography.regular20.copyWith(
+          color: DSColors.smoothWhite,
+        ),
+        minimumSize: const Size(128.0, 64.0),
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+      ),
+    ),
+  );
+
+  static const elevatedButtonBorderRadius = BorderRadius.all(
+    Radius.circular(16.0),
   );
 }
