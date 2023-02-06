@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// A collection of static [Color] constants.
-class AppColors {
-  AppColors._();
+class DSColors {
+  DSColors._();
 
   static const cyan = Color(0xFF00D4FF);
   static const vividGreen = Color(0xFF00F8AC);
