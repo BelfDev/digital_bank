@@ -1,8 +1,5 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 library ds_components;
 
-export 'src/ds_components_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/resources/ds_images.dart' show DSImages;
+export 'src/theme/ds_theme.dart' show DSTheme;
+export 'src/view/public_views.dart';
