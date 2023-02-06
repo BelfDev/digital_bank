@@ -45,7 +45,7 @@ flutter:
 
     - family: gowun_batang
       fonts:
-        - asset: assets/fonts/GowunBatang-Bold.ttf
-          weight: 500
         - asset: assets/fonts/GowunBatang-Regular.ttf
           weight: 400
+        - asset: assets/fonts/GowunBatang-Bold.ttf
+          weight: 500
