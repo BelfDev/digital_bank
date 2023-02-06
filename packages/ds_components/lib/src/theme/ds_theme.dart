@@ -110,6 +110,11 @@ class DSTheme {
                 borderSide: BorderSide(color: DSColors.lightGrey),
               ),
             ),
+            textTheme: TextTheme(
+              displayLarge: _baseTextTheme.displayLarge?.copyWith(
+                color: DSColors.smoothBlack,
+              ),
+            ),
           ),
         );
 
@@ -215,20 +220,23 @@ class DSTheme {
                 borderSide: BorderSide(color: DSColors.spaceBlack),
               ),
             ),
+            textTheme: TextTheme(
+              displayLarge: _baseTextTheme.displayLarge?.copyWith(
+                color: DSColors.smoothWhite,
+              ),
+            ),
           ),
         );
 
   final ThemeData data;
 
+  static const _baseTextTheme = TextTheme(
+    displayLarge: DSTypography.secondaryRegular42,
+  );
+
   static final ThemeData _baseTheme = ThemeData(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     fontFamily: DSTypography.primaryFontFamily,
-    textTheme: const TextTheme(
-      headlineMedium: TextStyle(
-        fontSize: 20.0,
-        letterSpacing: -0.4,
-        fontWeight: FontWeight.w400,
-      ),
-    ),
+    textTheme: _baseTextTheme,
   );
 }
