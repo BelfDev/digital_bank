@@ -17,19 +17,17 @@ dependencies:
 
   # Internal packages
   configs:
-    path: ./packages/configs
+    path: ../packages/configs
   data_access:
-    path: ./packages/data_access
+    path: ../packages/data_access
   ds_components:
-    path: ./packages/ds_components
+    path: ../packages/ds_components
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.1
-  # Monorepo management
-  melos: ^2.9.0
 
 flutter:
 
