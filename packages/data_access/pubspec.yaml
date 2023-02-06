@@ -11,8 +11,6 @@ dependencies:
   # Internal packages
   configs:
     path: ../configs
-  flow_logger:
-    path: ../flow_logger
 
   # Annotations
   meta: ^1.8.0

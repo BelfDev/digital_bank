@@ -142,13 +142,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
-  flow_logger:
-    dependency: transitive
-    description:
-      path: "packages/flow_logger"
-      relative: true
-    source: path
-    version: "1.0.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -239,14 +232,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  logger:
-    dependency: transitive
-    description:
-      name: logger
-      sha256: "5076f09225f91dc49289a4ccb92df2eeea9ea01cf7c26d49b3a1f04c6a49eec1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   matcher:
     dependency: transitive
     description:

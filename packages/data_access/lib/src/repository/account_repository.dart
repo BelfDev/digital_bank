@@ -2,9 +2,11 @@ import 'package:data_access/src/model/account_application.dart';
 import 'package:data_access/src/model/account_application_feedback.dart';
 import 'package:data_access/src/model/failure/remore_api_failure.dart';
 import 'package:data_access/src/service/api_client/flow_bank_api_client_service.dart';
+import 'package:meta/meta.dart';
 
 import '../model/outcome.dart';
 
+@immutable
 abstract class AccountRepositoryProtocol {
   Future<Outcome<AccountApplicationFeedback>> createAccount(
     AccountApplication application,
@@ -25,7 +27,7 @@ class AccountRepository implements AccountRepositoryProtocol {
       return Outcome.success(result);
     } catch (e) {
       return Outcome.failure(
-        e.deriveFailure(RemoteApiFailure()),
+        e.deriveFailure(RemoteApiFailure.generic()),
       );
     }
   }
