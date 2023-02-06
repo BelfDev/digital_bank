@@ -28,7 +28,7 @@ class FlowBankApiClientService with EncryptionService {
       baseUrl,
       'account',
       body: EncryptedData(
-        payload: encrypt(accountApplication),
+        payload: await encrypt(accountApplication),
       ),
     );
 
