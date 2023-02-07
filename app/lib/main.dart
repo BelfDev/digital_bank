@@ -27,9 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: DSTheme.light().data,
       darkTheme: DSTheme.dark().data,
-      home: WelcomePage(
-        onPressed: () {},
-      ),
+      home: const WelcomePageController(),
     );
   }
 }
