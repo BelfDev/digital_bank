@@ -21,6 +21,31 @@ class DSTypography {
     height: 1.6,
   );
 
+  static const secondaryRegular24 = TextStyle(
+    fontFamily: secondaryFontFamily,
+    fontWeight: FontWeight.w400,
+    color: DSColors.smoothBlack,
+    fontSize: 24,
+    height: 1.4,
+  );
+
+  static const secondaryRegular18 = TextStyle(
+    fontFamily: secondaryFontFamily,
+    fontWeight: FontWeight.w400,
+    color: DSColors.smoothBlack,
+    fontSize: 18,
+    height: 1.2,
+  );
+
+  static const regular32 = TextStyle(
+    fontFamily: primaryFontFamily,
+    color: DSColors.smoothBlack,
+    fontWeight: FontWeight.w400,
+    fontSize: 32,
+    height: 1.3,
+    letterSpacing: 8.0,
+  );
+
   static const regular20 = TextStyle(
     fontFamily: primaryFontFamily,
     color: DSColors.smoothBlack,
@@ -34,7 +59,7 @@ class DSTypography {
 
   static const regular26 = TextStyle(
     fontFamily: primaryFontFamily,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontWeight: FontWeight.w400,
     fontSize: 26,
     height: 1.0,
@@ -42,7 +67,7 @@ class DSTypography {
 
   static const regular22 = TextStyle(
     fontFamily: primaryFontFamily,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontWeight: FontWeight.w400,
     fontSize: 22,
     height: 1.0,
@@ -51,42 +76,42 @@ class DSTypography {
   static const regular18 = TextStyle(
     fontFamily: primaryFontFamily,
     fontWeight: FontWeight.w400,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontSize: 18,
   );
 
   static const regular16 = TextStyle(
     fontFamily: primaryFontFamily,
     fontWeight: FontWeight.w400,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontSize: 16,
   );
 
   static const regular15 = TextStyle(
     fontFamily: primaryFontFamily,
     fontWeight: FontWeight.w400,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontSize: 15,
   );
 
   static const regular14 = TextStyle(
     fontFamily: primaryFontFamily,
     fontWeight: FontWeight.w400,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontSize: 14,
   );
 
   static const regular13 = TextStyle(
     fontFamily: primaryFontFamily,
     fontWeight: FontWeight.w400,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontSize: 13,
   );
 
   static const regular12 = TextStyle(
     fontFamily: primaryFontFamily,
     fontWeight: FontWeight.w400,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontSize: 12,
   );
 
@@ -96,7 +121,7 @@ class DSTypography {
 
   static const bold13 = TextStyle(
     fontFamily: primaryFontFamily,
-    color: DSColors.grey,
+    color: DSColors.gray,
     fontWeight: FontWeight.w700,
     fontSize: 13,
   );
