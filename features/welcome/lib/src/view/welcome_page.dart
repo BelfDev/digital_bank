@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class WelcomePage extends StatelessWidget {
   const WelcomePage({
     super.key,
-    this.onPressed,
+    this.onFloatingButtonPressed,
   });
 
-  final VoidCallback? onPressed;
+  final VoidCallback? onFloatingButtonPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class WelcomePage extends StatelessWidget {
     final sloganParts = _Strings.slogan.split('\n');
 
     return DSArtworkScaffold(
+      padding: DSTheme.defaultPageMargin,
       imageProvider: const AssetImage(DSImages.bankingApp),
-      padding: const EdgeInsets.symmetric(horizontal: 32.0),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: RichText(
@@ -38,7 +38,7 @@ class WelcomePage extends StatelessWidget {
       ),
       floatingButton: DSElevatedButton(
         width: double.infinity,
-        onPressed: onPressed,
+        onPressed: onFloatingButtonPressed,
         text: _Strings.startApplication,
       ),
     );

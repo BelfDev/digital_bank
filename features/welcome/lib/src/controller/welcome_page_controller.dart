@@ -7,7 +7,7 @@ class WelcomePageController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WelcomePage(
-      onPressed: () {},
+      onFloatingButtonPressed: () {},
     );
   }
 }
