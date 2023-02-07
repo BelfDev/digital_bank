@@ -26,6 +26,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
           children: [
             DSPhotoInput(
               hint: 'Your picture  (liveliness check)',
+              loading: false,
               onPressed: () {},
             ),
             TextFormField(
@@ -41,7 +42,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
           ],
         ),
         DSFormSection(
-          title: 'Basic Information',
+          title: 'Dependents information',
           children: [
             TextFormField(
               validator: (value) {

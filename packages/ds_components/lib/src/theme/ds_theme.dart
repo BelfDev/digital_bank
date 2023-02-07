@@ -18,7 +18,7 @@ class DSTheme {
             dividerColor: DSColors.paleGrey,
             disabledColor: DSColors.paleGrey,
             progressIndicatorTheme: const ProgressIndicatorThemeData(
-              color: DSColors.turquoise,
+              color: DSColors.blue,
             ),
             textSelectionTheme: const TextSelectionThemeData(
               cursorColor: DSColors.turquoise, //thereby
@@ -147,7 +147,7 @@ class DSTheme {
             dividerColor: DSColors.spaceBlack,
             disabledColor: DSColors.mirageBlack,
             progressIndicatorTheme: const ProgressIndicatorThemeData(
-              color: DSColors.turquoise,
+              color: DSColors.blue,
             ),
             textSelectionTheme: const TextSelectionThemeData(
               cursorColor: DSColors.turquoise, //thereby
