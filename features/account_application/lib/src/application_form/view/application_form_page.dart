@@ -1,3 +1,4 @@
+import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
 class ApplicationFormPage extends StatelessWidget {
@@ -5,6 +6,20 @@ class ApplicationFormPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return DSFormScaffold(
+      padding: DSTheme.defaultPageMargin,
+      appBar: AppBar(
+        leading: DSBackButton(),
+        title: Text('New Application'),
+      ),
+      body: Center(
+        child: Text('Hello world'),
+      ),
+      floatingButton: DSElevatedButton(
+        width: double.infinity,
+        onPressed: () {},
+        text: 'submit application',
+      ),
+    );
   }
 }
