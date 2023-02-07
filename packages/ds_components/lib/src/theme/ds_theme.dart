@@ -163,7 +163,7 @@ class DSTheme {
               shadowColor: DSColors.appBarShadow,
               iconTheme: const IconThemeData(
                 size: 28.0,
-                color: DSColors.lightGrey,
+                color: DSColors.titaniumGray,
               ),
               actionsIconTheme: const IconThemeData(
                 size: 28.0,
@@ -238,7 +238,7 @@ class DSTheme {
                 color: DSColors.smoothWhite,
               ),
               displayMedium: _baseTextTheme.displayMedium?.copyWith(
-                color: DSColors.smoothBlack,
+                color: DSColors.smoothWhite,
               ),
               displaySmall: _baseTextTheme.displaySmall?.copyWith(
                 color: DSColors.titaniumGray,
