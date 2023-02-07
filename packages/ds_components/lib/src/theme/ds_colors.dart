@@ -7,6 +7,12 @@ class DSColors {
 
   static const smoothBlack = Color(0xFF121213);
   static const smoothWhite = Color(0xFFF2F3F4);
+  static const gray = Color(0xFF6A787C);
+
+  // Dark theme only
+  static const spaceBlack = Color(0xFF292C2E);
+  static const smoothBlueGray = Color(0xFF2C3438);
+  static const titaniumGray = Color(0xFF86979F);
 
   static const cyan = Color(0xFF00D4FF);
   static const vividGreen = Color(0xFF00F8AC);
@@ -32,8 +38,6 @@ class DSColors {
   static const lightGrey = Color(0xFFD0E1E8);
   static const blueGrey = Color(0xFFAABFC8);
   static const silverGrey = Color(0xFF9AAFB8);
-  static const titaniumGrey = Color(0xFF86979F);
-  static const grey = Color(0xFF6A787C);
   static const darkGrey = Color(0xFF728187);
   static const spaceGrey = Color(0xFF677679);
 
@@ -41,7 +45,6 @@ class DSColors {
   static const brown = Color(0xFF4D4D4D);
 
   static const paleBlack = Color(0xFF323E44);
-  static const spaceBlack = Color(0xFF263238);
   static const mirageBlack = Color(0xFF1B252A);
 
   static const idleShadow = Color(0x1A000000);
@@ -54,8 +57,6 @@ class DSColors {
   static const smoothBlueBackdrop = Color(0x99263238);
 
   // Dark Theme
-  static const smoothBlueGrey = Color(0xFF2C3438);
-
   static const blueBlack = Color(0xFF151C20);
   static const smoothBlueBlack = Color(0xFF192126);
 }
