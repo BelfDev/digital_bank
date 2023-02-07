@@ -1,8 +1,4 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 library account_application;
 
-export 'src/account_application_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/application_feedback/controller/application_feedback_page_controller.dart'
+    show ApplicationFeedbackPageController;
