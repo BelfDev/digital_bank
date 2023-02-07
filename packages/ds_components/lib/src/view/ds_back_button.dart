@@ -6,7 +6,7 @@ import '../../ds_components.dart';
 /// current [TargetPlatform]. When pressed, the back button calls
 /// [Navigator.maybePop] to return to the previous route unless a custom
 /// [onPressed] callback is provided.
-class DSCloseButton extends StatelessWidget {
+class DSBackButton extends StatelessWidget {
   /// Creates an [IconButton] with the appropriate "back" icon for the current
   /// target platform.
   const DSBackButton({super.key, this.color, this.onPressed});
