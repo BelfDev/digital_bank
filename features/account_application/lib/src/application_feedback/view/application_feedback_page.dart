@@ -48,6 +48,7 @@ class ApplicationFeedbackPage extends StatelessWidget {
             _Strings.nextStepDisclaimer,
             style: styles.displaySmall,
           ),
+          const SizedBox(height: 64.0),
         ],
       ),
       floatingButton: DSElevatedButton(
