@@ -276,6 +276,13 @@ class DSTheme {
         shadowColor: Colors.transparent,
       ),
     ),
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: DSColors.blue,
+      contentTextStyle: DSTypography.regular20.copyWith(
+        color: DSColors.white,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
   );
 
   static const elevatedButtonBorderRadius = BorderRadius.all(

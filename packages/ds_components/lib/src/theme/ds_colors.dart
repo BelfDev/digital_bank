@@ -14,14 +14,15 @@ class DSColors {
   static const smoothBlueGray = Color(0xFF2C3438);
   static const titaniumGray = Color(0xFF86979F);
 
+  static const blue = Color(0xFF00B9FF);
+
+  static const green = Color(0xFF78E1A3);
   static const cyan = Color(0xFF00D4FF);
   static const vividGreen = Color(0xFF00F8AC);
-  static const green = Color(0xFF78E1A3);
   static const brightTurquoise = Color(0xFF45E9DE);
   static const turquoise = Color(0xFF11E2D3);
   static const persianGreen = Color(0xFF00A8A2);
   static const pictonBlue = Color(0xFF40D2EF);
-  static const blue = Color(0xFF00B9FF);
   static const orange = Color(0xFFFF8000);
   static const salmon = Color(0xFFFF7B7B);
   static const pink = Color(0xFFFF5897);
