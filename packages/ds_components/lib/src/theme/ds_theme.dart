@@ -125,6 +125,9 @@ class DSTheme {
               headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
+              bodyLarge: _baseTextTheme.bodyLarge?.copyWith(
+                color: DSColors.spaceBlack,
+              ),
             ),
           ),
         );
@@ -246,6 +249,9 @@ class DSTheme {
               headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
+              bodyLarge: _baseTextTheme.bodyLarge?.copyWith(
+                color: DSColors.smoothWhite,
+              ),
             ),
           ),
         );
@@ -257,6 +263,7 @@ class DSTheme {
     displayMedium: DSTypography.secondaryRegular24,
     displaySmall: DSTypography.secondaryRegular18,
     headlineLarge: DSTypography.regular32,
+    bodyLarge: DSTypography.regular20,
   );
 
   static final ThemeData _baseTheme = ThemeData(
