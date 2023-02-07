@@ -25,6 +25,8 @@ class DSTheme {
             ),
             colorScheme: _baseTheme.colorScheme.copyWith(
               secondary: DSColors.turquoise,
+              tertiaryContainer: DSColors.spaceBlack,
+              onTertiaryContainer: DSColors.smoothWhite,
             ),
             appBarTheme: AppBarTheme(
               backgroundColor: DSColors.white,
@@ -44,7 +46,7 @@ class DSTheme {
               ),
               actionsIconTheme: const IconThemeData(
                 size: 26.0,
-                color: DSColors.titaniumGrey,
+                color: DSColors.titaniumGray,
               ),
             ),
             bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -53,7 +55,7 @@ class DSTheme {
                 size: 24.0,
               ),
               unselectedIconTheme: IconThemeData(
-                color: DSColors.titaniumGrey,
+                color: DSColors.titaniumGray,
                 size: 24.0,
               ),
             ),
@@ -68,7 +70,7 @@ class DSTheme {
                   vertical: 2.0,
                 ),
                 textStyle: DSTypography.regular14.copyWith(
-                  color: DSColors.grey,
+                  color: DSColors.gray,
                 ),
                 minimumSize: const Size(56.0, 24.0),
               ),
@@ -86,7 +88,7 @@ class DSTheme {
                 color: DSColors.darkGrey,
               ),
               counterStyle: DSTypography.regular14.copyWith(
-                color: DSColors.grey,
+                color: DSColors.gray,
               ),
               fillColor: DSColors.paleGrey,
               enabledBorder: const OutlineInputBorder(
@@ -114,6 +116,15 @@ class DSTheme {
               displayLarge: _baseTextTheme.displayLarge?.copyWith(
                 color: DSColors.smoothBlack,
               ),
+              displayMedium: _baseTextTheme.displayMedium?.copyWith(
+                color: DSColors.smoothBlack,
+              ),
+              displaySmall: _baseTextTheme.displaySmall?.copyWith(
+                color: DSColors.gray,
+              ),
+              headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
+                color: DSColors.smoothWhite,
+              ),
             ),
           ),
         );
@@ -135,6 +146,8 @@ class DSTheme {
             ),
             colorScheme: _baseTheme.colorScheme.copyWith(
               secondary: DSColors.turquoise,
+              tertiaryContainer: DSColors.smoothBlueGray,
+              onTertiaryContainer: DSColors.smoothWhite,
             ),
             appBarTheme: AppBarTheme(
               backgroundColor: DSColors.spaceBlack,
@@ -154,7 +167,7 @@ class DSTheme {
               ),
               actionsIconTheme: const IconThemeData(
                 size: 28.0,
-                color: DSColors.titaniumGrey,
+                color: DSColors.titaniumGray,
               ),
             ),
             bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -163,7 +176,7 @@ class DSTheme {
                 size: 24.0,
               ),
               unselectedIconTheme: IconThemeData(
-                color: DSColors.titaniumGrey,
+                color: DSColors.titaniumGray,
                 size: 24.0,
               ),
             ),
@@ -178,7 +191,7 @@ class DSTheme {
                   vertical: 2.0,
                 ),
                 textStyle: DSTypography.regular14.copyWith(
-                  color: DSColors.grey,
+                  color: DSColors.gray,
                 ),
                 minimumSize: const Size(56.0, 24.0),
               ),
@@ -196,7 +209,7 @@ class DSTheme {
                 color: DSColors.darkGrey,
               ),
               counterStyle: DSTypography.regular14.copyWith(
-                color: DSColors.grey,
+                color: DSColors.gray,
               ),
               fillColor: DSColors.mirageBlack,
               enabledBorder: const OutlineInputBorder(
@@ -224,6 +237,15 @@ class DSTheme {
               displayLarge: _baseTextTheme.displayLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
+              displayMedium: _baseTextTheme.displayMedium?.copyWith(
+                color: DSColors.smoothBlack,
+              ),
+              displaySmall: _baseTextTheme.displaySmall?.copyWith(
+                color: DSColors.titaniumGray,
+              ),
+              headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
+                color: DSColors.smoothWhite,
+              ),
             ),
           ),
         );
@@ -232,6 +254,9 @@ class DSTheme {
 
   static const _baseTextTheme = TextTheme(
     displayLarge: DSTypography.secondaryRegular38,
+    displayMedium: DSTypography.secondaryRegular24,
+    displaySmall: DSTypography.secondaryRegular18,
+    headlineLarge: DSTypography.regular32,
   );
 
   static final ThemeData _baseTheme = ThemeData(
@@ -256,4 +281,8 @@ class DSTheme {
   static const elevatedButtonBorderRadius = BorderRadius.all(
     Radius.circular(16.0),
   );
+
+  static const defaultPageMargin = EdgeInsets.symmetric(horizontal: 32.0);
+
+  static const iconSplashRadius = 24.0;
 }
