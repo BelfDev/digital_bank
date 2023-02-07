@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: DSTheme.light().data,
       darkTheme: DSTheme.dark().data,
-      home: const ApplicationFeedbackPageController(),
+      home: const ApplicationFormPageController(),
     );
   }
 }
