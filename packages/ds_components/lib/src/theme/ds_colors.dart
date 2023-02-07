@@ -8,6 +8,8 @@ class DSColors {
   static const smoothBlack = Color(0xFF121213);
   static const smoothWhite = Color(0xFFF2F3F4);
   static const gray = Color(0xFF6A787C);
+  static const lightGrey = Color(0xFFD0E1E8);
+  static const white = Color(0xFFFFFFFF);
 
   // Dark theme only
   static const spaceBlack = Color(0xFF292C2E);
@@ -29,14 +31,12 @@ class DSColors {
   static const purple = Color(0xFFC367FF);
   static const vividPurple = Color(0xFFCB97FF);
 
-  static const white = Color(0xFFFFFFFF);
   static const paleWhite = Color(0xFFFCFCFC);
 
   static const paleBlue = Color(0xFFD7EAF2);
   static const paleGrey = Color(0xFFF6F6F6);
   static const handleGrey = Color(0xFFDFDFDF);
   static const beigeGrey = Color(0xFFEBEBEB);
-  static const lightGrey = Color(0xFFD0E1E8);
   static const blueGrey = Color(0xFFAABFC8);
   static const silverGrey = Color(0xFF9AAFB8);
   static const darkGrey = Color(0xFF728187);

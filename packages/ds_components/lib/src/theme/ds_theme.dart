@@ -25,6 +25,8 @@ class DSTheme {
             ),
             colorScheme: _baseTheme.colorScheme.copyWith(
               secondary: DSColors.turquoise,
+              secondaryContainer: DSColors.white,
+              onSecondaryContainer: DSColors.lightGrey,
               tertiaryContainer: DSColors.spaceBlack,
               onTertiaryContainer: DSColors.smoothWhite,
             ),
@@ -79,7 +81,7 @@ class DSTheme {
               contentPadding: const EdgeInsets.fromLTRB(12, 18, 12, 14),
               errorMaxLines: 1,
               labelStyle: DSTypography.regular16.copyWith(
-                color: DSColors.darkGrey,
+                color: DSColors.gray,
               ),
               hintStyle: DSTypography.regular16.copyWith(
                 color: DSColors.darkGrey,
@@ -128,6 +130,9 @@ class DSTheme {
               bodyLarge: _baseTextTheme.bodyLarge?.copyWith(
                 color: DSColors.spaceBlack,
               ),
+              bodyMedium: _baseTextTheme.bodyMedium?.copyWith(
+                color: DSColors.gray,
+              ),
             ),
           ),
         );
@@ -149,6 +154,8 @@ class DSTheme {
             ),
             colorScheme: _baseTheme.colorScheme.copyWith(
               secondary: DSColors.turquoise,
+              secondaryContainer: DSColors.smoothBlueBlack,
+              onSecondaryContainer: DSColors.titaniumGray,
               tertiaryContainer: DSColors.smoothBlueGray,
               onTertiaryContainer: DSColors.smoothWhite,
             ),
@@ -252,6 +259,9 @@ class DSTheme {
               bodyLarge: _baseTextTheme.bodyLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
+              bodyMedium: _baseTextTheme.bodyMedium?.copyWith(
+                color: DSColors.smoothWhite,
+              ),
             ),
           ),
         );
@@ -264,6 +274,7 @@ class DSTheme {
     displaySmall: DSTypography.secondaryRegular18,
     headlineLarge: DSTypography.regular32,
     bodyLarge: DSTypography.regular20,
+    bodyMedium: DSTypography.regular16,
   );
 
   static final ThemeData _baseTheme = ThemeData(
