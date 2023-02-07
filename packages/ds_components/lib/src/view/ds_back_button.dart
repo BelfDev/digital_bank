@@ -39,7 +39,7 @@ class DSBackButton extends StatelessWidget {
 
 /// A "back" icon that's appropriate for the current [TargetPlatform].
 class _BackButtonIcon extends StatelessWidget {
-  const _BackButtonIcon({super.key});
+  const _BackButtonIcon();
 
   /// Returns the appropriate "back" icon for the given `platform`.
   static IconData _getIconData(TargetPlatform platform) {
