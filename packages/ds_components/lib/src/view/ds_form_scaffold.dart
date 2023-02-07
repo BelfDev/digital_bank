@@ -4,17 +4,22 @@ class DSFormScaffold extends StatelessWidget {
   const DSFormScaffold({
     super.key,
     this.appBar,
-    required this.body,
+    required this.bodyChildren,
+    required this.formKey,
     this.imageProvider,
     this.floatingButton,
     this.padding,
   });
 
+  // A global key that uniquely identifies the Form widget
+  // and allows validation of the form.
+  final GlobalKey<FormState> formKey;
+
   /// An app bar to display at the top of the scaffold.
   final PreferredSizeWidget? appBar;
 
   /// The primary content of the scaffold.
-  final Widget body;
+  final List<Widget> bodyChildren;
 
   /// The image to display.
   final ImageProvider? imageProvider;
@@ -35,14 +40,17 @@ class DSFormScaffold extends StatelessWidget {
       appBar: appBar,
       body: SingleChildScrollView(
         padding: padding,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            body,
-            if (effectiveButton != null) const SizedBox(height: 48.0),
-          ],
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ...bodyChildren,
+              if (effectiveButton != null) const SizedBox(height: 48.0),
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
