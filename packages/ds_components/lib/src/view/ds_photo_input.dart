@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../resources/ds_transparent_image.dart';
 
-class DSPhotoInput extends StatelessWidget {
+class DSPhotoInput extends StatefulWidget {
   const DSPhotoInput({
     super.key,
     required this.onPressed,
@@ -16,6 +16,31 @@ class DSPhotoInput extends StatelessWidget {
   final String hint;
   final bool loading;
   final ImageProvider? image;
+
+  @override
+  State<DSPhotoInput> createState() => _DSPhotoInputState();
+}
+
+class _DSPhotoInputState extends State<DSPhotoInput> {
+  late bool isLoading;
+  late ImageProvider? selectedImage;
+
+  @override
+  void initState() {
+    super.initState();
+    isLoading = widget.loading;
+    selectedImage = widget.image;
+  }
+
+  @override
+  void didUpdateWidget(covariant DSPhotoInput oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.loading != widget.loading) {
+      isLoading = widget.loading;
+    } else if (oldWidget.image != widget.image) {
+      selectedImage = widget.image;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +56,7 @@ class DSPhotoInput extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: loading
+              color: widget.loading
                   ? styles.colorScheme.onSecondaryContainer
                   : styles.colorScheme.secondaryContainer,
               border: Border.all(
@@ -42,14 +67,14 @@ class DSPhotoInput extends StatelessWidget {
           child: Material(
             color: DSColors.transparent,
             child: InkWell(
-              onTap: onPressed,
+              onTap: widget.onPressed,
               child: _resolveContentWidget(context),
             ),
           ),
         ),
         const SizedBox(height: 8.0),
         Text(
-          hint,
+          widget.hint,
           textAlign: TextAlign.center,
           style: styles.textTheme.bodyMedium?.copyWith(
             color: styles.inputDecorationTheme.labelStyle?.color,
@@ -62,11 +87,11 @@ class DSPhotoInput extends StatelessWidget {
   Widget _resolveContentWidget(BuildContext context) {
     final styles = Theme.of(context);
 
-    if (loading) {
+    if (isLoading) {
       return CircularProgressIndicator();
-    } else if (image != null) {
+    } else if (selectedImage != null) {
       return FadeInImage(
-        image: image!,
+        image: selectedImage!,
         placeholder: MemoryImage(dsTransparentImage),
       );
     } else {

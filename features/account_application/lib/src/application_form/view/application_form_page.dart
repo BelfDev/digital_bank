@@ -25,7 +25,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
           title: 'Basic Information',
           children: [
             DSPhotoInput(
-              hint: 'Your picture  (liveliness check)',
+              hint: 'Your picture (liveliness check)',
               loading: false,
               onPressed: () {},
             ),
