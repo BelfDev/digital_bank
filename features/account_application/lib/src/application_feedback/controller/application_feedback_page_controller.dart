@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../view/application_feedback_page.dart';
+
 class ApplicationFeedbackPageController extends StatelessWidget {
   const ApplicationFeedbackPageController({
     super.key,
@@ -7,6 +9,11 @@ class ApplicationFeedbackPageController extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ApplicationFeedbackPage(
+      onFloatingButtonPressed: () {},
+      onCopyPressed: (code) {
+        print('You code is $code');
+      },
+    );
   }
 }
