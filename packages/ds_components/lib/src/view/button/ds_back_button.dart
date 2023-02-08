@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../ds_components.dart';
+import '../../../ds_components.dart';
 
 /// A [BackButton] is an [IconButton] with a "back" icon appropriate for the
 /// current [TargetPlatform]. When pressed, the back button calls

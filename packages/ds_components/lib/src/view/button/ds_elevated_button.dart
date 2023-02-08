@@ -1,7 +1,7 @@
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
-import '../theme/ds_gradients.dart';
+import '../../theme/ds_gradients.dart';
 
 class DSElevatedButton extends StatelessWidget {
   const DSElevatedButton({

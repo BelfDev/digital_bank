@@ -1,7 +1,7 @@
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
-import '../resources/ds_transparent_image.dart';
+import '../../resources/ds_transparent_image.dart';
 
 class DSPhotoInput extends StatefulWidget {
   const DSPhotoInput({

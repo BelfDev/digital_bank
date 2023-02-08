@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../ds_components.dart';
+import '../../../ds_components.dart';
 
 /// A Material Design close button.
 class DSCloseButton extends StatelessWidget {
