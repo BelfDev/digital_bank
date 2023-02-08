@@ -9,6 +9,7 @@ class DSFormScaffold extends StatelessWidget {
     this.imageProvider,
     this.floatingButton,
     this.padding,
+    this.controller,
   });
 
   // A global key that uniquely identifies the Form widget
@@ -30,6 +31,10 @@ class DSFormScaffold extends StatelessWidget {
   /// The amount of space by which to inset the body.
   final EdgeInsetsGeometry? padding;
 
+  /// An object that can be used to control the position to which this scroll
+  /// view is scrolled.
+  final ScrollController? controller;
+
   @override
   Widget build(BuildContext context) {
     final effectiveButton = floatingButton != null
@@ -40,6 +45,7 @@ class DSFormScaffold extends StatelessWidget {
       appBar: appBar,
       body: SingleChildScrollView(
         padding: padding,
+        controller: controller,
         child: Form(
           key: formKey,
           child: Column(

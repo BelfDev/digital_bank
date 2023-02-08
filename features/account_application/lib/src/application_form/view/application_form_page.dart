@@ -13,12 +13,20 @@ class ApplicationFormPage extends StatefulWidget {
 class _ApplicationFormPageState extends State<ApplicationFormPage>
     with DynamicDependentListMixin {
   final _formKey = GlobalKey<FormState>();
+  final _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return DSFormScaffold(
       formKey: _formKey,
       padding: DSTheme.defaultPageMargin,
+      controller: _scrollController,
       appBar: AppBar(
         leading: DSBackButton(),
         title: Text('New Application'),
@@ -68,6 +76,8 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
               text: 'add dependent',
               onPressed: () {
                 spawnDependentTextInput();
+
+                scrollToMaxExtentIfNeeded();
               },
             ),
             const SizedBox(height: 120.0),
@@ -80,5 +90,17 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
         text: 'submit application',
       ),
     );
+  }
+
+  void scrollToMaxExtentIfNeeded() {
+    if (_scrollController.position.maxScrollExtent > 0) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent + 48.0,
+          duration: const Duration(milliseconds: 240),
+          curve: Curves.easeOut,
+        );
+      });
+    }
   }
 }
