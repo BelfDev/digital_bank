@@ -7,3 +7,4 @@ export 'ds_form_scaffold.dart';
 export 'ds_form_section.dart';
 export 'ds_photo_input.dart';
 export 'ds_outlined_button.dart';
+export 'bottom_sheet/ds_confirmation_bottom_sheet.dart';

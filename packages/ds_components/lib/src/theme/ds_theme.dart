@@ -24,7 +24,7 @@ class DSTheme {
               cursorColor: DSColors.turquoise, //thereby
             ),
             colorScheme: _baseTheme.colorScheme.copyWith(
-              secondary: DSColors.turquoise,
+              secondary: DSColors.gray,
               secondaryContainer: DSColors.white,
               onSecondaryContainer: DSColors.lightGrey,
               tertiaryContainer: DSColors.spaceBlack,
@@ -330,6 +330,9 @@ class DSTheme {
   );
 
   static const buttonBorderRadius = BorderRadius.all(
+    Radius.circular(16.0),
+  );
+  static const bottomSheetBorderRadius = BorderRadius.all(
     Radius.circular(16.0),
   );
 

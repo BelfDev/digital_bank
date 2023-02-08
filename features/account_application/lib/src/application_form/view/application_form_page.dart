@@ -25,7 +25,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
           title: 'Basic Information',
           children: [
             DSPhotoInput(
-              hint: 'Your picture (liveliness check)',
+              hint: 'Your picture\n(liveliness check)',
               loading: false,
               onPressed: () {},
             ),
@@ -56,7 +56,15 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
             ),
             DSOutlinedButton(
               text: 'add dependent',
-              onPressed: () {},
+              onPressed: () {
+                DSDecisionBottomSheet.present(
+                  context,
+                  headerTitle: 'Are you sure you want to remove John Doe?',
+                  message: 'This action is irreversible.',
+                  onConfirm: () {},
+                  confirmationText: 'remove',
+                );
+              },
             ),
           ],
         ),
