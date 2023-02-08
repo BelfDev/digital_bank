@@ -36,9 +36,15 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
   }
 
   void _onRemoveItem(int index) {
+    if (dependents[index].isEmpty) {
+      _removeItem(index);
+      return;
+    }
+
     DSDecisionBottomSheet.present(
       context,
-      headerTitle: 'Are you sure you want to remove ${dependents[index]}?',
+      headerTitle:
+          '${'Are you sure you want to remove ${dependents[index]}'.trim()}?',
       message: 'This action is irreversible.',
       onConfirm: () {
         _removeItem(index);

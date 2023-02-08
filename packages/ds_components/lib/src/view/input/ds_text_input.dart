@@ -40,7 +40,7 @@ class DSTextInput extends StatelessWidget {
         validator: validator,
         initialValue: initialValue,
         onChanged: onChanged,
-        style: styles.textTheme.bodySmall,
+        // style: styles.textTheme.bodySmall,
         textAlignVertical: TextAlignVertical.center,
         autocorrect: false,
         keyboardType: TextInputType.text,

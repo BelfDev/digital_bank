@@ -94,7 +94,7 @@ class DSTheme {
               contentPadding: const EdgeInsets.fromLTRB(12.0, 18.0, 12.0, 14.0),
               errorMaxLines: 1,
               labelStyle: DSTypography.regular16.copyWith(
-                color: DSColors.gray,
+                color: DSColors.darkGrey,
               ),
               hintStyle: DSTypography.regular16.copyWith(
                 color: DSColors.darkGrey,
@@ -149,6 +149,9 @@ class DSTheme {
                 color: DSColors.gray,
               ),
               bodySmall: _baseTextTheme.bodySmall?.copyWith(
+                color: DSColors.smoothBlack,
+              ),
+              titleMedium: _baseTextTheme.titleMedium?.copyWith(
                 color: DSColors.smoothBlack,
               ),
             ),
@@ -299,6 +302,9 @@ class DSTheme {
               bodySmall: _baseTextTheme.bodySmall?.copyWith(
                 color: DSColors.smoothWhite,
               ),
+              titleMedium: _baseTextTheme.titleMedium?.copyWith(
+                color: DSColors.smoothWhite,
+              ),
             ),
           ),
         );
@@ -313,6 +319,7 @@ class DSTheme {
     bodyLarge: DSTypography.regular20,
     bodyMedium: DSTypography.regular16,
     bodySmall: DSTypography.regular15,
+    titleMedium: DSTypography.regular16,
   );
 
   static final ThemeData _baseTheme = ThemeData(

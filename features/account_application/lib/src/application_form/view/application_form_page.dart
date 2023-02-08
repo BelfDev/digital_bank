@@ -54,6 +54,9 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                 return null;
               },
             ),
+            DSDatePickerInput(
+              hintText: 'Date of birth',
+            ),
             DSDropdownInput(
               hintText: 'Gender',
               items: GenderOption.values,
