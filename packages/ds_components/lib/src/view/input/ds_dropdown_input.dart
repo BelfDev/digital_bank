@@ -34,13 +34,11 @@ class _DSDropdownInputState<T extends DSDropdownOption>
     final styles = Theme.of(context);
 
     final effectiveItems = widget.items
-        ?.map(
-          (e) => DropdownMenuItem<T>(
-            value: e,
-            child: Text(e.displayName),
-            // alignment: Alignment.center,
-          ),
-        )
+        ?.map((e) => DropdownMenuItem<T>(
+              value: e,
+              child: Text(e.displayName),
+              alignment: Alignment.center,
+            ))
         .toList();
 
     return Container(
@@ -51,8 +49,6 @@ class _DSDropdownInputState<T extends DSDropdownOption>
         items: effectiveItems,
         value: _selectedValue,
         validator: widget.validator,
-        elevation: 8,
-        // dropdownColor: DSColors.blue,
         isExpanded: false,
         style: styles.textTheme.bodyMedium,
         alignment: Alignment.center,
