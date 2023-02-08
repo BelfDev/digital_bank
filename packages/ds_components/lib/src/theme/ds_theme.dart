@@ -232,7 +232,9 @@ class DSTheme {
                 ),
                 side: BorderSide(color: DSColors.gray),
                 foregroundColor: DSColors.blue,
-                textStyle: DSTypography.regular20,
+                textStyle: DSTypography.regular20.copyWith(
+                  height: 1.2,
+                ),
                 minimumSize: const Size(128.0, 64.0),
                 shadowColor: Colors.transparent,
               ),
@@ -323,6 +325,7 @@ class DSTheme {
           borderRadius: buttonBorderRadius,
         ),
         textStyle: DSTypography.regular20.copyWith(
+          height: 1.2,
           color: DSColors.smoothWhite,
         ),
         minimumSize: const Size(128.0, 64.0),
@@ -346,7 +349,7 @@ class DSTheme {
     Radius.circular(16.0),
   );
 
-  static const defaultPageMargin = EdgeInsets.symmetric(horizontal: 32.0);
+  static const defaultPageMargin = EdgeInsets.symmetric(horizontal: 24.0);
 
   static const iconSplashRadius = 24.0;
 
