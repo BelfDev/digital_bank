@@ -54,6 +54,10 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
                 return null;
               },
             ),
+            DSOutlinedButton(
+              text: 'add dependent',
+              onPressed: () {},
+            ),
           ],
         ),
       ],

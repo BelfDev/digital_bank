@@ -77,6 +77,19 @@ class DSTheme {
                 minimumSize: const Size(56.0, 24.0),
               ),
             ),
+            outlinedButtonTheme: OutlinedButtonThemeData(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: DSColors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: buttonBorderRadius,
+                ),
+                side: BorderSide(color: DSColors.lightGrey),
+                foregroundColor: DSColors.blue,
+                textStyle: DSTypography.regular20,
+                minimumSize: const Size(128.0, 64.0),
+                shadowColor: Colors.transparent,
+              ),
+            ),
             inputDecorationTheme: InputDecorationTheme(
               contentPadding: const EdgeInsets.fromLTRB(12, 18, 12, 14),
               errorMaxLines: 1,
@@ -155,7 +168,7 @@ class DSTheme {
             colorScheme: _baseTheme.colorScheme.copyWith(
               secondary: DSColors.turquoise,
               secondaryContainer: DSColors.smoothBlueBlack,
-              onSecondaryContainer: DSColors.titaniumGray,
+              onSecondaryContainer: DSColors.gray,
               tertiaryContainer: DSColors.smoothBlueGray,
               onTertiaryContainer: DSColors.smoothWhite,
             ),
@@ -204,6 +217,19 @@ class DSTheme {
                   color: DSColors.gray,
                 ),
                 minimumSize: const Size(56.0, 24.0),
+              ),
+            ),
+            outlinedButtonTheme: OutlinedButtonThemeData(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: DSColors.smoothBlueBlack,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: buttonBorderRadius,
+                ),
+                side: BorderSide(color: DSColors.gray),
+                foregroundColor: DSColors.blue,
+                textStyle: DSTypography.regular20,
+                minimumSize: const Size(128.0, 64.0),
+                shadowColor: Colors.transparent,
               ),
             ),
             inputDecorationTheme: InputDecorationTheme(
@@ -284,7 +310,7 @@ class DSTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         shape: const RoundedRectangleBorder(
-          borderRadius: elevatedButtonBorderRadius,
+          borderRadius: buttonBorderRadius,
         ),
         textStyle: DSTypography.regular20.copyWith(
           color: DSColors.smoothWhite,
@@ -303,7 +329,7 @@ class DSTheme {
     ),
   );
 
-  static const elevatedButtonBorderRadius = BorderRadius.all(
+  static const buttonBorderRadius = BorderRadius.all(
     Radius.circular(16.0),
   );
 

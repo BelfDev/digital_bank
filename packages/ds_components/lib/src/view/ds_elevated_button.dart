@@ -31,7 +31,7 @@ class DSElevatedButton extends StatelessWidget {
       height: effectiveHeight,
       decoration: BoxDecoration(
         gradient: gradient,
-        borderRadius: DSTheme.elevatedButtonBorderRadius,
+        borderRadius: DSTheme.buttonBorderRadius,
       ),
       child: ElevatedButton(
         onPressed: onPressed,
