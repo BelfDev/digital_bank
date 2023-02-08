@@ -94,7 +94,9 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       ],
       floatingButton: DSElevatedButton(
         width: double.infinity,
-        onPressed: () {},
+        onPressed: () {
+          _formKey.currentState?.validate();
+        },
         text: 'submit application',
       ),
     );
