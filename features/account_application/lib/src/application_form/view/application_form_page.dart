@@ -11,6 +11,9 @@ class ApplicationFormPage extends StatefulWidget {
 class _ApplicationFormPageState extends State<ApplicationFormPage> {
   final _formKey = GlobalKey<FormState>();
 
+  final List<DSTextInput> _dependentInputFields = [];
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return DSFormScaffold(
@@ -51,28 +54,30 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
         DSFormSection(
           title: 'Dependents information',
           children: [
-            TextFormField(
-              validator: (value) {
-                return null;
-              },
-            ),
-            TextFormField(
-              validator: (value) {
-                return null;
-              },
-            ),
+            ..._dependentInputFields,
             DSOutlinedButton(
               text: 'add dependent',
               onPressed: () {
-                DSDecisionBottomSheet.present(
-                  context,
-                  headerTitle: 'Are you sure you want to remove John Doe?',
-                  message: 'This action is irreversible.',
-                  onConfirm: () {
-                    print('confirmed');
-                  },
-                  confirmationText: 'remove',
-                );
+                setState(() {
+                  _dependentInputFields.add(
+                    DSTextInput(
+                      hintText: 'Last name',
+                      validator: (value) {
+                        return null;
+                      },
+                    ),
+                  );
+                });
+
+                // DSDecisionBottomSheet.present(
+                //   context,
+                //   headerTitle: 'Are you sure you want to remove John Doe?',
+                //   message: 'This action is irreversible.',
+                //   onConfirm: () {
+                //     print('confirmed');
+                //   },
+                //   confirmationText: 'remove',
+                // );
               },
             ),
           ],
