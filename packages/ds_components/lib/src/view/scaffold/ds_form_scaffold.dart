@@ -1,4 +1,6 @@
+import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 class DSFormScaffold extends StatelessWidget {
   const DSFormScaffold({
@@ -38,29 +40,43 @@ class DSFormScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final effectiveButton = floatingButton != null
-        ? Padding(padding: padding ?? EdgeInsets.zero, child: floatingButton!)
+        ? KeyboardVisibilityBuilder(
+            builder: (context, isKeyboardVisible) {
+              return Visibility(
+                visible: !isKeyboardVisible,
+                child: DSImplicitFadeIn(
+                  child: Padding(
+                    padding: padding ?? EdgeInsets.zero,
+                    child: floatingButton!,
+                  ),
+                ),
+              );
+            },
+          )
         : null;
 
-    return Scaffold(
-      appBar: appBar,
-      body: SingleChildScrollView(
-        padding: padding,
-        controller: controller,
-        child: Form(
-          key: formKey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ...bodyChildren,
-              if (effectiveButton != null) const SizedBox(height: 48.0),
-            ],
+    return KeyboardDismissOnTap(
+      child: Scaffold(
+        appBar: appBar,
+        body: SingleChildScrollView(
+          padding: padding,
+          controller: controller,
+          child: Form(
+            key: formKey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ...bodyChildren,
+                if (effectiveButton != null) const SizedBox(height: 48.0),
+              ],
+            ),
           ),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: effectiveButton,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: effectiveButton,
     );
   }
 }
