@@ -11,6 +11,7 @@ class DSTextInput extends StatelessWidget {
     this.margin,
     this.initialValue,
     this.onChanged,
+    this.textInputAction,
   });
 
   final String hintText;
@@ -25,6 +26,8 @@ class DSTextInput extends StatelessWidget {
 
   final ValueChanged<String>? onChanged;
 
+  final TextInputAction? textInputAction;
+
   @override
   Widget build(BuildContext context) {
     final styles = Theme.of(context);
@@ -36,15 +39,19 @@ class DSTextInput extends StatelessWidget {
       child: TextFormField(
         validator: validator,
         initialValue: initialValue,
+        onChanged: onChanged,
         style: styles.textTheme.bodySmall,
         textAlignVertical: TextAlignVertical.center,
-        onChanged: onChanged,
+        autocorrect: false,
+        keyboardType: TextInputType.text,
+        textInputAction: textInputAction ?? TextInputAction.next,
         decoration: InputDecoration(
           hintText: hintText,
           labelText: hintText,
           isDense: true,
           alignLabelWithHint: true,
           floatingLabelBehavior: FloatingLabelBehavior.auto,
+          errorStyle: const TextStyle(height: 0.6),
           suffixIcon: onRemove != null
               ? IconButton(
                   icon: const Icon(
@@ -57,7 +64,6 @@ class DSTextInput extends StatelessWidget {
               : null,
           suffixIconColor: DSColors.pink,
         ),
-        keyboardType: TextInputType.text,
       ),
     );
   }

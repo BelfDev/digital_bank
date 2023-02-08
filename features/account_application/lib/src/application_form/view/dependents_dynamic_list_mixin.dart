@@ -17,6 +17,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
         margin: const EdgeInsets.only(bottom: DSTheme.defaultFormSpacing),
         initialValue: dependent,
         hintText: 'Dependent Fullname',
+        textInputAction: TextInputAction.done,
         onChanged: (dependentName) {
           dependents[index] = dependentName;
         },
