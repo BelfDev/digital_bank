@@ -21,18 +21,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
         onChanged: (dependentName) {
           dependents[index] = dependentName;
         },
-        onRemove: () {
-          DSDecisionBottomSheet.present(
-            context,
-            headerTitle:
-                'Are you sure you want to remove ${dependents[index]}?',
-            message: 'This action is irreversible.',
-            onConfirm: () {
-              _removeItem(index);
-            },
-            confirmationText: 'remove',
-          );
-        },
+        onRemove: () => _onRemoveItem(index),
         validator: (value) {
           return null;
         },
@@ -44,6 +33,18 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
     int insertIndex = dependents.length;
     dependents.add('');
     listKey.currentState?.insertItem(insertIndex);
+  }
+
+  void _onRemoveItem(int index) {
+    DSDecisionBottomSheet.present(
+      context,
+      headerTitle: 'Are you sure you want to remove ${dependents[index]}?',
+      message: 'This action is irreversible.',
+      onConfirm: () {
+        _removeItem(index);
+      },
+      confirmationText: 'remove',
+    );
   }
 
   void _removeItem(int index) {
