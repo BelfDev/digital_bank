@@ -13,6 +13,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Camera
+  camerawesome: ^1.2.1
+  path_provider: ^2.0.12
   # Internal packages
   ds_components:
 
