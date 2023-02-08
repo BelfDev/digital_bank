@@ -91,13 +91,14 @@ class DSTheme {
               ),
             ),
             inputDecorationTheme: InputDecorationTheme(
-              contentPadding: const EdgeInsets.fromLTRB(12, 18, 12, 14),
+              contentPadding: const EdgeInsets.fromLTRB(12.0, 18.0, 12.0, 14.0),
               errorMaxLines: 1,
               labelStyle: DSTypography.regular16.copyWith(
                 color: DSColors.gray,
               ),
               hintStyle: DSTypography.regular16.copyWith(
                 color: DSColors.darkGrey,
+                height: 1.5,
               ),
               floatingLabelStyle: DSTypography.regular13.copyWith(
                 color: DSColors.darkGrey,
@@ -105,7 +106,8 @@ class DSTheme {
               counterStyle: DSTypography.regular14.copyWith(
                 color: DSColors.gray,
               ),
-              fillColor: DSColors.paleGrey,
+              fillColor: DSColors.white,
+              filled: true,
               enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 borderSide: BorderSide(color: DSColors.lightGrey),
@@ -145,6 +147,9 @@ class DSTheme {
               ),
               bodyMedium: _baseTextTheme.bodyMedium?.copyWith(
                 color: DSColors.gray,
+              ),
+              bodySmall: _baseTextTheme.bodySmall?.copyWith(
+                color: DSColors.smoothBlack,
               ),
             ),
           ),
@@ -233,13 +238,14 @@ class DSTheme {
               ),
             ),
             inputDecorationTheme: InputDecorationTheme(
-              contentPadding: const EdgeInsets.fromLTRB(12, 18, 12, 14),
+              contentPadding: const EdgeInsets.fromLTRB(12.0, 18.0, 12.0, 14.0),
               errorMaxLines: 1,
               labelStyle: DSTypography.regular16.copyWith(
                 color: DSColors.darkGrey,
               ),
               hintStyle: DSTypography.regular16.copyWith(
                 color: DSColors.darkGrey,
+                height: 1.5,
               ),
               floatingLabelStyle: DSTypography.regular13.copyWith(
                 color: DSColors.darkGrey,
@@ -288,6 +294,9 @@ class DSTheme {
               bodyMedium: _baseTextTheme.bodyMedium?.copyWith(
                 color: DSColors.smoothWhite,
               ),
+              bodySmall: _baseTextTheme.bodySmall?.copyWith(
+                color: DSColors.smoothWhite,
+              ),
             ),
           ),
         );
@@ -301,6 +310,7 @@ class DSTheme {
     headlineLarge: DSTypography.regular32,
     bodyLarge: DSTypography.regular20,
     bodyMedium: DSTypography.regular16,
+    bodySmall: DSTypography.regular15,
   );
 
   static final ThemeData _baseTheme = ThemeData(

@@ -29,7 +29,14 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
               loading: false,
               onPressed: () {},
             ),
-            TextFormField(
+            DSTextInput(
+              hintText: 'First name',
+              validator: (value) {
+                return null;
+              },
+            ),
+            DSTextInput(
+              hintText: 'Last name',
               validator: (value) {
                 return null;
               },
@@ -61,7 +68,9 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
                   context,
                   headerTitle: 'Are you sure you want to remove John Doe?',
                   message: 'This action is irreversible.',
-                  onConfirm: () {},
+                  onConfirm: () {
+                    print('confirmed');
+                  },
                   confirmationText: 'remove',
                 );
               },

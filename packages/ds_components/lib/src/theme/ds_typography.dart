@@ -62,6 +62,14 @@ class DSTypography {
     height: 1.2,
   );
 
+  static const regular15 = TextStyle(
+    fontFamily: primaryFontFamily,
+    color: DSColors.smoothBlack,
+    fontWeight: FontWeight.w400,
+    fontSize: 15,
+    height: 1.2,
+  );
+
   // TODO(BelfDev): Clean up unused styles
   // OLD
 
@@ -86,13 +94,6 @@ class DSTypography {
     fontWeight: FontWeight.w400,
     color: DSColors.gray,
     fontSize: 18,
-  );
-
-  static const regular15 = TextStyle(
-    fontFamily: primaryFontFamily,
-    fontWeight: FontWeight.w400,
-    color: DSColors.gray,
-    fontSize: 15,
   );
 
   static const regular14 = TextStyle(
