@@ -48,10 +48,10 @@ class _BackButtonIcon extends StatelessWidget {
       case TargetPlatform.fuchsia:
       case TargetPlatform.linux:
       case TargetPlatform.windows:
-        return Icons.arrow_back;
+        return Icons.arrow_back_rounded;
       case TargetPlatform.iOS:
       case TargetPlatform.macOS:
-        return Icons.arrow_back_ios;
+        return Icons.arrow_back_ios_new_rounded;
     }
   }
 

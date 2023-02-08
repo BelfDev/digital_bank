@@ -166,7 +166,7 @@ class DSTheme {
               cursorColor: DSColors.turquoise, //thereby
             ),
             colorScheme: _baseTheme.colorScheme.copyWith(
-              secondary: DSColors.turquoise,
+              secondary: DSColors.titaniumGray,
               secondaryContainer: DSColors.smoothBlueBlack,
               onSecondaryContainer: DSColors.gray,
               tertiaryContainer: DSColors.smoothBlueGray,

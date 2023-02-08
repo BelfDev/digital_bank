@@ -18,7 +18,7 @@ class DSCloseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
     return IconButton(
-      icon: const Icon(Icons.close),
+      icon: const Icon(Icons.close_rounded),
       color: color,
       tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
       splashRadius: DSTheme.iconSplashRadius,
