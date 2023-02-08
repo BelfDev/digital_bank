@@ -1,3 +1,4 @@
+import 'package:account_application/src/application_form/model/gender_option.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +53,10 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
               validator: (value) {
                 return null;
               },
+            ),
+            DSDropdownInput(
+              hintText: 'Gender',
+              items: GenderOption.values,
             ),
           ],
         ),

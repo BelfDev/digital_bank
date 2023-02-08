@@ -7,6 +7,7 @@ export 'button/ds_outlined_button.dart';
 export 'container/ds_animated_list_container.dart';
 export 'container/ds_code_container.dart';
 export 'container/ds_form_section.dart';
+export 'input/ds_dropdown_input.dart';
 export 'input/ds_photo_input.dart';
 export 'input/ds_text_input.dart';
 export 'scaffold/ds_artwork_scaffold.dart';

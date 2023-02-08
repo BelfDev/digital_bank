@@ -14,7 +14,7 @@ class DSTheme {
           data: _baseTheme.copyWith(
             brightness: Brightness.light,
             scaffoldBackgroundColor: DSColors.smoothWhite,
-            canvasColor: DSColors.smoothWhite,
+            canvasColor: DSColors.white,
             dividerColor: DSColors.paleGrey,
             disabledColor: DSColors.paleGrey,
             progressIndicatorTheme: const ProgressIndicatorThemeData(
