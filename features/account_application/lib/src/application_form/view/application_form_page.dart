@@ -11,8 +11,10 @@ class ApplicationFormPage extends StatefulWidget {
 class _ApplicationFormPageState extends State<ApplicationFormPage> {
   final _formKey = GlobalKey<FormState>();
 
-  final List<DSTextInput> _dependentInputFields = [];
+  final List<Widget> _dependentInputFields = [];
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
+
+  static const _defaultFormSpacing = 24.0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
       bodyChildren: [
         DSFormSection(
           title: 'Basic Information',
+          childrenSpacing: _defaultFormSpacing,
           children: [
             DSPhotoInput(
               hint: 'Your picture\n(liveliness check)',
@@ -44,30 +47,37 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
                 return null;
               },
             ),
-            TextFormField(
-              validator: (value) {
-                return null;
-              },
-            ),
           ],
         ),
         DSFormSection(
           title: 'Dependents information',
+          childrenSpacing: 0.0,
           children: [
-            ..._dependentInputFields,
+            const SizedBox(height: _defaultFormSpacing),
+            // ..._dependentInputFields,
+            AnimatedList(
+              key: _listKey,
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              initialItemCount: _dependentInputFields.length,
+              itemBuilder: (context, index, animation) {
+                return _buildItem(_dependentInputFields[index], animation);
+              },
+            ),
             DSOutlinedButton(
               text: 'add dependent',
               onPressed: () {
-                setState(() {
-                  _dependentInputFields.add(
-                    DSTextInput(
-                      hintText: 'Last name',
-                      validator: (value) {
-                        return null;
-                      },
-                    ),
-                  );
-                });
+                _insertSingleItem();
+                // setState(() {
+                //   _dependentInputFields.add(
+                //     DSTextInput(
+                //       hintText: 'Last name',
+                //       validator: (value) {
+                //         return null;
+                //       },
+                //     ),
+                //   );
+                // });
 
                 // DSDecisionBottomSheet.present(
                 //   context,
@@ -80,6 +90,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
                 // );
               },
             ),
+            const SizedBox(height: 120.0),
           ],
         ),
       ],
@@ -89,5 +100,42 @@ class _ApplicationFormPageState extends State<ApplicationFormPage> {
         text: 'submit application',
       ),
     );
+  }
+
+  Widget _buildItem(Widget field, Animation<double> animation) {
+    return SizeTransition(
+      sizeFactor: animation,
+      child: field,
+    );
+  }
+
+  void _insertSingleItem() {
+    int insertIndex = _dependentInputFields.length;
+
+    final key = ValueKey(insertIndex);
+    final newField = DSTextInput(
+      key: key,
+      margin: const EdgeInsets.only(bottom: _defaultFormSpacing),
+      hintText: 'Dependent Fullname',
+      onRemove: () {
+        final index = _dependentInputFields.indexWhere(
+          (element) => element.key == key,
+        );
+        _removeField(index);
+      },
+      validator: (value) {
+        return null;
+      },
+    );
+
+    _dependentInputFields.add(newField);
+    _listKey.currentState?.insertItem(insertIndex);
+  }
+
+  void _removeField(int index) {
+    final removedItem = _dependentInputFields.removeAt(index);
+    _listKey.currentState?.removeItem(index, (_, animation) {
+      return _buildItem(removedItem, animation);
+    });
   }
 }
