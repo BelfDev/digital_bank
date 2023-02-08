@@ -9,6 +9,8 @@ class DSTextInput extends StatelessWidget {
     this.validator,
     this.onRemove,
     this.margin,
+    this.initialValue,
+    this.onChanged,
   });
 
   final String hintText;
@@ -18,6 +20,10 @@ class DSTextInput extends StatelessWidget {
   final VoidCallback? onRemove;
 
   final EdgeInsetsGeometry? margin;
+
+  final String? initialValue;
+
+  final ValueChanged<String>? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +35,10 @@ class DSTextInput extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       child: TextFormField(
         validator: validator,
+        initialValue: initialValue,
         style: styles.textTheme.bodySmall,
         textAlignVertical: TextAlignVertical.center,
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: hintText,
           labelText: hintText,

@@ -2,48 +2,44 @@ import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
 mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
-  final List<Widget> dependentInputFields = [];
+  final List<String> dependents = [];
   final GlobalKey<AnimatedListState> listKey = GlobalKey();
 
   Widget buildDependentTextInputItem(
-    Widget field,
+    String dependent,
+    int index,
     Animation<double> animation,
   ) {
     return DSAnimatedListItemContainer(
+      key: ValueKey(dependent),
       animation: animation,
-      child: field,
+      child: DSTextInput(
+        margin: const EdgeInsets.only(bottom: DSTheme.defaultFormSpacing),
+        initialValue: dependent,
+        hintText: 'Dependent Fullname',
+        onChanged: (dependentName) {
+          dependents[index] = dependentName;
+        },
+        onRemove: () {
+          _removeItem(index);
+        },
+        validator: (value) {
+          return null;
+        },
+      ),
     );
   }
 
   void spawnDependentTextInput() {
-    int insertIndex = dependentInputFields.length;
-    final newField = _buildDependentTextInput(insertIndex);
-    dependentInputFields.add(newField);
+    int insertIndex = dependents.length;
+    dependents.add('');
     listKey.currentState?.insertItem(insertIndex);
   }
 
   void _removeItem(int index) {
-    final removedItem = dependentInputFields.removeAt(index);
+    final dependent = dependents.removeAt(index);
     listKey.currentState?.removeItem(index, (_, animation) {
-      return buildDependentTextInputItem(removedItem, animation);
+      return buildDependentTextInputItem(dependent, index, animation);
     });
-  }
-
-  Widget _buildDependentTextInput(int insertIndex) {
-    final key = ValueKey(insertIndex);
-    return DSTextInput(
-      key: key,
-      margin: const EdgeInsets.only(bottom: DSTheme.defaultFormSpacing),
-      hintText: 'Dependent Fullname',
-      onRemove: () {
-        final removeIndex = dependentInputFields.indexWhere(
-          (element) => element.key == key,
-        );
-        _removeItem(removeIndex);
-      },
-      validator: (value) {
-        return null;
-      },
-    );
   }
 }

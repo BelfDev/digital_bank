@@ -13,8 +13,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
-
   # Internal packages
   ds_components:
 

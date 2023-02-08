@@ -64,10 +64,11 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
               key: listKey,
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              initialItemCount: dependentInputFields.length,
+              initialItemCount: dependents.length,
               itemBuilder: (_, index, animation) {
                 return buildDependentTextInputItem(
-                  dependentInputFields[index],
+                  dependents[index],
+                  index,
                   animation,
                 );
               },
