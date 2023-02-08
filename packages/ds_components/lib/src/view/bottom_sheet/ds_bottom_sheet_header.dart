@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../theme/ds_theme.dart';
 
-/// A widget that represents the top-most region of a bottom sheet.
-class BottomSheetHeader extends StatelessWidget {
-  /// Creates a widget that represents the top-most region of a bottom sheet.
-  const BottomSheetHeader({
+class DSBottomSheetHeader extends StatelessWidget {
+  const DSBottomSheetHeader({
     required this.title,
     this.subtitle,
     this.padding = const EdgeInsets.symmetric(horizontal: 24.0),

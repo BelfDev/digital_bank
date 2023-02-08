@@ -1,8 +1,8 @@
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
-class BottomSheetScaffold extends StatelessWidget {
-  const BottomSheetScaffold({
+class DSBottomSheetScaffold extends StatelessWidget {
+  const DSBottomSheetScaffold({
     super.key,
     required this.body,
     this.header,

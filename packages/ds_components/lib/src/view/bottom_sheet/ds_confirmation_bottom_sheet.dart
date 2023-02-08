@@ -51,8 +51,8 @@ class DSDecisionBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomSheetScaffold(
-      header: BottomSheetHeader(
+    return DSBottomSheetScaffold(
+      header: DSBottomSheetHeader(
         title: headerTitle,
         subtitle: message,
       ),
