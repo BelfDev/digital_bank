@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ds_artwork_image.dart';
+import '../image/ds_artwork_image.dart';
 
 class DSArtworkScaffold extends StatelessWidget {
   const DSArtworkScaffold({

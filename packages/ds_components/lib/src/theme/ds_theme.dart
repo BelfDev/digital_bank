@@ -349,4 +349,6 @@ class DSTheme {
   static const defaultPageMargin = EdgeInsets.symmetric(horizontal: 32.0);
 
   static const iconSplashRadius = 24.0;
+
+  static const defaultFormSpacing = 24.0;
 }
