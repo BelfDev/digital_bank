@@ -77,7 +77,6 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
               text: 'add dependent',
               onPressed: () {
                 spawnDependentTextInput();
-
                 scrollToMaxExtentIfNeeded();
               },
             ),

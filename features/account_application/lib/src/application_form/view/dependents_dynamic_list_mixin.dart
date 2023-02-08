@@ -22,7 +22,16 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
           dependents[index] = dependentName;
         },
         onRemove: () {
-          _removeItem(index);
+          DSDecisionBottomSheet.present(
+            context,
+            headerTitle:
+                'Are you sure you want to remove ${dependents[index]}?',
+            message: 'This action is irreversible.',
+            onConfirm: () {
+              _removeItem(index);
+            },
+            confirmationText: 'remove',
+          );
         },
         validator: (value) {
           return null;
