@@ -17,6 +17,8 @@ class DSColors {
   static const smoothBlueGray = Color(0xFF2C3438);
   static const titaniumGray = Color(0xFF86979F);
   static const smoothBlueBlack = Color(0xFF192126);
+  static const smoothBlueBackdrop = Color(0x99263238);
+
 
   static const green = Color(0xFF78E1A3);
   static const cyan = Color(0xFF00D4FF);
@@ -55,7 +57,6 @@ class DSColors {
   static const transparent = Color(0x00000000);
   static const blueShadow = Color(0x0F263238);
   static const blueBackdrop = Color(0xD9263238);
-  static const smoothBlueBackdrop = Color(0x99263238);
 
   // Dark Theme
   static const blueBlack = Color(0xFF151C20);

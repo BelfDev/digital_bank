@@ -12,7 +12,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
   # Keyboard utilities
   flutter_keyboard_visibility: ^5.4.0
 

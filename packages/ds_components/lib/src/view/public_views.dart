@@ -11,5 +11,6 @@ export 'input/ds_date_picker_input.dart';
 export 'input/ds_dropdown_input.dart';
 export 'input/ds_photo_input.dart';
 export 'input/ds_text_input.dart';
+export 'overlay/ds_loadable_container.dart';
 export 'scaffold/ds_artwork_scaffold.dart';
 export 'scaffold/ds_form_scaffold.dart';
