@@ -11,8 +11,10 @@ class DSElevatedButton extends StatelessWidget {
     this.width,
     this.height,
     this.gradient = DSGradients.blueShades,
+    this.enabled = true,
   });
 
+  final bool enabled;
   final VoidCallback? onPressed;
   final String text;
   final double? width;
@@ -30,11 +32,11 @@ class DSElevatedButton extends StatelessWidget {
       width: width,
       height: effectiveHeight,
       decoration: BoxDecoration(
-        gradient: gradient,
+        gradient: enabled ? gradient : null,
         borderRadius: DSTheme.buttonBorderRadius,
       ),
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: enabled ? onPressed : null,
         style: elevatedButtonStyle,
         child: Text(text),
       ),

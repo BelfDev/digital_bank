@@ -29,6 +29,10 @@ class ApplicationFormStateManager
 
   void submitForm() async {
     final isValid = state.formKey.currentState?.validate();
+    if (isValid != true) {
+      return;
+    }
+
     if (isValid == true) {
       print('First Name: ${state.formData.firstName}');
       print('Last Name: ${state.formData.lastName}');

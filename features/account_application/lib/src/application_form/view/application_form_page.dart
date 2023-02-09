@@ -125,6 +125,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
         ),
       ],
       floatingButton: DSElevatedButton(
+        enabled: !state.isLoading,
         width: double.infinity,
         onPressed: widget.onSubmit,
         text: 'submit application',

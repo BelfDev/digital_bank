@@ -346,6 +346,7 @@ class DSTheme {
         minimumSize: const Size(128.0, 64.0),
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
+        disabledBackgroundColor: DSColors.gray,
       ),
     ),
     snackBarTheme: SnackBarThemeData(
