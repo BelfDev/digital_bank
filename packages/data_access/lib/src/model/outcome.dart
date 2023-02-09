@@ -21,19 +21,6 @@ abstract class Outcome<S> extends Equatable {
 
   bool get isFailure => this is _FailureResult<S>;
 
-  S dataOrElse(S other) => isSuccess && data != null ? data! : other;
-
-  S operator |(S other) => dataOrElse(other);
-
-  Outcome<T> either<T>(
-    FailureProtocol Function(FailureProtocol error) onFailure,
-    T Function(S data) fnData,
-  );
-
-  Outcome<T> then<T>(Outcome<T> Function(S data) onData);
-
-  Outcome<T> map<T>(T Function(S data) onData);
-
   T fold<T>(
     T Function(FailureProtocol error) onFailure,
     T Function(S data) onData,
@@ -49,24 +36,6 @@ class _SuccessResult<S> extends Outcome<S> {
   _SuccessResult(this._value);
 
   @override
-  _SuccessResult<T> either<T>(
-    FailureProtocol Function(FailureProtocol error) onFailure,
-    T Function(S data) onData,
-  ) {
-    return _SuccessResult<T>(onData(_value));
-  }
-
-  @override
-  Outcome<T> then<T>(Outcome<T> Function(S data) onData) {
-    return onData(_value);
-  }
-
-  @override
-  _SuccessResult<T> map<T>(T Function(S data) onData) {
-    return _SuccessResult<T>(onData(_value));
-  }
-
-  @override
   T fold<T>(
     T Function(FailureProtocol error) onFailure,
     T Function(S data) onData,
@@ -79,24 +48,6 @@ class _FailureResult<S> extends Outcome<S> {
   final FailureProtocol _value;
 
   _FailureResult(this._value);
-
-  @override
-  _FailureResult<T> either<T>(
-    FailureProtocol Function(FailureProtocol error) onFailure,
-    T Function(S data) onData,
-  ) {
-    return _FailureResult<T>(onFailure(_value));
-  }
-
-  @override
-  _FailureResult<T> map<T>(T Function(S data) onData) {
-    return _FailureResult<T>(_value);
-  }
-
-  @override
-  _FailureResult<T> then<T>(Outcome<T> Function(S data) onData) {
-    return _FailureResult<T>(_value);
-  }
 
   @override
   T fold<T>(
