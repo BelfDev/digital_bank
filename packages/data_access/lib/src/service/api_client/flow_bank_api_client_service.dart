@@ -6,6 +6,7 @@ import 'package:data_access/src/model/account_application_feedback.dart';
 import 'package:data_access/src/model/encrypted_data.dart';
 import 'package:data_access/src/model/failure/remore_api_failure.dart';
 import 'package:data_access/src/service/encryption/encryption_service.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 
 import '../http_client/http_client.dart';
@@ -18,6 +19,13 @@ abstract class FlowBankApiClientServiceProtocol {
   );
 }
 
+final _apiClientServiceProvider = Provider((ref) {
+  return FlowBankApiClientService(
+    Environment.current,
+    client: HttpClient(),
+  );
+});
+
 class FlowBankApiClientService
     with EncryptionService
     implements FlowBankApiClientServiceProtocol {
@@ -29,6 +37,9 @@ class FlowBankApiClientService
 
   final String baseUrl;
   final HttpClientProtocol httpClient;
+
+  static Provider<FlowBankApiClientService> provider =
+      _apiClientServiceProvider;
 
   @override
   Future<AccountApplicationFeedback> createAccount(

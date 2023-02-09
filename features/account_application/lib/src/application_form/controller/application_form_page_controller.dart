@@ -9,20 +9,27 @@ class ApplicationFormPageController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (
-        BuildContext context,
-        WidgetRef ref,
-        Widget? child,
-      ) {
-        final provider = ApplicationFormStateManager.provider;
-        final state = ref.watch(provider);
-        if (state.isLoading) {
-          return CircularProgressIndicator();
-        }
+      builder: (context, ref, _) {
+        final stateManager = ApplicationFormStateManager.provider;
+        ref.listen(
+          stateManager,
+          (previousState, currentState) {
+            if (currentState.isLoading) {
+              // TODO(BelfDev): Show loading overlay
+            } else if (currentState.hasError) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(currentState.errorFeedback!),
+                ),
+              );
+            }
+          },
+        );
 
+        final state = ref.watch(stateManager);
         return ApplicationFormPage(
           state: state,
-          onSubmit: ref.read(provider.notifier).submitForm,
+          onSubmit: ref.read(stateManager.notifier).submitForm,
         );
       },
     );

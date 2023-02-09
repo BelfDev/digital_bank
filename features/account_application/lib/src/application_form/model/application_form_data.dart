@@ -1,4 +1,5 @@
 import 'package:account_application/src/application_form/model/gender_option.dart';
+import 'package:data_access/data_access.dart';
 import 'package:equatable/equatable.dart';
 
 import 'form_validator_use_case.dart';
@@ -32,6 +33,19 @@ class ApplicationFormData with EquatableMixin {
         birthDate,
         gender,
       ];
+}
+
+extension AccountApplicationAdapter on ApplicationFormData {
+  AccountApplication toAccountApplication() {
+    return AccountApplication(
+      firstName: firstName!.trim(),
+      lastName: lastName!.trim(),
+      birthDate: birthDate!.toUtc().toIso8601String(),
+      gender: gender!.name,
+      photo: photo!.trim(),
+      dependents: dependents,
+    );
+  }
 }
 
 extension ApplicationFormDataStubs on ApplicationFormData {

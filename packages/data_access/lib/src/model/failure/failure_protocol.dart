@@ -1,4 +1,4 @@
 abstract class FailureProtocol implements Exception {
   @override
-  String toString() => '$runtimeType Exception';
+  String toString() => 'Oops! Something went wrong.';
 }
