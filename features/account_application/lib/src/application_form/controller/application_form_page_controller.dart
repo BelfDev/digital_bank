@@ -14,13 +14,15 @@ class ApplicationFormPageController extends StatelessWidget {
         WidgetRef ref,
         Widget? child,
       ) {
-        final state = ref.watch(ApplicationFormStateManager.provider);
+        final provider = ApplicationFormStateManager.provider;
+        final state = ref.watch(provider);
         if (state.isLoading) {
           return CircularProgressIndicator();
         }
 
         return ApplicationFormPage(
           state: state,
+          onSubmit: ref.read(provider.notifier).submitForm,
         );
       },
     );

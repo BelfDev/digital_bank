@@ -14,7 +14,6 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
       key: ValueKey(dependent),
       animation: animation,
       child: DSTextInput(
-        margin: const EdgeInsets.only(bottom: DSTheme.defaultFormSpacing),
         initialValue: dependent,
         hintText: 'Dependent Fullname',
         textInputAction: TextInputAction.done,

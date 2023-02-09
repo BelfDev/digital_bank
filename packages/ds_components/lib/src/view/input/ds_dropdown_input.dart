@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../ds_components.dart';
+
 abstract class DSDropdownOption {
   String get displayName;
 }
@@ -42,9 +44,8 @@ class _DSDropdownInputState<T extends DSDropdownOption>
         .toList();
 
     return Container(
-      height: 60.0,
+      height: DSTheme.inputFieldHeight,
       margin: widget.margin,
-      alignment: Alignment.bottomCenter,
       child: DropdownButtonFormField<T>(
         items: effectiveItems,
         value: _selectedValue,
@@ -64,7 +65,6 @@ class _DSDropdownInputState<T extends DSDropdownOption>
           isDense: true,
           alignLabelWithHint: true,
           floatingLabelBehavior: FloatingLabelBehavior.auto,
-          errorStyle: const TextStyle(height: 0.6),
         ),
       ),
     );

@@ -14,7 +14,9 @@ class ApplicationFormStateManager
     );
   });
 
-  void submitSubmit() {
+  void submitForm() {
+    state.formKey.currentState?.validate();
     print('submit-form');
   }
+
 }

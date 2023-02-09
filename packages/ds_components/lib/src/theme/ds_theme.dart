@@ -106,6 +106,10 @@ class DSTheme {
               counterStyle: DSTypography.regular14.copyWith(
                 color: DSColors.gray,
               ),
+              errorStyle: DSTypography.regular12.copyWith(
+                color: DSColors.pink,
+                height: 0.7,
+              ),
               fillColor: DSColors.white,
               filled: true,
               enabledBorder: const OutlineInputBorder(
@@ -258,6 +262,10 @@ class DSTheme {
               counterStyle: DSTypography.regular14.copyWith(
                 color: DSColors.gray,
               ),
+              errorStyle: DSTypography.regular12.copyWith(
+                color: DSColors.pink,
+                height: 0.7,
+              ),
               fillColor: DSColors.mirageBlack,
               enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -360,5 +368,5 @@ class DSTheme {
 
   static const iconSplashRadius = 24.0;
 
-  static const defaultFormSpacing = 24.0;
+  static const inputFieldHeight = 80.0;
 }

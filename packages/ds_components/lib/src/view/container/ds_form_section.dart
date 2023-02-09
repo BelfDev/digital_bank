@@ -5,12 +5,10 @@ class DSFormSection extends StatelessWidget {
     super.key,
     required this.title,
     required this.children,
-    this.childrenSpacing = 24.0,
   });
 
   final String title;
   final List<Widget> children;
-  final double childrenSpacing;
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +24,7 @@ class DSFormSection extends StatelessWidget {
           title,
           style: styles.bodyLarge,
         ),
-        ...children.expand(
-          (child) => [
-            SizedBox(height: childrenSpacing),
-            child,
-          ],
-        ),
+        ...children,
       ],
     );
   }

@@ -1,3 +1,4 @@
+import 'package:ds_components/src/theme/public_themes.dart';
 import 'package:flutter/material.dart';
 
 class DSDatePickerInput extends StatelessWidget {
@@ -29,9 +30,8 @@ class DSDatePickerInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final baseDate = DateTime.now();
     return Container(
-      height: 60.0,
+      height: DSTheme.inputFieldHeight,
       margin: margin,
-      alignment: Alignment.bottomCenter,
       child: InputDatePickerFormField(
         firstDate: DateTime(baseDate.year - 100, baseDate.month, baseDate.day),
         lastDate: DateTime(baseDate.year - 10, baseDate.month, baseDate.day),

@@ -10,9 +10,11 @@ class ApplicationFormPage extends StatefulWidget {
   const ApplicationFormPage({
     super.key,
     required this.state,
+    this.onSubmit,
   });
 
   final ApplicationFormPageState state;
+  final VoidCallback? onSubmit;
 
   @override
   State<ApplicationFormPage> createState() => _ApplicationFormPageState();
@@ -20,8 +22,13 @@ class ApplicationFormPage extends StatefulWidget {
 
 class _ApplicationFormPageState extends State<ApplicationFormPage>
     with DynamicDependentListMixin {
-  final _formKey = GlobalKey<FormState>();
   final _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    widget.state.formData.dependents = dependents;
+  }
 
   @override
   void dispose() {
@@ -31,8 +38,9 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
 
   @override
   Widget build(BuildContext context) {
+    final state = widget.state;
     return DSFormScaffold(
-      formKey: _formKey,
+      formKey: state.formKey,
       padding: DSTheme.defaultPageMargin,
       controller: _scrollController,
       appBar: AppBar(
@@ -42,8 +50,8 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       bodyChildren: [
         DSFormSection(
           title: 'Basic Information',
-          childrenSpacing: DSTheme.defaultFormSpacing,
           children: [
+            const SizedBox(height: 24.0),
             DSPhotoInput(
               hint: 'Your picture\n(liveliness check)',
               loading: false,
@@ -55,16 +63,19 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                 );
               },
             ),
+            const SizedBox(height: 24.0),
             DSTextInput(
               hintText: 'First name',
-              validator: (value) {
-                return null;
+              validator: state.formData.validator.validateNameInput,
+              onChanged: (newValue) {
+                state.formData.firstName = newValue;
               },
             ),
             DSTextInput(
               hintText: 'Last name',
-              validator: (value) {
-                return null;
+              validator: state.formData.validator.validateNameInput,
+              onChanged: (newValue) {
+                state.formData.lastName = newValue;
               },
             ),
             DSDatePickerInput(
@@ -73,14 +84,13 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
             DSDropdownInput(
               hintText: 'Gender',
               items: GenderOption.values,
+              validator: state.formData.validator.validateGenderInput,
             ),
           ],
         ),
         DSFormSection(
           title: 'Dependents information',
-          childrenSpacing: 0.0,
           children: [
-            const SizedBox(height: DSTheme.defaultFormSpacing),
             AnimatedList(
               key: listKey,
               physics: NeverScrollableScrollPhysics(),
@@ -94,6 +104,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                 );
               },
             ),
+            const SizedBox(height: 24.0),
             DSOutlinedButton(
               text: 'add dependent',
               onPressed: () {
@@ -107,9 +118,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       ],
       floatingButton: DSElevatedButton(
         width: double.infinity,
-        onPressed: () {
-          _formKey.currentState?.validate();
-        },
+        onPressed: widget.onSubmit,
         text: 'submit application',
       ),
     );
