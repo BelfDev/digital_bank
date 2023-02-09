@@ -1,10 +1,7 @@
-import 'dart:io';
-
 import 'package:account_application/src/application_form/model/gender_option.dart';
-import 'package:camerawesome/camerawesome_plugin.dart';
+import 'package:camera/camera.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 
 import 'dependents_dynamic_list_mixin.dart';
 
@@ -44,7 +41,13 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
             DSPhotoInput(
               hint: 'Your picture\n(liveliness check)',
               loading: false,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) {
+                    return CameraPageController();
+                  }),
+                );
+              },
             ),
             DSTextInput(
               hintText: 'First name',
