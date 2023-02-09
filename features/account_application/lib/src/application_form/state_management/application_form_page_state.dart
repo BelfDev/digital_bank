@@ -1,13 +1,13 @@
 import 'package:account_application/src/application_form/model/application_form_data.dart';
 import 'package:equatable/equatable.dart';
 
-class ApplicationFormState extends Equatable {
-  const ApplicationFormState({
+class ApplicationFormPageState extends Equatable {
+  const ApplicationFormPageState({
     required this.isLoading,
     required this.formData,
   });
 
-  ApplicationFormState.initial()
+  ApplicationFormPageState.initial()
       : this(
           isLoading: false,
           formData: ApplicationFormData(
@@ -25,9 +25,9 @@ class ApplicationFormState extends Equatable {
       ];
 }
 
-extension ApplicationFormStateStubs on ApplicationFormState {
-  static ApplicationFormState get defaultStub {
-    return ApplicationFormState(
+extension ApplicationFormStateStubs on ApplicationFormPageState {
+  static ApplicationFormPageState get defaultStub {
+    return ApplicationFormPageState(
       isLoading: false,
       formData: ApplicationFormDataStubs.defaultStub,
     );

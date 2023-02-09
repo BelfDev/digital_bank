@@ -1,4 +1,5 @@
 import 'package:account_application/src/application_form/model/gender_option.dart';
+import 'package:account_application/src/application_form/state_management/application_form_page_state.dart';
 import 'package:camera/camera.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,12 @@ import 'package:flutter/material.dart';
 import 'dependents_dynamic_list_mixin.dart';
 
 class ApplicationFormPage extends StatefulWidget {
-  const ApplicationFormPage({super.key});
+  const ApplicationFormPage({
+    super.key,
+    required this.state,
+  });
+
+  final ApplicationFormPageState state;
 
   @override
   State<ApplicationFormPage> createState() => _ApplicationFormPageState();
