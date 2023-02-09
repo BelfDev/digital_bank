@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:better_open_file/better_open_file.dart';
+import 'package:camera/src/view/photo_preview_page.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:camerawesome/pigeon.dart';
 import 'package:ds_components/ds_components.dart';
@@ -16,8 +16,6 @@ class CameraPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
     return Scaffold(
       appBar: AppBar(
         leading: DSCloseButton(
@@ -42,7 +40,14 @@ class CameraPage extends StatelessWidget {
           return CameraLayout(
             state: state,
             onMediaTap: (MediaCapture mediaCapture) {
-              OpenFile.open(mediaCapture.filePath);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return PhotoPreviewPage(mediaCapture: mediaCapture);
+                  },
+                ),
+              );
             },
           );
         },

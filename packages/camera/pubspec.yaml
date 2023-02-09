@@ -16,9 +16,6 @@ dependencies:
   # Camera
   camerawesome: ^1.2.1
   path_provider: ^2.0.12
-  # Open media file
-  better_open_file: ^3.6.4
-
   # Internal packages
   ds_components:
 
