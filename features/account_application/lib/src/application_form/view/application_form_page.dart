@@ -78,13 +78,20 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                 state.formData.lastName = newValue;
               },
             ),
+            // TODO(BelfDev): Fix date input
             DSDatePickerInput(
               hintText: 'Date of birth',
+              onDateSaved: (newValue) {
+                state.formData.birthDate = newValue;
+              },
             ),
             DSDropdownInput(
               hintText: 'Gender',
               items: GenderOption.values,
               validator: state.formData.validator.validateGenderInput,
+              onChanged: (newValue) {
+                state.formData.gender = newValue;
+              },
             ),
           ],
         ),
@@ -101,6 +108,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                   dependents[index],
                   index,
                   animation,
+                  state.formData.validator.validateNameInput,
                 );
               },
             ),

@@ -9,6 +9,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
     String dependent,
     int index,
     Animation<double> animation,
+    FormFieldValidator<String>? validator,
   ) {
     return DSAnimatedListItemContainer(
       key: ValueKey(dependent),
@@ -21,9 +22,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
           dependents[index] = dependentName;
         },
         onRemove: () => _onRemoveItem(index),
-        validator: (value) {
-          return null;
-        },
+        validator: validator,
       ),
     );
   }
@@ -55,7 +54,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
   void _removeItem(int index) {
     final dependent = dependents.removeAt(index);
     listKey.currentState?.removeItem(index, (_, animation) {
-      return buildDependentTextInputItem(dependent, index, animation);
+      return buildDependentTextInputItem(dependent, index, animation, null);
     });
   }
 }

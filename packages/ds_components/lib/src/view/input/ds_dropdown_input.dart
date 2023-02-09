@@ -13,6 +13,7 @@ class DSDropdownInput<T extends DSDropdownOption> extends StatefulWidget {
     this.items,
     this.validator,
     this.margin,
+    this.onChanged,
   });
 
   final String hintText;
@@ -22,6 +23,8 @@ class DSDropdownInput<T extends DSDropdownOption> extends StatefulWidget {
   final FormFieldValidator<T>? validator;
 
   final EdgeInsetsGeometry? margin;
+
+  final ValueChanged<T?>? onChanged;
 
   @override
   State<DSDropdownInput<T>> createState() => _DSDropdownInputState<T>();
@@ -57,6 +60,7 @@ class _DSDropdownInputState<T extends DSDropdownOption>
           setState(() {
             _selectedValue = value;
           });
+          widget.onChanged?.call(value);
         },
         borderRadius: const BorderRadius.all(Radius.circular(16.0)),
         decoration: InputDecoration(
