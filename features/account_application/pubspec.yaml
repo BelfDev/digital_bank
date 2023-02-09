@@ -13,6 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # State management
+  flutter_riverpod: ^2.1.3
   # Internal packages
   ds_components:
   camera:
