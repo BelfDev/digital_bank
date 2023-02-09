@@ -1,3 +1,4 @@
+import 'package:configs/src/model/liveliness_check_config.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'encryption_config.dart';
@@ -9,7 +10,6 @@ enum Environment {
 
   Future<void> init() async {
     if (dotenv.isInitialized) {
-      // TODO(BelfDev): Create a better exception.
       throw Exception('Environment already initialized');
     }
     await dotenv.load(fileName: ".env");
@@ -37,6 +37,15 @@ enum Environment {
           iv: dotenv.env['CRYPTO_SECRET_IV']!,
           iterations: 1000,
           keyBits: 128,
+        );
+    }
+  }
+
+  LivelinessCheckConfig get livelinessCheckConfig {
+    switch (this) {
+      case Environment.production:
+        return LivelinessCheckConfig(
+          photoPath: '/digital-bank/liveliness-check',
         );
     }
   }

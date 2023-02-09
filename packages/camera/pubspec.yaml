@@ -18,6 +18,7 @@ dependencies:
   path_provider: ^2.0.12
   # Internal packages
   ds_components:
+  configs:
 
 dev_dependencies:
   flutter_test:

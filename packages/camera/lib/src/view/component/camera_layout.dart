@@ -1,8 +1,8 @@
-import 'package:camera/src/view/camera_bottom_actions.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:flutter/material.dart';
 
 import 'camera_background.dart';
+import 'camera_bottom_actions.dart';
 
 class CameraLayout extends StatelessWidget {
   const CameraLayout({
@@ -30,8 +30,10 @@ class CameraLayout extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    AwesomeCameraModeSelector(state: state),
-                    CameraBottomActions(state: state, onMediaTap: onMediaTap),
+                    CameraBottomActions(
+                      state: state,
+                      onMediaTap: onMediaTap,
+                    ),
                   ],
                 ),
               ),

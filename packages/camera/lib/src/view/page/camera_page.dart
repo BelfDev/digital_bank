@@ -1,18 +1,21 @@
-import 'dart:io';
-
-import 'package:camera/src/view/photo_preview_page.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:camerawesome/pigeon.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 
-import 'camera_layout.dart';
+import '../component/camera_layout.dart';
 
-// TODO(BelfDev): Move to its own package
 class CameraPage extends StatelessWidget {
-  const CameraPage({super.key});
+  const CameraPage({
+    super.key,
+    required this.pathBuilder,
+    required this.onMediaTap,
+  });
+
+  final FilePathBuilder pathBuilder;
+
+  final OnMediaTap onMediaTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class CameraPage extends StatelessWidget {
       ),
       body: CameraAwesomeBuilder.custom(
         saveConfig: SaveConfig.photo(
-          pathBuilder: () => _path(CaptureMode.photo),
+          pathBuilder: pathBuilder,
         ),
         builder: (
           CameraState state,
@@ -39,16 +42,7 @@ class CameraPage extends StatelessWidget {
         ) {
           return CameraLayout(
             state: state,
-            onMediaTap: (MediaCapture mediaCapture) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return PhotoPreviewPage(mediaCapture: mediaCapture);
-                  },
-                ),
-              );
-            },
+            onMediaTap: onMediaTap,
           );
         },
         filter: AwesomeFilter.None,
@@ -60,15 +54,5 @@ class CameraPage extends StatelessWidget {
         exifPreferences: null,
       ),
     );
-  }
-
-  Future<String> _path(CaptureMode captureMode) async {
-    final Directory extDir = await getTemporaryDirectory();
-    final testDir = await Directory(
-      '${extDir.path}/digital-bank/liveliness-check',
-    ).create(recursive: true);
-    final String filePath =
-        '${testDir.path}/${DateTime.now().millisecondsSinceEpoch}.jpg';
-    return filePath;
   }
 }
