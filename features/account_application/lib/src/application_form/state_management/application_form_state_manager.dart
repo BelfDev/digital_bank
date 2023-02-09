@@ -2,7 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'application_form_state.dart';
 
-final applicationFormProvider = StateNotifierProvider.autoDispose(
+final applicationFormProvider = StateNotifierProvider.autoDispose<
+    ApplicationFormStateManager, ApplicationFormState>(
   (ref) => ApplicationFormStateManager(
     ApplicationFormState.initial(),
   ),
