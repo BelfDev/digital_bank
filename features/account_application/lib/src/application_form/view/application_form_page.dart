@@ -54,13 +54,8 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
             const SizedBox(height: 24.0),
             DSPhotoInput(
               hint: 'Your picture\n(liveliness check)',
-              loading: false,
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) {
-                    return CameraPageController();
-                  }),
-                );
+              onImageCaptured: (filePath) {
+                state.formData.photoPath = filePath;
               },
             ),
             const SizedBox(height: 24.0),
@@ -78,7 +73,6 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                 state.formData.lastName = newValue;
               },
             ),
-            // TODO(BelfDev): Fix date input
             DSDatePickerInput(
               hintText: 'Date of birth',
               validator: state.formData.validator.validateBirthDateInput,
