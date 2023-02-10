@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:camera/camera.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
@@ -6,41 +9,22 @@ import '../../resources/ds_transparent_image.dart';
 class DSPhotoInput extends StatefulWidget {
   const DSPhotoInput({
     super.key,
-    required this.onPressed,
     required this.hint,
-    this.loading = false,
-    this.image,
+    this.onPressed,
+    this.onImageCaptured,
   });
 
   final VoidCallback? onPressed;
   final String hint;
-  final bool loading;
-  final ImageProvider? image;
+  final ValueChanged<String>? onImageCaptured;
 
   @override
   State<DSPhotoInput> createState() => _DSPhotoInputState();
 }
 
 class _DSPhotoInputState extends State<DSPhotoInput> {
-  late bool isLoading;
-  late ImageProvider? selectedImage;
-
-  @override
-  void initState() {
-    super.initState();
-    isLoading = widget.loading;
-    selectedImage = widget.image;
-  }
-
-  @override
-  void didUpdateWidget(covariant DSPhotoInput oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.loading != widget.loading) {
-      isLoading = widget.loading;
-    } else if (oldWidget.image != widget.image) {
-      selectedImage = widget.image;
-    }
-  }
+  bool isLoading = false;
+  ImageProvider? capturedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +40,7 @@ class _DSPhotoInputState extends State<DSPhotoInput> {
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: widget.loading
+              color: isLoading
                   ? styles.colorScheme.onSecondaryContainer
                   : styles.colorScheme.secondaryContainer,
               border: Border.all(
@@ -67,7 +51,7 @@ class _DSPhotoInputState extends State<DSPhotoInput> {
           child: Material(
             color: DSColors.transparent,
             child: InkWell(
-              onTap: widget.onPressed,
+              onTap: widget.onPressed ?? _handlePhotoCapture,
               child: _resolveContentWidget(context),
             ),
           ),
@@ -89,9 +73,10 @@ class _DSPhotoInputState extends State<DSPhotoInput> {
 
     if (isLoading) {
       return CircularProgressIndicator();
-    } else if (selectedImage != null) {
+    } else if (capturedImage != null) {
       return FadeInImage(
-        image: selectedImage!,
+        image: capturedImage!,
+        fit: BoxFit.cover,
         placeholder: MemoryImage(dsTransparentImage),
       );
     } else {
@@ -100,6 +85,32 @@ class _DSPhotoInputState extends State<DSPhotoInput> {
         size: 28.0,
         color: styles.inputDecorationTheme.labelStyle?.color,
       );
+    }
+  }
+
+  void _handlePhotoCapture() async {
+    final filePath = await Navigator.of(context).push<String>(
+      MaterialPageRoute(builder: (context) {
+        return CameraPageController();
+      }),
+    );
+
+    if (!mounted) return;
+
+    if (filePath == null) {
+      setState(() {
+        isLoading = false;
+      });
+      return;
+    } else {
+      setState(() {
+        isLoading = false;
+        capturedImage = FileImage(
+          File(filePath),
+        );
+      });
+
+      widget.onImageCaptured?.call(filePath);
     }
   }
 }
