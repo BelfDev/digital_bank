@@ -21,7 +21,11 @@ class LoadingOverlay extends StatelessWidget {
   }
 
   static Future<void> dismiss(BuildContext context) async {
-    Navigator.of(context).pop();
+    isModalVisible(BuildContext context) =>
+        ModalRoute.of(context)?.isCurrent != true;
+    if (isModalVisible(context)) {
+      Navigator.of(context).pop();
+    }
   }
 
   @override

@@ -29,12 +29,21 @@ class ApplicationFormStateManager
 
   Future<void> submitForm() async {
     final isValid = state.formKey.currentState?.validate();
-    if (isValid != true || state.formData.photoBase64Encoded == null) {
+    if (isValid != true) {
+      return;
+    }
+
+    if (state.formData.photoBase64Encoded == null) {
+      state = state.copyWith(
+        errorFeedback:
+            'Please make sure to take a picture for the liveliness check.',
+      );
       return;
     }
 
     state = state.copyWith(
       isLoading: true,
+      errorFeedback: '',
     );
 
     if (isValid == true) {

@@ -41,11 +41,9 @@ class ApplicationFormPageController extends StatelessWidget {
     }
 
     if (next.hasError) {
-      // TODO(BelfDev): Style this.
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(next.errorFeedback!),
-        ),
+      DSErrorFeedbackSnackBar.present(
+        context,
+        errorFeedback: next.errorFeedback!,
       );
     }
   }
