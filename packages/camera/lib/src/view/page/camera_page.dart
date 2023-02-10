@@ -28,12 +28,13 @@ class CameraPage extends StatelessWidget {
           color: DSColors.smoothWhite,
         ),
         leadingWidth: 64.0,
-        backgroundColor: Colors.black,
+        backgroundColor: DSColors.smoothBlack,
         elevation: 0.0,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarBrightness: Brightness.dark,
         ),
       ),
+      backgroundColor: DSColors.smoothBlack,
       body: CameraAwesomeBuilder.custom(
         saveConfig: SaveConfig.photo(
           pathBuilder: pathBuilder,
@@ -57,7 +58,7 @@ class CameraPage extends StatelessWidget {
         },
         filter: AwesomeFilter.None,
         flashMode: FlashMode.none,
-        aspectRatio: CameraAspectRatios.ratio_16_9,
+        aspectRatio: CameraAspectRatios.ratio_1_1,
         sensor: Sensors.front,
         previewFit: CameraPreviewFit.cover,
         enableAudio: false,

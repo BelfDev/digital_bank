@@ -1,7 +1,7 @@
 import 'package:camerawesome/camerawesome_plugin.dart';
+import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
-import 'camera_background.dart';
 import 'camera_bottom_actions.dart';
 
 class CameraLayout extends StatelessWidget {
@@ -21,7 +21,10 @@ class CameraLayout extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          CameraBackground(
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: DSColors.smoothBlueBackdrop,
+            ),
             child: SafeArea(
               top: false,
               child: Padding(
