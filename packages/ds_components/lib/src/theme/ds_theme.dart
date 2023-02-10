@@ -378,4 +378,10 @@ class DSTheme {
   static const iconSplashRadius = 24.0;
 
   static const inputFieldHeight = 80.0;
+
+  static const defaultAppBarHeight = 72.0;
+
+  static const defaultAppBarBorderRadius = BorderRadius.vertical(
+    bottom: Radius.circular(24.0),
+  );
 }

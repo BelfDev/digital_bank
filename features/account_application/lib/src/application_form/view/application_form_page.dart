@@ -42,9 +42,9 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       formKey: state.formKey,
       padding: DSTheme.defaultPageMargin,
       controller: _scrollController,
-      appBar: AppBar(
+      appBar: DSAppBar.title(
+        _Strings.appBarTitle,
         leading: DSBackButton(),
-        title: Text(_Strings.appBarTitle),
       ),
       bodyChildren: [
         const SizedBox(height: 32.0),

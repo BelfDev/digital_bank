@@ -15,3 +15,4 @@ export 'overlay/ds_loadable_container.dart';
 export 'scaffold/ds_artwork_scaffold.dart';
 export 'scaffold/ds_form_scaffold.dart';
 export 'snack_bar/ds_error_feedback_snack_bar.dart';
+export 'app_bar/ds_app_bar.dart';
