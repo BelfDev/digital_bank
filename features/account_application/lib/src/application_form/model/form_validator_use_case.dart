@@ -1,5 +1,6 @@
 import 'package:account_application/src/application_form/model/gender_option.dart';
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
 
 @immutable
 class FormValidatorUserCase {
@@ -17,8 +18,9 @@ class FormValidatorUserCase {
       return _Strings.emptyValueFeedback;
     }
 
-    final parsedDate = DateTime.tryParse(value!);
-    if (parsedDate == null) {
+    try {
+      DateFormat.yMd().parse(value!);
+    } catch (_) {
       return _Strings.invalidFeedback;
     }
     return null;

@@ -19,7 +19,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
         hintText: 'Dependent Fullname',
         textInputAction: TextInputAction.done,
         onChanged: (dependentName) {
-          dependents[index] = dependentName;
+          dependents[index] = dependentName.trim();
         },
         onRemove: () => _onRemoveItem(index),
         validator: validator,
