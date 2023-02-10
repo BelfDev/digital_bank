@@ -47,10 +47,10 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
         title: Text(_Strings.appBarTitle),
       ),
       bodyChildren: [
+        const SizedBox(height: 32.0),
         DSFormSection(
           title: _Strings.basicInfoSectionTitle,
           children: [
-            const SizedBox(height: 24.0),
             DSPhotoInput(
               hint: _Strings.photoInputHint,
               onImageCaptured: (filePath) {
@@ -89,6 +89,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
             ),
           ],
         ),
+        const SizedBox(height: 8.0),
         DSFormSection(
           title: _Strings.dependentsSectionTitle,
           children: [
@@ -106,7 +107,6 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                 );
               },
             ),
-            const SizedBox(height: 24.0),
             DSOutlinedButton(
               text: _Strings.addDependentButton,
               onPressed: () {

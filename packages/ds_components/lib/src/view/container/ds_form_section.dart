@@ -19,11 +19,11 @@ class DSFormSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SizedBox(height: 24.0),
         Text(
           title,
           style: styles.bodyLarge,
         ),
+        const SizedBox(height: 24.0),
         ...children,
       ],
     );
