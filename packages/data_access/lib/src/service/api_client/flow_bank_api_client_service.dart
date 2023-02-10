@@ -1,15 +1,13 @@
-import 'dart:convert';
-
 import 'package:configs/configs.dart';
 import 'package:data_access/src/model/account_application.dart';
 import 'package:data_access/src/model/account_application_feedback.dart';
-import 'package:data_access/src/model/encrypted_data.dart';
 import 'package:data_access/src/model/failure/remore_api_failure.dart';
-import 'package:data_access/src/service/encryption/encryption_service.dart';
+import 'package:data_access/src/service/api_client/background_decryption.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 
 import '../http_client/http_client.dart';
+import 'background_encryption.dart';
 import 'background_json_parser.dart';
 
 @immutable
@@ -26,9 +24,7 @@ final _apiClientServiceProvider = Provider((ref) {
   );
 });
 
-class FlowBankApiClientService
-    with EncryptionService
-    implements FlowBankApiClientServiceProtocol {
+class FlowBankApiClientService implements FlowBankApiClientServiceProtocol {
   FlowBankApiClientService(
     Environment environment, {
     HttpClientProtocol? client,
@@ -45,20 +41,25 @@ class FlowBankApiClientService
   Future<AccountApplicationFeedback> createAccount(
     AccountApplication accountApplication,
   ) async {
+    final cryptoConfig = Environment.current.encryptionConfig;
     try {
+      final encryptedData = await BackgroundEncryption(
+        accountApplication,
+        cryptoConfig,
+      ).encryptInBackground();
+
       final response = await httpClient.post(
         baseUrl,
         'account',
-        body: EncryptedData(
-          payload: encrypt(accountApplication),
-        ),
+        body: encryptedData,
       );
 
       if (response.statusCode == 200) {
-        final encryptedJson = jsonDecode(response.body);
-        final encryptedData = EncryptedData.fromJson(encryptedJson);
+        final decryptedData = await BackgroundDecryption<String>(
+          response.body,
+          cryptoConfig,
+        ).decryptInBackground();
 
-        final decryptedData = decrypt(encryptedData);
         final payloadParser = BackgroundJsonParser(
           decryptedData,
           AccountApplicationFeedback.fromJson,
