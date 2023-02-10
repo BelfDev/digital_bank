@@ -14,12 +14,12 @@ class ApplicationFormPageController extends StatelessWidget {
     return Consumer(
       builder: (context, ref, _) {
         final stateManager = ApplicationFormStateManager.provider;
-        final state = ref.watch(stateManager);
-
         ref.listen(
           stateManager,
           (previous, next) => _onNewState(context, previous, next),
         );
+
+        final state = ref.watch(stateManager);
 
         return ApplicationFormPage(
           state: state,
@@ -29,11 +29,11 @@ class ApplicationFormPageController extends StatelessWidget {
     );
   }
 
-  void _onNewState(
+  Future<void> _onNewState(
     BuildContext context,
     ApplicationFormPageState? previous,
     ApplicationFormPageState next,
-  ) {
+  ) async {
     if (!next.isLoading) {
       LoadingOverlay.dismiss(context);
     } else if (next.isLoading) {
