@@ -39,7 +39,7 @@ class DSTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const topPadding = 2.0;
+    const topPadding = 4.0;
     return Container(
       margin: margin,
       padding: EdgeInsets.only(top: topPadding),
