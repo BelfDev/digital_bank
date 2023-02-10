@@ -46,14 +46,6 @@ class ApplicationFormStateManager
       errorFeedback: '',
     );
 
-    if (isValid == true) {
-      print('First Name: ${state.formData.firstName}');
-      print('Last Name: ${state.formData.lastName}');
-      print('Date of Birth: ${state.formData.birthDate}');
-      print('Gender: ${state.formData.gender}');
-      print('Dependents: ${state.formData.dependents}');
-    }
-
     final outcome = await _accountRepository.createAccount(
       state.formData.toAccountApplication(),
     );
