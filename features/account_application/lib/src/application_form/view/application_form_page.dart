@@ -117,7 +117,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
               text: 'add dependent',
               onPressed: () {
                 spawnDependentTextInput();
-                scrollToMaxExtentIfNeeded();
+                _scrollController.scrollToMaxExtentIfNeeded();
               },
             ),
             const SizedBox(height: 120.0),
@@ -132,12 +132,14 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       ),
     );
   }
+}
 
+extension _ScrollExtension on ScrollController {
   void scrollToMaxExtentIfNeeded() {
-    if (_scrollController.position.maxScrollExtent > 0) {
+    if (position.maxScrollExtent > 0) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent + 48.0,
+        animateTo(
+          position.maxScrollExtent + 48.0,
           duration: const Duration(milliseconds: 240),
           curve: Curves.easeOut,
         );

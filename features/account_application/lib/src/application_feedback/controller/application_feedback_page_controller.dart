@@ -16,7 +16,6 @@ class ApplicationFeedbackPageController extends StatelessWidget {
     );
   }
 
-  // TODO(BelfDev): Move to delegate
   Future<void> _copyApplicationCodeToClipboard(
     BuildContext context,
     String code,
