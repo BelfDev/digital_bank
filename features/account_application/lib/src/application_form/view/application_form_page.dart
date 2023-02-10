@@ -1,6 +1,5 @@
 import 'package:account_application/src/application_form/model/gender_option.dart';
 import 'package:account_application/src/application_form/state_management/application_form_page_state.dart';
-import 'package:camera/camera.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 
@@ -45,43 +44,43 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       controller: _scrollController,
       appBar: AppBar(
         leading: DSBackButton(),
-        title: Text('New Application'),
+        title: Text(_Strings.appBarTitle),
       ),
       bodyChildren: [
         DSFormSection(
-          title: 'Basic Information',
+          title: _Strings.basicInfoSectionTitle,
           children: [
             const SizedBox(height: 24.0),
             DSPhotoInput(
-              hint: 'Your picture\n(liveliness check)',
+              hint: _Strings.photoInputHint,
               onImageCaptured: (filePath) {
                 state.formData.photoPath = filePath;
               },
             ),
             const SizedBox(height: 24.0),
             DSTextInput(
-              hintText: 'First name',
+              hintText: _Strings.firstNameInputHint,
               validator: state.formData.validator.validateNameInput,
               onChanged: (newValue) {
                 state.formData.firstName = newValue;
               },
             ),
             DSTextInput(
-              hintText: 'Last name',
+              hintText: _Strings.lastNameInputHint,
               validator: state.formData.validator.validateNameInput,
               onChanged: (newValue) {
                 state.formData.lastName = newValue;
               },
             ),
             DSDatePickerInput(
-              hintText: 'Date of birth',
+              hintText: _Strings.birthDateInputHint,
               validator: state.formData.validator.validateBirthDateInput,
               onDateSelected: (selectedDate) {
                 state.formData.birthDate = selectedDate;
               },
             ),
             DSDropdownInput(
-              hintText: 'Gender',
+              hintText: _Strings.genderInputHint,
               items: GenderOption.values,
               validator: state.formData.validator.validateGenderInput,
               onChanged: (newValue) {
@@ -91,7 +90,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
           ],
         ),
         DSFormSection(
-          title: 'Dependents information',
+          title: _Strings.dependentsSectionTitle,
           children: [
             AnimatedList(
               key: listKey,
@@ -109,7 +108,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
             ),
             const SizedBox(height: 24.0),
             DSOutlinedButton(
-              text: 'add dependent',
+              text: _Strings.addDependentButton,
               onPressed: () {
                 spawnDependentTextInput();
                 _scrollController.scrollToMaxExtentIfNeeded();
@@ -123,7 +122,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
         enabled: !state.isLoading,
         width: double.infinity,
         onPressed: widget.onSubmit,
-        text: 'submit application',
+        text: _Strings.submitApplicationButton,
       ),
     );
   }
@@ -141,4 +140,17 @@ extension _ScrollExtension on ScrollController {
       });
     }
   }
+}
+
+class _Strings {
+  static const appBarTitle = 'New Application';
+  static const basicInfoSectionTitle = 'Basic Information';
+  static const photoInputHint = 'Your picture\n(liveliness check)';
+  static const firstNameInputHint = 'First Name';
+  static const lastNameInputHint = 'Last Name';
+  static const birthDateInputHint = 'Date of Birth';
+  static const genderInputHint = 'Gender';
+  static const dependentsSectionTitle = 'Dependents Information';
+  static const addDependentButton = 'add dependent';
+  static const submitApplicationButton = 'submit application';
 }
