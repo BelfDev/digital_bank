@@ -4,16 +4,21 @@ import 'dart:typed_data';
 import 'package:configs/configs.dart';
 import 'package:convert/convert.dart';
 import 'package:data_access/src/model/encrypted_data.dart';
+import 'package:meta/meta.dart';
 import 'package:pointycastle/export.dart' as pc;
 
 enum CypherOperation { encrypt, decrypt }
 
 mixin EncryptionService {
-  String encrypt(Object? object) {
+  @protected
+  Future<String> encrypt(
+    Object? object,
+    EncryptionConfig cryptoConfig,
+  ) async {
     final encodedJsonPayload = jsonEncode(object);
     final cypher = _createCypher(
       operation: CypherOperation.encrypt,
-      encryptionConfig: Environment.current.encryptionConfig,
+      encryptionConfig: cryptoConfig,
     );
 
     final data = Uint8List.fromList(utf8.encode(encodedJsonPayload));
@@ -22,10 +27,14 @@ mixin EncryptionService {
     return base64Encode(encryptedData);
   }
 
-  String decrypt(EncryptedData encryptedData) {
+  @protected
+  Future<String> decrypt(
+    EncryptedData encryptedData,
+    EncryptionConfig cryptoConfig,
+  ) async {
     final cypher = _createCypher(
       operation: CypherOperation.decrypt,
-      encryptionConfig: Environment.current.encryptionConfig,
+      encryptionConfig: cryptoConfig,
     );
 
     final data = Uint8List.fromList(base64Decode(encryptedData.payload));
