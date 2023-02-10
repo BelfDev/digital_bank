@@ -11,11 +11,14 @@ class CameraPage extends StatelessWidget {
     super.key,
     required this.pathBuilder,
     required this.onMediaTap,
+    required this.onMediaCapture,
   });
 
   final FilePathBuilder pathBuilder;
 
   final OnMediaTap onMediaTap;
+
+  final void Function(String filePath) onMediaCapture;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +43,13 @@ class CameraPage extends StatelessWidget {
           PreviewSize previewSize,
           Rect previewRect,
         ) {
+          state.captureState$.listen((event) {
+            if (event?.status == MediaCaptureStatus.success &&
+                event?.filePath != null) {
+              onMediaCapture.call(event!.filePath);
+            }
+          });
+
           return CameraLayout(
             state: state,
             onMediaTap: onMediaTap,

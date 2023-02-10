@@ -23,6 +23,7 @@ class DSTheme {
             textSelectionTheme: const TextSelectionThemeData(
               cursorColor: DSColors.turquoise, //thereby
             ),
+            dialogBackgroundColor: DSColors.white,
             colorScheme: _baseTheme.colorScheme.copyWith(
               primary: DSColors.darkBlue,
               onPrimary: DSColors.smoothWhite,

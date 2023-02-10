@@ -16,6 +16,9 @@ class CameraPageController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CameraPage(
+      onMediaCapture: (filePath) {
+        print(filePath);
+      },
       pathBuilder: () => pathUseCase.resolvePhotoPath(CaptureMode.photo),
       onMediaTap: (MediaCapture mediaCapture) {
         Navigator.push(
