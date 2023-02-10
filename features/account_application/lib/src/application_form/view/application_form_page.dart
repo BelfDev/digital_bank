@@ -81,8 +81,9 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
             // TODO(BelfDev): Fix date input
             DSDatePickerInput(
               hintText: 'Date of birth',
-              onDateSaved: (newValue) {
-                state.formData.birthDate = newValue;
+              validator: state.formData.validator.validateBirthDateInput,
+              onDateSelected: (selectedDate) {
+                state.formData.birthDate = selectedDate;
               },
             ),
             DSDropdownInput(

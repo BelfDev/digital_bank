@@ -12,6 +12,13 @@ class FormValidatorUserCase {
     return null;
   }
 
+  String? validateBirthDateInput(String? value) {
+    if (value?.isEmpty ?? true) {
+      return 'value cannot be empty';
+    }
+    return null;
+  }
+
   String? validateGenderInput(GenderOption? value) {
     if (value == null) {
       return 'value cannot be empty';

@@ -12,6 +12,9 @@ class DSTextInput extends StatelessWidget {
     this.initialValue,
     this.onChanged,
     this.textInputAction,
+    this.onTap,
+    this.controller,
+    this.readOnly = false,
   });
 
   final String hintText;
@@ -19,6 +22,8 @@ class DSTextInput extends StatelessWidget {
   final FormFieldValidator<String>? validator;
 
   final VoidCallback? onRemove;
+
+  final VoidCallback? onTap;
 
   final EdgeInsetsGeometry? margin;
 
@@ -28,15 +33,22 @@ class DSTextInput extends StatelessWidget {
 
   final TextInputAction? textInputAction;
 
+  final TextEditingController? controller;
+
+  final bool readOnly;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
       height: DSTheme.inputFieldHeight,
       child: TextFormField(
+        controller: controller,
         validator: validator,
         initialValue: initialValue,
         onChanged: onChanged,
+        readOnly: readOnly,
+        onTap: onTap,
         textAlignVertical: TextAlignVertical.center,
         autocorrect: false,
         keyboardType: TextInputType.text,

@@ -24,6 +24,9 @@ class DSTheme {
               cursorColor: DSColors.turquoise, //thereby
             ),
             colorScheme: _baseTheme.colorScheme.copyWith(
+              primary: DSColors.darkBlue,
+              onPrimary: DSColors.smoothWhite,
+              onSurface: DSColors.smoothBlack,
               secondary: DSColors.gray,
               secondaryContainer: DSColors.white,
               onSecondaryContainer: DSColors.lightGrey,
@@ -66,13 +69,11 @@ class DSTheme {
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
-                foregroundColor: DSColors.persianGreen,
+                foregroundColor: DSColors.darkBlue,
+                textStyle: DSTypography.regular15,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 8.0,
                   vertical: 2.0,
-                ),
-                textStyle: DSTypography.regular14.copyWith(
-                  color: DSColors.gray,
                 ),
                 minimumSize: const Size(56.0, 24.0),
               ),
@@ -108,7 +109,7 @@ class DSTheme {
               ),
               errorStyle: DSTypography.regular12.copyWith(
                 color: DSColors.pink,
-                height: 0.7,
+                height: 0.5,
               ),
               fillColor: DSColors.white,
               filled: true,
@@ -177,7 +178,12 @@ class DSTheme {
             textSelectionTheme: const TextSelectionThemeData(
               cursorColor: DSColors.turquoise, //thereby
             ),
+            dialogBackgroundColor: DSColors.smoothBlueBlack,
             colorScheme: _baseTheme.colorScheme.copyWith(
+              primary: DSColors.darkBlue,
+              onPrimary: DSColors.smoothWhite,
+              surface: DSColors.darkBlue,
+              onSurface: DSColors.smoothWhite,
               secondary: DSColors.titaniumGray,
               secondaryContainer: DSColors.smoothBlueBlack,
               onSecondaryContainer: DSColors.gray,
@@ -220,13 +226,11 @@ class DSTheme {
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
-                foregroundColor: DSColors.turquoise,
+                foregroundColor: DSColors.blue,
+                textStyle: DSTypography.regular15,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 8.0,
                   vertical: 2.0,
-                ),
-                textStyle: DSTypography.regular14.copyWith(
-                  color: DSColors.gray,
                 ),
                 minimumSize: const Size(56.0, 24.0),
               ),
@@ -331,6 +335,7 @@ class DSTheme {
   );
 
   static final ThemeData _baseTheme = ThemeData(
+    useMaterial3: true,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     fontFamily: DSTypography.primaryFontFamily,
     textTheme: _baseTextTheme,
@@ -341,10 +346,10 @@ class DSTheme {
         ),
         textStyle: DSTypography.regular20.copyWith(
           height: 1.2,
-          color: DSColors.smoothWhite,
         ),
         minimumSize: const Size(128.0, 64.0),
         backgroundColor: Colors.transparent,
+        foregroundColor: DSColors.smoothWhite,
         shadowColor: Colors.transparent,
         disabledBackgroundColor: DSColors.gray,
       ),
