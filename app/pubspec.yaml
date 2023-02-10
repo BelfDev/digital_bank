@@ -13,16 +13,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # State management
-  flutter_riverpod: ^2.1.3
   # Internal packages
   configs:
   data_access:
   ds_components:
-
   # Features
   welcome:
   account_application:
+  # State management
+  flutter_riverpod: ^2.1.3
 
 dev_dependencies:
   flutter_test:

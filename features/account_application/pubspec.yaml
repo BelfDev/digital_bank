@@ -16,8 +16,6 @@ dependencies:
   # Internal packages
   data_access:
   ds_components:
-  camera:
-
   # Value equality
   equatable: ^2.0.5
   # State management

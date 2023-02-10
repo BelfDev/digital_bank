@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Internal packages
+  camera:
   # Keyboard utilities
   flutter_keyboard_visibility: ^5.4.0
   # Formatting
