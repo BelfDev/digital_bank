@@ -39,9 +39,11 @@ class DSTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const topPadding = 2.0;
     return Container(
       margin: margin,
-      height: DSTheme.inputFieldHeight,
+      padding: EdgeInsets.only(top: topPadding),
+      height: DSTheme.inputFieldHeight - topPadding,
       child: TextFormField(
         controller: controller,
         validator: validator,

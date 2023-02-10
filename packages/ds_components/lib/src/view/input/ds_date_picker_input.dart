@@ -34,7 +34,6 @@ class _DSDatePickerInputState extends State<DSDatePickerInput> {
 
   @override
   Widget build(BuildContext context) {
-    final baseDate = DateTime.now();
     return Container(
       height: DSTheme.inputFieldHeight,
       margin: widget.margin,
@@ -43,38 +42,41 @@ class _DSDatePickerInputState extends State<DSDatePickerInput> {
         hintText: widget.hintText,
         validator: widget.validator,
         readOnly: true,
-        onTap: () async {
-          final pickedDate = await showDatePicker(
-            context: context,
-            initialEntryMode: DatePickerEntryMode.calendarOnly,
-            initialDatePickerMode: DatePickerMode.year,
-            initialDate: DateTime(
-              baseDate.year - 18,
-              baseDate.month,
-              baseDate.day,
-            ),
-            firstDate: DateTime(
-              baseDate.year - 100,
-              baseDate.month,
-              baseDate.day,
-            ),
-            lastDate: DateTime(
-              baseDate.year - 10,
-              baseDate.month,
-              baseDate.day,
-            ),
-          );
-
-          if (pickedDate != null) {
-            final formattedDate = DateFormat.yMd().format(pickedDate);
-            setState(() {
-              _controller.text = formattedDate;
-            });
-
-            widget.onDateSelected?.call(pickedDate);
-          }
-        },
+        onTap: _pickDate,
       ),
     );
+  }
+
+  Future<void> _pickDate() async {
+    final baseDate = DateTime.now();
+    final pickedDate = await showDatePicker(
+      context: context,
+      initialEntryMode: DatePickerEntryMode.calendarOnly,
+      initialDatePickerMode: DatePickerMode.year,
+      initialDate: DateTime(
+        baseDate.year - 18,
+        baseDate.month,
+        baseDate.day,
+      ),
+      firstDate: DateTime(
+        baseDate.year - 100,
+        baseDate.month,
+        baseDate.day,
+      ),
+      lastDate: DateTime(
+        baseDate.year - 10,
+        baseDate.month,
+        baseDate.day,
+      ),
+    );
+
+    if (pickedDate != null) {
+      final formattedDate = DateFormat.yMd().format(pickedDate);
+      setState(() {
+        _controller.text = formattedDate;
+      });
+
+      widget.onDateSelected?.call(pickedDate);
+    }
   }
 }
