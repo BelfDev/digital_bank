@@ -27,11 +27,15 @@ class ApplicationFormStateManager
   static AutoDisposeStateNotifierProvider<ApplicationFormStateManager,
       ApplicationFormPageState> provider = _stateManagerProvider;
 
-  void submitForm() async {
+  Future<void> submitForm() async {
     final isValid = state.formKey.currentState?.validate();
-    if (isValid != true) {
+    if (isValid != true || state.formData.photoBase64Encoded == null) {
       return;
     }
+
+    state = state.copyWith(
+      isLoading: true,
+    );
 
     if (isValid == true) {
       print('First Name: ${state.formData.firstName}');
@@ -40,10 +44,6 @@ class ApplicationFormStateManager
       print('Gender: ${state.formData.gender}');
       print('Dependents: ${state.formData.dependents}');
     }
-
-    state = state.copyWith(
-      isLoading: true,
-    );
 
     final outcome = await _accountRepository.createAccount(
       state.formData.toAccountApplication(),

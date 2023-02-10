@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:account_application/src/application_form/model/gender_option.dart';
 import 'package:data_access/data_access.dart';
 import 'package:equatable/equatable.dart';
@@ -10,7 +13,7 @@ class ApplicationFormData with EquatableMixin {
     required this.validator,
     this.firstName,
     this.lastName,
-    this.photo,
+    this.photoBase64Encoded,
     this.birthDate,
     this.gender,
   });
@@ -18,10 +21,23 @@ class ApplicationFormData with EquatableMixin {
   final FormValidatorUserCase validator;
   String? firstName;
   String? lastName;
-  String? photo;
+  String? photoBase64Encoded;
   DateTime? birthDate;
   GenderOption? gender;
   List<String> dependents;
+
+  String? _photoPath;
+
+  String? get photoPath => _photoPath;
+
+  set photoPath(String? filePath) {
+    _photoPath = filePath;
+    if (filePath != null) {
+      File(filePath).readAsBytes().then((value) {
+        photoBase64Encoded = base64Encode(value);
+      });
+    }
+  }
 
   @override
   List<Object?> get props => [
@@ -29,7 +45,8 @@ class ApplicationFormData with EquatableMixin {
         validator,
         firstName,
         lastName,
-        photo,
+        photoPath,
+        photoBase64Encoded,
         birthDate,
         gender,
       ];
@@ -42,7 +59,7 @@ extension AccountApplicationAdapter on ApplicationFormData {
       lastName: lastName!.trim(),
       birthDate: birthDate!.toUtc().toIso8601String(),
       gender: gender!.name,
-      photo: photo!.trim(),
+      photo: photoBase64Encoded!,
       dependents: dependents,
     );
   }
@@ -61,7 +78,7 @@ extension ApplicationFormDataStubs on ApplicationFormData {
       lastName: 'Doe',
       birthDate: DateTime.now().toUtc(),
       gender: GenderOption.other,
-      photo: '<Base64 encoded photo taken in the page>',
+      photoBase64Encoded: '<Base64 encoded photo taken in the page>',
     );
   }
 }
