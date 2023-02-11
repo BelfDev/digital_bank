@@ -35,15 +35,14 @@ class ApplicationFormStateManager
 
     if (state.formData.photoBase64Encoded == null) {
       state = state.copyWith(
-        errorFeedback:
-            'Please make sure to take a picture for the liveliness check.',
+        errorFeedback: ErrorFeedbackType.missingPhotoInput,
       );
       return;
     }
 
     state = state.copyWith(
       isLoading: true,
-      errorFeedback: '',
+      errorFeedback: ErrorFeedbackType.none,
     );
 
     final outcome = await _accountRepository.createAccount(
@@ -54,14 +53,14 @@ class ApplicationFormStateManager
       (error) {
         state = state.copyWith(
           isLoading: false,
-          errorFeedback: error.toString(),
+          errorFeedback: error.errorFeedbackType,
         );
       },
       (data) {
         state = state.copyWith(
           isLoading: false,
           accountNumber: data.accountNumber,
-          errorFeedback: '',
+          errorFeedback: ErrorFeedbackType.none,
         );
       },
     );

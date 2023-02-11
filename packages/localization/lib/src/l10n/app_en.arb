@@ -84,6 +84,26 @@
     "description": "Submit application floating button",
     "context": "ApplicationFormPage"
   },
+  "applicationFormGenericApiErrorFeedback": "Oops! Something went wrong. Please try again later.",
+  "@applicationFormGenericApiErrorFeedback": {
+    "description": "Generic error feedback when an unexpected error occurs.",
+    "context": "ApplicationFormPageController"
+  },
+  "applicationFormServerApiErrorFeedback": "Something went wrong on our side. Please try again later.",
+  "@applicationFormServerApiErrorFeedback": {
+    "description": "Error feedback when a sever error occurs.",
+    "context": "ApplicationFormPageController"
+  },
+  "applicationFormClientApiErrorFeedback": "Please review your input and try again.",
+  "@applicationFormClientApiErrorFeedback": {
+    "description": "Error feedback when a client error occurs.",
+    "context": "ApplicationFormPageController"
+  },
+  "applicationFormMissingPhotoInputFeedback": "Please take a picture for the liveliness check.",
+  "@applicationFormMissingPhotoInputFeedback": {
+    "description": "Error feedback when users forget to capture a photo for the liveliness check.",
+    "context": "ApplicationFormPageController"
+  },
   "validationFeedbackEmptyValue": "value cannot be empty",
   "@validationFeedbackEmptyValue": {
     "description": "Empty value validation feedback, typically displayed under input fields on error state",
