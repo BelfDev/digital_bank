@@ -57,11 +57,3 @@ class _FailureResult<S> extends Outcome<S> {
     return onFailure(_value);
   }
 }
-
-extension DeriveFailureExtension on Object {
-  FailureProtocol deriveFailure(
-    FailureProtocol fallback,
-  ) {
-    return this is FailureProtocol ? this as FailureProtocol : fallback;
-  }
-}

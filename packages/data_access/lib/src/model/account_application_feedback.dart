@@ -14,3 +14,11 @@ class AccountApplicationFeedback {
     );
   }
 }
+
+extension AccountApplicationFeedbackStubs on AccountApplicationFeedback {
+  static AccountApplicationFeedback get defaultStub {
+    return AccountApplicationFeedback(
+      accountNumber: '7544939'
+    );
+  }
+}

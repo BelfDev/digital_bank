@@ -5,6 +5,7 @@ import 'package:data_access/src/service/api_client/flow_bank_api_client_service.
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 
+import '../model/failure/failure_protocol.dart';
 import '../model/outcome.dart';
 
 @immutable
@@ -22,9 +23,10 @@ final _accountRepositoryProvider = Provider((ref) {
 class AccountRepository implements AccountRepositoryProtocol {
   const AccountRepository(this.remoteDataSource);
 
-  final FlowBankApiClientService remoteDataSource;
+  final FlowBankApiClientServiceProtocol remoteDataSource;
 
-  static Provider<AccountRepository> provider = _accountRepositoryProvider;
+  static Provider<AccountRepositoryProtocol> provider =
+      _accountRepositoryProvider;
 
   @override
   Future<Outcome<AccountApplicationFeedback>> createAccount(
@@ -33,10 +35,10 @@ class AccountRepository implements AccountRepositoryProtocol {
     try {
       final result = await remoteDataSource.createAccount(application);
       return Outcome.success(result);
+    } on FailureProtocol catch (e) {
+      return Outcome.failure(e);
     } catch (e) {
-      return Outcome.failure(
-        e.deriveFailure(RemoteApiFailure.generic()),
-      );
+      return Outcome.failure(RemoteApiFailure.generic());
     }
   }
 }

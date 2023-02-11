@@ -1,8 +1,9 @@
 import 'package:data_access/src/model/failure/error_feedback_type.dart';
 import 'package:data_access/src/model/failure/failure_protocol.dart';
+import 'package:equatable/equatable.dart';
 
-class RemoteApiFailure implements FailureProtocol {
-  RemoteApiFailure._(this.feedbackType, this.message);
+class RemoteApiFailure extends FailureProtocol with EquatableMixin {
+  RemoteApiFailure._(super.errorFeedbackType, this.message);
 
   RemoteApiFailure.clientError()
       : this._(
@@ -22,13 +23,14 @@ class RemoteApiFailure implements FailureProtocol {
           'Oops! Something went wrong.',
         );
 
-  final ErrorFeedbackType feedbackType;
-
   final String message;
 
   @override
-  ErrorFeedbackType get errorFeedbackType => feedbackType;
+  String toString() => message;
 
   @override
-  String toString() => message;
+  List<Object?> get props => [
+        super.errorFeedbackType,
+        message,
+      ];
 }
