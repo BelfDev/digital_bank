@@ -52,3 +52,21 @@ scripts:
     run: |
       melos exec -c 1 --fail-fast --file-exists="l10n.yaml" -- \
         "flutter gen-l10n"
+
+  run:ios:
+    description: Run `flutter run ios` on the app.
+    run: |
+      melos exec -c 1 -- \
+        "flutter run -t lib/main.dart ios"
+    select-package:
+      dir-exists:
+        - "ios"
+
+  run:android:
+    description: Run `flutter run android` on the app.
+    run: |
+      melos exec -c 1 -- \
+        "flutter run -t lib/main.dart android"
+    select-package:
+      dir-exists:
+        - "android"
