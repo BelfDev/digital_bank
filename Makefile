@@ -21,6 +21,6 @@ take-off: welcome setup run
 setup: .env
 	./bin/setup_project.sh
 run:
-	@echo 'Please make sure you have configured your .env file in the app/ directory \n'
+	@echo 'Please make sure you have configured your .env file in the app/ directory'
 	@echo 'Running the Flutter App...\n'
 	cd app && flutter run
