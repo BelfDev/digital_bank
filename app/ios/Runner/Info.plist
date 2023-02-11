@@ -52,5 +52,10 @@
     </string>
     <key>NSLocationWhenInUseUsageDescription</key><string>To enable GPS location access for Exif data
     </string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>pt</string>
+    </array>
 </dict>
 </plist>
