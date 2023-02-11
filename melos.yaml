@@ -8,10 +8,10 @@ packages:
 command:
   bootstrap:
     usePubspecOverrides: true
-    hooks:
-      post: melos gen-l10n
 
 scripts:
+  postbootstrap: melos gen-l10n
+
   analyze:
     description: |
       Run `dart analyze` in all packages.
@@ -51,4 +51,4 @@ scripts:
     description: Generate localizations
     run: |
       melos exec -c 1 --fail-fast --file-exists="l10n.yaml" -- \
-        "flutter gen-l10n --suppress-warnings"
+        "flutter gen-l10n"
