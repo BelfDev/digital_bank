@@ -6,11 +6,15 @@ import '../view/application_feedback_page.dart';
 class ApplicationFeedbackPageController extends StatelessWidget {
   const ApplicationFeedbackPageController({
     super.key,
+    required this.accountNumberCode,
   });
+
+  final String accountNumberCode;
 
   @override
   Widget build(BuildContext context) {
     return ApplicationFeedbackPage(
+      accountNumberCode: accountNumberCode,
       onClosePressed: () {
         Navigator.popUntil(context, (Route<dynamic> route) => route.isFirst);
       },

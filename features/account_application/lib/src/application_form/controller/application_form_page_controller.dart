@@ -49,7 +49,7 @@ class ApplicationFormPageController extends StatelessWidget {
     }
 
     if (next.accountNumber != null) {
-      context.go('/account-application/feedback');
+      context.go('/account-application/feedback/${next.accountNumber}');
     }
   }
 }

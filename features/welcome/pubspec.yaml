@@ -15,7 +15,6 @@ dependencies:
 
   # Internal packages
   ds_components: any
-  # Localizations
   localization: any
   # Navigation
   go_router: ^6.0.6

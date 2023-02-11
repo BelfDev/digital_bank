@@ -13,5 +13,20 @@
   "@welcomeFloatingButton": {
     "description": "Start application floating action button",
     "context": "WelcomePage"
+  },
+  "applicationFeedbackIntro": "Your application number is...",
+  "@applicationFeedbackIntro": {
+    "description": "A small text pointing out the application number",
+    "context": "ApplicationFeedbackPage"
+  },
+  "applicationFeedbackNextStepDisclaimer": "You can use this number to check the application status in our website.",
+  "@applicationFeedbackNextStepDisclaimer": {
+    "description": "A disclaimer explaining what users can do with the application number",
+    "context": "ApplicationFeedbackPage"
+  },
+  "applicationFeedbackFloatingButton": "close",
+  "@applicationFeedbackFloatingButton": {
+    "description": "Close feedback page floating button",
+    "context": "ApplicationFeedbackPage"
   }
 }

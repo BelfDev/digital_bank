@@ -1,19 +1,23 @@
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:localization/localization.dart';
 
 class ApplicationFeedbackPage extends StatelessWidget {
   const ApplicationFeedbackPage({
     super.key,
+    required this.accountNumberCode,
     this.onClosePressed,
     this.onCopyPressed,
   });
 
   final VoidCallback? onClosePressed;
   final void Function(String)? onCopyPressed;
+  final String accountNumberCode;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = L10n.of(context);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final styles = Theme.of(context).textTheme;
 
@@ -37,17 +41,17 @@ class ApplicationFeedbackPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            _Strings.applicationNumberIntro,
+            l10n.applicationFeedbackIntro,
             style: styles.displayMedium,
           ),
           const SizedBox(height: 16.0),
           DSCodeContainer(
-            code: '289',
+            code: accountNumberCode,
             onCopyPressed: onCopyPressed,
           ),
           const SizedBox(height: 16.0),
           Text(
-            _Strings.nextStepDisclaimer,
+            l10n.applicationFeedbackNextStepDisclaimer,
             style: styles.displaySmall,
           ),
           const SizedBox(height: 64.0),
@@ -55,16 +59,9 @@ class ApplicationFeedbackPage extends StatelessWidget {
       ),
       floatingButton: DSElevatedButton(
         width: double.infinity,
-        text: _Strings.floatingButtonText,
+        text: l10n.applicationFeedbackFloatingButton,
         onPressed: onClosePressed,
       ),
     );
   }
-}
-
-class _Strings {
-  static const applicationNumberIntro = 'Your application number is...';
-  static const nextStepDisclaimer =
-      'You can use this number to check the application status in our website.';
-  static const floatingButtonText = 'close';
 }

@@ -1,17 +1,8 @@
 {
-  "appTitle": "Digital Bank",
-  "@appTitle": {
-    "description": "Application title",
-    "context": "AppRoot"
-  },
+  "appTitle": "Banco Digital",
   "welcomeSlogan": "Sua Grana,\nSeu Jeito,\nDigital.",
-  "@welcomeAppBarTitle": {
-    "description": "Welcome slogan title",
-    "context": "WelcomePage"
-  },
   "welcomeFloatingButton": "iniciar aplicação",
-  "@welcomeFloatingButton": {
-    "description": "Start application floating action button",
-    "context": "WelcomePage"
-  }
+  "applicationFeedbackIntro": "O número da sua aplicação é...",
+  "applicationFeedbackNextStepDisclaimer": "Você pode usar este número para verificar o status da sua aplicação no nosso site.",
+  "applicationFeedbackFloatingButton": "fechar"
 }
