@@ -14,12 +14,12 @@ dependencies:
     sdk: flutter
 
   # Internal packages
-  configs:
-  data_access:
-  ds_components:
+  configs: any
+  localization: any
+  ds_components: any
   # Features
-  welcome:
-  account_application:
+  welcome: any
+  account_application: any
   # State management
   flutter_riverpod: ^2.1.3
   # Navigation

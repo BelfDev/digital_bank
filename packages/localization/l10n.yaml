@@ -1,0 +1,5 @@
+# FYI: Generated localization go into <project_dir>.dart_tools/flutter_gen/genl10n
+# Localizations are generated together with melos bootstrap
+arb-dir: lib/src/l10n
+template-arb-file: app_en.arb
+output-localization-file: flow_bank_localizations.dart

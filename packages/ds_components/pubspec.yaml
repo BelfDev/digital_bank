@@ -13,11 +13,11 @@ dependencies:
     sdk: flutter
 
   # Internal packages
-  camera:
+  camera: any
   # Keyboard utilities
   flutter_keyboard_visibility: ^5.4.0
   # Formatting
-  intl: ^0.18.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
