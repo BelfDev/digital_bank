@@ -1,5 +1,6 @@
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({
@@ -11,8 +12,9 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = L10n.of(context);
     final styles = Theme.of(context).textTheme;
-    final sloganParts = _Strings.slogan.split('\n');
+    final sloganParts = l10n.welcomeSlogan.split('\n');
 
     return DSArtworkScaffold(
       padding: DSTheme.defaultPageMargin,
@@ -39,13 +41,8 @@ class WelcomePage extends StatelessWidget {
       floatingButton: DSElevatedButton(
         width: double.infinity,
         onPressed: onFloatingButtonPressed,
-        text: _Strings.startApplication,
+        text: l10n.welcomeFloatingButton,
       ),
     );
   }
-}
-
-class _Strings {
-  static const startApplication = 'start application';
-  static const slogan = 'Your Money,\nYour Way,\nDigital.';
 }

@@ -3,5 +3,15 @@
   "@appTitle": {
     "description": "Application title",
     "context": "AppRoot"
+  },
+  "welcomeSlogan": "Your Money,\nYour Way,\nDigital.",
+  "@welcomeAppBarTitle": {
+    "description": "Welcome slogan title",
+    "context": "WelcomePage"
+  },
+  "welcomeFloatingButton": "start application",
+  "@welcomeFloatingButton": {
+    "description": "Start application floating action button",
+    "context": "WelcomePage"
   }
 }
