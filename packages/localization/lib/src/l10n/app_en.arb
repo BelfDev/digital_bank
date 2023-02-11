@@ -84,6 +84,11 @@
     "description": "Empty value validation feedback, typically displayed under input fields on error state",
     "context": "DSTextInput"
   },
+  "validationFeedbackInputLength": "use less than 200 characters",
+  "@validationFeedbackInputLength": {
+    "description": "Input length limit validation feedback, typically displayed under input fields on error state",
+    "context": "DSTextInput"
+  },
   "validationFeedbackInvalidDate": "invalid date",
   "@validationFeedbackInvalidDate": {
     "description": "Invalid date feedback, typically displayed under input fields on error state",

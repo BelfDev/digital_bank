@@ -10,6 +10,8 @@ class FormValidatorUserCase {
   String? validateNameInput(BuildContext context, String? value) {
     if (value?.isEmpty ?? true) {
       return context.l10n.validationFeedbackEmptyValue;
+    } else if (value!.length > 200) {
+      return context.l10n.validationFeedbackInputLength;
     }
 
     return null;

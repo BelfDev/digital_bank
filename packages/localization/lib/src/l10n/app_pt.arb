@@ -16,5 +16,6 @@
   "applicationFormAddDependentButton": "adicionar dependente",
   "applicationFormSubmitApplicationFloatingButton": "submeter aplicação",
   "validationFeedbackEmptyValue": "este campo não pode ficar vazio",
+  "validationFeedbackInputLength": "use menos que 200 caracteres",
   "validationFeedbackInvalidDate": "data inválida"
 }
