@@ -4,7 +4,7 @@ import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -14,6 +14,6 @@ void main() {
     ),
   );
 
-  Environment.production.init();
+  await Environment.production.init();
   runApp(const AppRoot());
 }
