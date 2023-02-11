@@ -2,6 +2,7 @@ import 'package:account_application/src/application_form/model/gender_option.dar
 import 'package:account_application/src/application_form/state_management/application_form_page_state.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 import 'dependents_dynamic_list_mixin.dart';
 
@@ -37,50 +38,52 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = L10n.of(context);
     final state = widget.state;
+
     return DSFormScaffold(
       formKey: state.formKey,
       padding: DSTheme.defaultPageMargin,
       controller: _scrollController,
       appBar: DSAppBar.title(
-        _Strings.appBarTitle,
+        l10n.applicationFormAppBarTitle,
         leading: DSBackButton(),
       ),
       bodyChildren: [
         const SizedBox(height: 32.0),
         DSFormSection(
-          title: _Strings.basicInfoSectionTitle,
+          title: l10n.applicationFormBasicInfoSection,
           children: [
             DSPhotoInput(
-              hint: _Strings.photoInputHint,
+              hint: l10n.applicationFormPhotoInputHint,
               onImageCaptured: (filePath) {
                 state.formData.photoPath = filePath;
               },
             ),
             const SizedBox(height: 24.0),
             DSTextInput(
-              hintText: _Strings.firstNameInputHint,
+              hintText: l10n.applicationFormFirstNameInputHint,
               validator: state.formData.validator.validateNameInput,
               onChanged: (newValue) {
                 state.formData.firstName = newValue;
               },
             ),
             DSTextInput(
-              hintText: _Strings.lastNameInputHint,
+              hintText: l10n.applicationFormLastNameInputHint,
               validator: state.formData.validator.validateNameInput,
               onChanged: (newValue) {
                 state.formData.lastName = newValue;
               },
             ),
             DSDatePickerInput(
-              hintText: _Strings.birthDateInputHint,
+              hintText: l10n.applicationFormBirthDateInputHint,
               validator: state.formData.validator.validateBirthDateInput,
               onDateSelected: (selectedDate) {
                 state.formData.birthDate = selectedDate;
               },
             ),
             DSDropdownInput(
-              hintText: _Strings.genderInputHint,
+              hintText: l10n.applicationFormGenderInputHint,
               items: GenderOption.values,
               validator: state.formData.validator.validateGenderInput,
               onChanged: (newValue) {
@@ -91,7 +94,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
         ),
         const SizedBox(height: 8.0),
         DSFormSection(
-          title: _Strings.dependentsSectionTitle,
+          title: l10n.applicationFormDependentsInfoSection,
           children: [
             AnimatedList(
               key: listKey,
@@ -108,7 +111,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
               },
             ),
             DSOutlinedButton(
-              text: _Strings.addDependentButton,
+              text: l10n.applicationFormAddDependentButton,
               onPressed: () {
                 spawnDependentTextInput();
                 _scrollController.scrollToMaxExtentIfNeeded();
@@ -122,7 +125,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
         enabled: !state.isLoading,
         width: double.infinity,
         onPressed: widget.onSubmit,
-        text: _Strings.submitApplicationButton,
+        text: l10n.applicationFormSubmitApplicationFloatingButton,
       ),
     );
   }
@@ -140,17 +143,4 @@ extension _ScrollExtension on ScrollController {
       });
     }
   }
-}
-
-class _Strings {
-  static const appBarTitle = 'New Application';
-  static const basicInfoSectionTitle = 'Basic Information';
-  static const photoInputHint = 'Your picture\n(liveliness check)';
-  static const firstNameInputHint = 'First Name';
-  static const lastNameInputHint = 'Last Name';
-  static const birthDateInputHint = 'Date of Birth';
-  static const genderInputHint = 'Gender';
-  static const dependentsSectionTitle = 'Dependents Information';
-  static const addDependentButton = 'add dependent';
-  static const submitApplicationButton = 'submit application';
 }

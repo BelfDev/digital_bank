@@ -28,5 +28,55 @@
   "@applicationFeedbackFloatingButton": {
     "description": "Close feedback page floating button",
     "context": "ApplicationFeedbackPage"
+  },
+  "applicationFormAppBarTitle": "New Application",
+  "@applicationFormAppBarTitle": {
+    "description": "App bar title",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormBasicInfoSection": "Basic Information",
+  "@applicationFormBasicInfoSection": {
+    "description": "Basic information form section title",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormPhotoInputHint": "Your picture\n(liveliness check)",
+  "@applicationFormPhotoInputHint": {
+    "description": "Placeholder text mentioning the liveliness check",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormFirstNameInputHint": "First Name",
+  "@applicationFormFirstNameInputHint": {
+    "description": "Placeholder text asking asking users to enter their first name",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormLastNameInputHint": "Last Name",
+  "@applicationFormLastNameInputHint": {
+    "description": "Placeholder text asking asking users to enter their first name",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormBirthDateInputHint": "Date of Birth",
+  "@applicationFormBirthDateInputHint": {
+    "description": "Placeholder text asking asking users to select their date of birth",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormGenderInputHint": "Gender",
+  "@applicationFormGenderInputHint": {
+    "description": "Placeholder text asking asking users to select their gender",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormDependentsInfoSection": "Dependents Information",
+  "@applicationFormDependentsInfoSection": {
+    "description": "Dependents information form section title",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormAddDependentButton": "add dependent",
+  "@applicationFormAddDependentButton": {
+    "description": "Add dependent button title",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormSubmitApplicationFloatingButton": "submit application",
+  "@applicationFormSubmitApplicationFloatingButton": {
+    "description": "Submit application floating button",
+    "context": "ApplicationFormPage"
   }
 }

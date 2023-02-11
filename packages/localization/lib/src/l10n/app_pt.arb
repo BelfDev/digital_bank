@@ -4,5 +4,15 @@
   "welcomeFloatingButton": "iniciar aplicação",
   "applicationFeedbackIntro": "O número da sua aplicação é...",
   "applicationFeedbackNextStepDisclaimer": "Você pode usar este número para verificar o status da sua aplicação no nosso site.",
-  "applicationFeedbackFloatingButton": "fechar"
+  "applicationFeedbackFloatingButton": "fechar",
+  "applicationFormAppBarTitle": "Nova Aplicação",
+  "applicationFormBasicInfoSection": "Informações Básicas",
+  "applicationFormPhotoInputHint": "Sua foto\n(liveliness check)",
+  "applicationFormFirstNameInputHint": "Nome",
+  "applicationFormLastNameInputHint": "Sobrenome",
+  "applicationFormBirthDateInputHint": "Data de Nascimento",
+  "applicationFormGenderInputHint": "Gênero",
+  "applicationFormDependentsInfoSection": "Dependentes",
+  "applicationFormAddDependentButton": "adicionar dependente",
+  "applicationFormSubmitApplicationFloatingButton": "submeter aplicação"
 }
