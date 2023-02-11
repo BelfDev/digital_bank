@@ -8,6 +8,8 @@ packages:
 command:
   bootstrap:
     usePubspecOverrides: true
+    hooks:
+      post: melos gen-l10n
 
 scripts:
   analyze:
