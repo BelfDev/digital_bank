@@ -17,5 +17,6 @@
   "applicationFormSubmitApplicationFloatingButton": "submeter aplicação",
   "validationFeedbackEmptyValue": "este campo não pode ficar vazio",
   "validationFeedbackInputLength": "use menos que 200 caracteres",
-  "validationFeedbackInvalidDate": "data inválida"
+  "validationFeedbackInvalidDate": "data inválida",
+  "applicationFeedbackCopiedCode": "número da aplicação copiado"
 }

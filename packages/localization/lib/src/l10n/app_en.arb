@@ -29,6 +29,11 @@
     "description": "Close feedback page floating button",
     "context": "ApplicationFeedbackPage"
   },
+  "applicationFeedbackCopiedCode": "copied account number",
+  "@applicationFeedbackCopiedCode": {
+    "description": "Feedback message displayed when users copy the application number code",
+    "context": "ApplicationFeedbackPageController"
+  },
   "applicationFormAppBarTitle": "New Application",
   "@applicationFormAppBarTitle": {
     "description": "App bar title",
