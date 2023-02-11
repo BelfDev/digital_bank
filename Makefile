@@ -16,7 +16,7 @@ take-off: welcome setup run
 
 .env:
 	@echo 'Creating .env from .env.sample'
-	@cp ./.env.default ./.env
+	@cp ./app/.env.default ./app/.env
 
 setup:
 	.env
