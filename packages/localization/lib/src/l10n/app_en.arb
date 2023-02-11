@@ -119,17 +119,17 @@
     "description": "Invalid date feedback, typically displayed under input fields on error state",
     "context": "DSDatePickerInput"
   },
-  "genderOptionMale": "male",
+  "genderOptionMale": "Male",
   "@genderOptionMale": {
     "description": "The option display name shown in the dropdown menu.",
     "context": "DSDropdownInput"
   },
-  "genderOptionFemale": "female",
+  "genderOptionFemale": "Female",
   "@genderOptionFemale": {
     "description": "The option display name shown in the dropdown menu.",
     "context": "DSDropdownInput"
   },
-  "genderOptionOther": "female",
+  "genderOptionOther": "Other",
   "@genderOptionOther": {
     "description": "The option display name shown in the dropdown menu.",
     "context": "DSDropdownInput"
