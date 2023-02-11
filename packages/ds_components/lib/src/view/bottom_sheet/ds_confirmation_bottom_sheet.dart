@@ -10,6 +10,7 @@ class DSDecisionBottomSheet extends StatelessWidget {
     required this.message,
     required this.onConfirm,
     required this.confirmationText,
+    required this.cancellationText,
     this.onCancel,
     Key? key,
   }) : super(key: key);
@@ -18,6 +19,7 @@ class DSDecisionBottomSheet extends StatelessWidget {
   final String? message;
   final VoidCallback? onConfirm;
   final String confirmationText;
+  final String cancellationText;
   final VoidCallback? onCancel;
 
   /// Push [DecisionBottomSheet] as a modal bottom sheet.
@@ -27,6 +29,7 @@ class DSDecisionBottomSheet extends StatelessWidget {
     required String? message,
     required VoidCallback? onConfirm,
     required String confirmationText,
+    required String cancellationText,
     String? cancelText,
     VoidCallback? onCancel,
   }) async {
@@ -42,6 +45,7 @@ class DSDecisionBottomSheet extends StatelessWidget {
           onConfirm: onConfirm,
           confirmationText: confirmationText,
           onCancel: onCancel,
+          cancellationText: cancellationText,
         );
       },
     );
@@ -60,6 +64,7 @@ class DSDecisionBottomSheet extends StatelessWidget {
       footer: _DecisionBottomSheetFooter(
         onConfirm: onConfirm,
         confirmationText: confirmationText,
+        cancellationText: cancellationText,
         onCancel: () {
           Navigator.of(context).maybePop(false);
         },
@@ -73,11 +78,13 @@ class _DecisionBottomSheetFooter extends StatelessWidget {
     required this.onConfirm,
     required this.onCancel,
     required this.confirmationText,
+    required this.cancellationText,
   });
 
   final VoidCallback? onConfirm;
   final VoidCallback? onCancel;
   final String confirmationText;
+  final String cancellationText;
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +107,7 @@ class _DecisionBottomSheetFooter extends StatelessWidget {
                 backgroundColor: DSColors.transparent,
                 foregroundColor: styles.colorScheme.secondary,
               ),
-              child: Text('cancel'),
+              child: Text(cancellationText),
             ),
           ),
           const SizedBox(width: 16.0),

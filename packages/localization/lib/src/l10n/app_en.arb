@@ -133,5 +133,30 @@
   "@genderOptionOther": {
     "description": "The option display name shown in the dropdown menu.",
     "context": "DSDropdownInput"
+  },
+  "dependentFullNameInputHint": "Dependent Full Name",
+  "@dependentFullNameInputHint": {
+    "description": "Placeholder text asking asking users to enter their dependent full name",
+    "context": "ApplicationFormPage"
+  },
+  "applicationFormDecisionBottomSheetTitle": "Are you sure you want to remove this dependent?",
+  "@applicationFormDecisionBottomSheetTitle": {
+    "description": "A title displayed in the bottom sheet asking users to confirm the removal of a dependent",
+    "context": "DSDecisionBottomSheet"
+  },
+  "applicationFormDecisionBottomSheetMessage": "This action is irreversible.",
+  "@applicationFormDecisionBottomSheetMessage": {
+    "description": "A disclaimer in the bottom sheet warning of the irreversible nature of the action",
+    "context": "DSDecisionBottomSheet"
+  },
+  "decisionBottomSheetRemoveButton": "remove",
+  "@decisionBottomSheetRemoveButton": {
+    "description": "Remove action",
+    "context": "DSDecisionBottomSheet"
+  },
+  "decisionBottomSheetCancelButton": "cancel",
+  "@decisionBottomSheetCancelButton": {
+    "description": "Cancel action",
+    "context": "DSDecisionBottomSheet"
   }
 }

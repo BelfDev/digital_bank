@@ -25,5 +25,10 @@
   "applicationFormMissingPhotoInputFeedback": "Por favor tire uma foto para o livileness check.",
   "genderOptionMale": "Masculino",
   "genderOptionFemale": "Feminino",
-  "genderOptionOther": "Outro"
+  "genderOptionOther": "Outro",
+  "dependentFullNameInputHint": "Nome Completo",
+  "applicationFormDecisionBottomSheetTitle": "Tem certeza que deseja remover este dependente?",
+  "applicationFormDecisionBottomSheetMessage": "Esta ação não pode ser desfeita.",
+  "decisionBottomSheetRemoveButton": "remover",
+  "decisionBottomSheetCancelButton": "cancelar"
 }

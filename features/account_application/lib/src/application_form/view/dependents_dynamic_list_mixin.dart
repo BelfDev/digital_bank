@@ -1,5 +1,6 @@
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
 
 mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
   final List<String> dependents = [];
@@ -16,7 +17,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
       animation: animation,
       child: DSTextInput(
         initialValue: dependent,
-        hintText: 'Dependent Fullname',
+        hintText: context.l10n.dependentFullNameInputHint,
         textInputAction: TextInputAction.done,
         onChanged: (dependentName) {
           dependents[index] = dependentName.trim();
@@ -39,15 +40,17 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
       return;
     }
 
+    final l10n = L10n.of(context);
+
     DSDecisionBottomSheet.present(
       context,
-      headerTitle:
-          '${'Are you sure you want to remove ${dependents[index]}'.trim()}?',
-      message: 'This action is irreversible.',
+      headerTitle: l10n.applicationFormDecisionBottomSheetTitle,
+      message: l10n.applicationFormDecisionBottomSheetMessage,
       onConfirm: () {
         _removeItem(index);
       },
-      confirmationText: 'remove',
+      confirmationText: l10n.decisionBottomSheetRemoveButton,
+      cancellationText: l10n.decisionBottomSheetCancelButton,
     );
   }
 
