@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:welcome/src/view/welcome_page.dart';
 
 class WelcomePageController extends StatelessWidget {
@@ -7,7 +8,7 @@ class WelcomePageController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WelcomePage(
-      onFloatingButtonPressed: () {},
+      onFloatingButtonPressed: () => context.go('/account-application'),
     );
   }
 }

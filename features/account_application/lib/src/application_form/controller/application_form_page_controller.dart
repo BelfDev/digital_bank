@@ -3,6 +3,7 @@ import 'package:account_application/src/application_form/view/application_form_p
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../state_management/application_form_page_state.dart';
 
@@ -45,6 +46,10 @@ class ApplicationFormPageController extends StatelessWidget {
         context,
         errorFeedback: next.errorFeedback!,
       );
+    }
+
+    if (next.accountNumber != null) {
+      context.go('/account-application/feedback');
     }
   }
 }

@@ -13,10 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
-
   # Internal packages
   ds_components:
+  # Navigation
+  go_router: ^6.0.6
 
 dev_dependencies:
   flutter_test:

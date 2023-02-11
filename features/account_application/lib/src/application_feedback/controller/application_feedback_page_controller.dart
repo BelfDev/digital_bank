@@ -11,7 +11,9 @@ class ApplicationFeedbackPageController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ApplicationFeedbackPage(
-      onFloatingButtonPressed: () {},
+      onClosePressed: () {
+        Navigator.popUntil(context, (Route<dynamic> route) => route.isFirst);
+      },
       onCopyPressed: (code) => _copyApplicationCodeToClipboard(context, code),
     );
   }
@@ -28,9 +30,7 @@ class ApplicationFeedbackPageController extends StatelessWidget {
         content: Container(
           alignment: Alignment.center,
           padding: const EdgeInsets.all(8.0),
-          child: Text(
-            _Strings.copyFeedback,
-          ),
+          child: Text(_Strings.copyFeedback),
         ),
       ),
     );

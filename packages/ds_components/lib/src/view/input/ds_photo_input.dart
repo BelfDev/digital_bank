@@ -90,9 +90,10 @@ class _DSPhotoInputState extends State<DSPhotoInput> {
 
   void _handlePhotoCapture() async {
     final filePath = await Navigator.of(context).push<String>(
-      MaterialPageRoute(builder: (context) {
-        return CameraPageController();
-      }),
+      MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (_) => CameraPageController(),
+      ),
     );
 
     if (!mounted) return;

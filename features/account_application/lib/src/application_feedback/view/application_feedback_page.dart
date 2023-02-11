@@ -5,11 +5,11 @@ import 'package:flutter/services.dart';
 class ApplicationFeedbackPage extends StatelessWidget {
   const ApplicationFeedbackPage({
     super.key,
-    this.onFloatingButtonPressed,
+    this.onClosePressed,
     this.onCopyPressed,
   });
 
-  final VoidCallback? onFloatingButtonPressed;
+  final VoidCallback? onClosePressed;
   final void Function(String)? onCopyPressed;
 
   @override
@@ -20,7 +20,9 @@ class ApplicationFeedbackPage extends StatelessWidget {
     return DSArtworkScaffold(
       padding: DSTheme.defaultPageMargin,
       appBar: AppBar(
-        leading: DSCloseButton(),
+        leading: DSCloseButton(
+          onPressed: onClosePressed,
+        ),
         leadingWidth: 64.0,
         backgroundColor: DSColors.transparent,
         elevation: 0.0,
@@ -54,7 +56,7 @@ class ApplicationFeedbackPage extends StatelessWidget {
       floatingButton: DSElevatedButton(
         width: double.infinity,
         text: _Strings.floatingButtonText,
-        onPressed: onFloatingButtonPressed,
+        onPressed: onClosePressed,
       ),
     );
   }
