@@ -38,6 +38,8 @@ class DSCodeContainer extends StatelessWidget {
                 Center(
                   child: Text(
                     code,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: styles.textTheme.headlineLarge?.copyWith(
                       color: styles.colorScheme.onTertiaryContainer,
                     ),
