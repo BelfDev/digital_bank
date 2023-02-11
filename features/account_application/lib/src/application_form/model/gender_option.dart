@@ -1,12 +1,22 @@
 import 'package:ds_components/ds_components.dart';
+import 'package:flutter/widgets.dart';
+import 'package:localization/localization.dart';
 
 enum GenderOption implements DSDropdownOption {
-  male('Male'),
-  female('Female'),
-  other('Other');
-
-  const GenderOption(this.displayName);
+  male,
+  female,
+  other;
 
   @override
-  final String displayName;
+  String translate(BuildContext context) {
+    final l10n = L10n.of(context);
+    switch (this) {
+      case GenderOption.male:
+        return l10n.genderOptionMale;
+      case GenderOption.female:
+        return l10n.genderOptionFemale;
+      case GenderOption.other:
+        return l10n.genderOptionOther;
+    }
+  }
 }

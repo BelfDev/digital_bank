@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../ds_components.dart';
 
 abstract class DSDropdownOption {
-  String get displayName;
+  String translate(BuildContext context);
 }
 
 class DSDropdownInput<T extends DSDropdownOption> extends StatefulWidget {
@@ -41,7 +41,7 @@ class _DSDropdownInputState<T extends DSDropdownOption>
     final effectiveItems = widget.items
         ?.map((e) => DropdownMenuItem<T>(
               value: e,
-              child: Text(e.displayName),
+              child: Text(e.translate(context)),
               alignment: Alignment.center,
             ))
         .toList();

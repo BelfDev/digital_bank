@@ -22,5 +22,8 @@
   "applicationFormGenericApiErrorFeedback": "Oops! Algo deu errado. Por favor, tente novamente mais tarde.",
   "applicationFormServerApiErrorFeedback": "Algo deu errado do nosso lado. Por favor, tente novamente mais tarde.",
   "applicationFormClientApiErrorFeedback": "Por favor reveja os dados inseridos e tente novamente.",
-  "applicationFormMissingPhotoInputFeedback": "Por favor tire uma foto para o livileness check."
+  "applicationFormMissingPhotoInputFeedback": "Por favor tire uma foto para o livileness check.",
+  "genderOptionMale": "Masculino",
+  "genderOptionFemale": "Feminino",
+  "genderOptionOther": "Outro"
 }
