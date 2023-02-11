@@ -1,8 +1,8 @@
 #!/bin/sh
 
-echo "\n==========================="
+echo "\n=============================="
 echo "👋 Welcome to the Setup Script"
-echo "===========================\n"
+echo "==============================\n"
 echo "Before we begin, we need to make sure that Flutter and Dart are installed on your machine.\n"
 
 ## Dependency check
@@ -33,14 +33,14 @@ echo "⭐ All good with Flutter.\n\n"
 echo "🚀 Now we're about to install some helper tooling...\n\n"
 
 echo "Setting up Melos..."
-dart pub global activate melos 1>/dev/null
+flutter pub global activate melos 1>/dev/null
 echo "\n✅ Nice, you can work with a multi-package project\n\n"
 
 
 echo "Installing all dependencies and localizations..."
-dart melos bootstrap 1>/dev/null
-echo "\n✅ Nice, you are ready to run the project!\n\n"
+flutter pub global run melos bootstrap 1>/dev/null
 
-echo "\n======="
-echo "✅ Done"
-echo "=======\n"
+
+echo "\n========================================"
+echo "✅ You are now ready to run the project!"
+echo "========================================\n"
