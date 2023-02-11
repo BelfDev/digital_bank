@@ -8,8 +8,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:digital_bank/main.dart';
-
 // TODO(BelfDev): Add tests
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

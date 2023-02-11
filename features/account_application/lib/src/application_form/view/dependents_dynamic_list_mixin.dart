@@ -9,7 +9,7 @@ mixin DynamicDependentListMixin<T extends StatefulWidget> on State<T> {
     String dependent,
     int index,
     Animation<double> animation,
-    FormFieldValidator<String>? validator,
+    DSFormFieldValidator<String>? validator,
   ) {
     return DSAnimatedListItemContainer(
       key: ValueKey(dependent),

@@ -14,5 +14,7 @@
   "applicationFormGenderInputHint": "Gênero",
   "applicationFormDependentsInfoSection": "Dependentes",
   "applicationFormAddDependentButton": "adicionar dependente",
-  "applicationFormSubmitApplicationFloatingButton": "submeter aplicação"
+  "applicationFormSubmitApplicationFloatingButton": "submeter aplicação",
+  "validationFeedbackEmptyValue": "este campo não pode ficar vazio",
+  "validationFeedbackInvalidDate": "data inválida"
 }

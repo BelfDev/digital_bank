@@ -78,5 +78,15 @@
   "@applicationFormSubmitApplicationFloatingButton": {
     "description": "Submit application floating button",
     "context": "ApplicationFormPage"
+  },
+  "validationFeedbackEmptyValue": "value cannot be empty",
+  "@validationFeedbackEmptyValue": {
+    "description": "Empty value validation feedback, typically displayed under input fields on error state",
+    "context": "DSTextInput"
+  },
+  "validationFeedbackInvalidDate": "invalid date",
+  "@validationFeedbackInvalidDate": {
+    "description": "Invalid date feedback, typically displayed under input fields on error state",
+    "context": "DSDatePickerInput"
   }
 }

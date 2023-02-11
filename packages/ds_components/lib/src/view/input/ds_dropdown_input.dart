@@ -20,7 +20,7 @@ class DSDropdownInput<T extends DSDropdownOption> extends StatefulWidget {
 
   final List<T>? items;
 
-  final FormFieldValidator<T>? validator;
+  final DSFormFieldValidator<T>? validator;
 
   final EdgeInsetsGeometry? margin;
 
@@ -52,7 +52,9 @@ class _DSDropdownInputState<T extends DSDropdownOption>
       child: DropdownButtonFormField<T>(
         items: effectiveItems,
         value: _selectedValue,
-        validator: widget.validator,
+        validator: widget.validator != null
+            ? (value) => widget.validator?.call(context, value)
+            : null,
         isExpanded: false,
         style: styles.textTheme.bodyMedium,
         alignment: Alignment.center,

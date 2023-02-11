@@ -111,7 +111,7 @@ class DSTheme {
               ),
               errorStyle: DSTypography.regular12.copyWith(
                 color: DSColors.pink,
-                height: 0.5,
+                height: 0.2,
               ),
               fillColor: DSColors.white,
               filled: true,
@@ -271,7 +271,7 @@ class DSTheme {
               ),
               errorStyle: DSTypography.regular12.copyWith(
                 color: DSColors.pink,
-                height: 0.7,
+                height: 0.2,
               ),
               fillColor: DSColors.mirageBlack,
               enabledBorder: const OutlineInputBorder(

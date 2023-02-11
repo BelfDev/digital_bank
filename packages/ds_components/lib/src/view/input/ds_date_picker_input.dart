@@ -17,7 +17,7 @@ class DSDatePickerInput extends StatefulWidget {
 
   final void Function(DateTime dateTime)? onDateSelected;
 
-  final FormFieldValidator<String>? validator;
+  final DSFormFieldValidator<String>? validator;
 
   @override
   State<DSDatePickerInput> createState() => _DSDatePickerInputState();

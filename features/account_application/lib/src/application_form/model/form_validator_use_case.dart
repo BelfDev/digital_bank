@@ -1,40 +1,40 @@
 import 'package:account_application/src/application_form/model/gender_option.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:localization/localization.dart';
 
 @immutable
 class FormValidatorUserCase {
   const FormValidatorUserCase();
 
-  String? validateNameInput(String? value) {
+  String? validateNameInput(BuildContext context, String? value) {
     if (value?.isEmpty ?? true) {
-      return _Strings.emptyValueFeedback;
+      return context.l10n.validationFeedbackEmptyValue;
     }
+
     return null;
   }
 
-  String? validateBirthDateInput(String? value) {
+  String? validateBirthDateInput(BuildContext context, String? value) {
     if (value?.isEmpty ?? true) {
-      return _Strings.emptyValueFeedback;
+      return context.l10n.validationFeedbackEmptyValue;
     }
 
     try {
-      DateFormat.yMd().parse(value!);
+      final date = DateFormat.yMd().parse(value!);
+      if (date.isAfter(DateTime.now())) {
+        return context.l10n.validationFeedbackInvalidDate;
+      }
     } catch (_) {
-      return _Strings.invalidFeedback;
+      return context.l10n.validationFeedbackInvalidDate;
     }
     return null;
   }
 
-  String? validateGenderInput(GenderOption? value) {
+  String? validateGenderInput(BuildContext context, GenderOption? value) {
     if (value == null) {
-      return _Strings.emptyValueFeedback;
+      return context.l10n.validationFeedbackEmptyValue;
     }
     return null;
   }
-}
-
-class _Strings {
-  static const emptyValueFeedback = 'value cannot be empty';
-  static const invalidFeedback = 'invalid date';
 }

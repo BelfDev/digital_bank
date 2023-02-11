@@ -19,7 +19,7 @@ class DSTextInput extends StatelessWidget {
 
   final String hintText;
 
-  final FormFieldValidator<String>? validator;
+  final DSFormFieldValidator<String>? validator;
 
   final VoidCallback? onRemove;
 
@@ -46,7 +46,9 @@ class DSTextInput extends StatelessWidget {
       height: DSTheme.inputFieldHeight - topPadding,
       child: TextFormField(
         controller: controller,
-        validator: validator,
+        validator: validator != null
+            ? (value) => validator?.call(context, value)
+            : null,
         initialValue: initialValue,
         onChanged: onChanged,
         readOnly: readOnly,
