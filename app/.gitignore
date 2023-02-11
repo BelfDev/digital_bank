@@ -247,3 +247,5 @@ test/**/failures/**/*.*
 
 ## Monorepo/Melos
 pubspec_overrides.yaml
+
+**/lib/src/l10n/generated/
