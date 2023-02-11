@@ -110,6 +110,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
                 );
               },
             ),
+            const SizedBox(height: 8.0),
             DSOutlinedButton(
               text: l10n.applicationFormAddDependentButton,
               onPressed: () {
