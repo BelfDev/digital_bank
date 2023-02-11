@@ -7,3 +7,4 @@ output-dir: lib/src/l10n/generated
 output-class: L10n
 nullable-getter: false
 synthetic-package: false
+format: true
