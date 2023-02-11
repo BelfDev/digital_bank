@@ -44,3 +44,9 @@ scripts:
         - '*web*'
         - '*odm*'
         - '*example*'
+
+  gen-l10n:
+    description: Generate localizations
+    run: |
+      melos exec -c 1 --fail-fast --file-exists="l10n.yaml" -- \
+        "flutter gen-l10n --suppress-warnings"
