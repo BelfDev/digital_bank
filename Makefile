@@ -12,10 +12,10 @@ welcome:
 	@printf "\033[33m                            					  \n"
 	@printf "\033[m\n"
 
-setup-and-run-project: setup run
+setup-and-run: setup run
 
 setup:
-	./bin/setup-project.sh
+	./bin/setup_project.sh
 run:
 	@echo 'Running the Flutter App...\n'
 	cd app && flutter run
