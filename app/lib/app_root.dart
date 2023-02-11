@@ -10,14 +10,11 @@ class AppRoot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    // final x = L10n.of(context);
-
     return ProviderScope(
       child: MaterialApp.router(
         routerConfig: rootRouter,
         title: 'Digital Bank',
-        // onGenerateTitle: (context) => L10n.of(context),
+        onGenerateTitle: (context) => context.l10n.title,
         theme: DSTheme.light().data,
         darkTheme: DSTheme.dark().data,
         localizationsDelegates: FlowBankLocalizationsDelegate.globalDelegates,

@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
-// Generated with melos boostrap or flutter pub get
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+// Generated with melos gen-l10n
+import 'l10n/generated/l10n.dart';
 
 class FlowBankLocalizationsDelegate {
   static const Iterable<LocalizationsDelegate<dynamic>> globalDelegates =
-      AppLocalizations.localizationsDelegates;
+      L10n.localizationsDelegates;
 
-  static const Iterable<Locale> supportedLocales =
-      AppLocalizations.supportedLocales;
+  static const Iterable<Locale> supportedLocales = L10n.supportedLocales;
 }

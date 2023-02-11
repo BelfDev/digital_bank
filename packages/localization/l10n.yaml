@@ -4,5 +4,6 @@ arb-dir: lib/src/l10n
 template-arb-file: app_en.arb
 output-localization-file: l10n.dart
 output-dir: lib/src/l10n/generated
+output-class: L10n
 nullable-getter: false
 synthetic-package: false
