@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-class AccountApplicationFeedback {
+class AccountApplicationFeedback with EquatableMixin {
   const AccountApplicationFeedback({
     required this.accountNumber,
   });
@@ -13,12 +14,22 @@ class AccountApplicationFeedback {
       accountNumber: data['accountNumber'],
     );
   }
+
+  @visibleForTesting
+  Map<String, dynamic> toJson() {
+    return {
+      'accountNumber': accountNumber,
+    };
+  }
+
+  @override
+  List<Object?> get props => [
+        accountNumber,
+      ];
 }
 
 extension AccountApplicationFeedbackStubs on AccountApplicationFeedback {
   static AccountApplicationFeedback get defaultStub {
-    return AccountApplicationFeedback(
-      accountNumber: '7544939'
-    );
+    return AccountApplicationFeedback(accountNumber: '7544939');
   }
 }

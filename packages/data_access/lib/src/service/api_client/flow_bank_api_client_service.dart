@@ -1,13 +1,15 @@
+import 'dart:convert';
+
 import 'package:configs/configs.dart';
 import 'package:data_access/src/model/account_application.dart';
 import 'package:data_access/src/model/account_application_feedback.dart';
 import 'package:data_access/src/model/failure/remore_api_failure.dart';
-import 'package:data_access/src/service/api_client/background_decryption.dart';
+import 'package:data_access/src/service/encryption/background_decryption.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
 
+import '../encryption/background_encryption.dart';
 import '../http_client/http_client.dart';
-import 'background_encryption.dart';
 import 'background_json_parser.dart';
 
 @immutable
@@ -26,13 +28,14 @@ final _apiClientServiceProvider = Provider((ref) {
 
 class FlowBankApiClientService implements FlowBankApiClientServiceProtocol {
   FlowBankApiClientService(
-    Environment environment, {
+    this._environment, {
     HttpClientProtocol? client,
-  })  : baseUrl = environment.flowBankApiBaseUrl,
-        httpClient = client ?? HttpClient();
+  })  : _baseUrl = _environment.flowBankApiBaseUrl,
+        _httpClient = client ?? HttpClient();
 
-  final String baseUrl;
-  final HttpClientProtocol httpClient;
+  final Environment _environment;
+  final String _baseUrl;
+  final HttpClientProtocol _httpClient;
 
   static Provider<FlowBankApiClientService> provider =
       _apiClientServiceProvider;
@@ -41,15 +44,15 @@ class FlowBankApiClientService implements FlowBankApiClientServiceProtocol {
   Future<AccountApplicationFeedback> createAccount(
     AccountApplication accountApplication,
   ) async {
-    final cryptoConfig = Environment.current.encryptionConfig;
+    final cryptoConfig = _environment.encryptionConfig;
     try {
       final encryptedData = await BackgroundEncryption(
         accountApplication,
         cryptoConfig,
       ).encryptInBackground();
 
-      final response = await httpClient.post(
-        baseUrl,
+      final response = await _httpClient.post(
+        _baseUrl,
         'account',
         body: encryptedData,
       );

@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-class AccountApplication {
+class AccountApplication with EquatableMixin {
   const AccountApplication({
     required this.firstName,
     required this.lastName,
@@ -31,6 +32,17 @@ class AccountApplication {
       'requestType': requestType,
     };
   }
+
+  @override
+  List<Object?> get props => [
+    firstName,
+    lastName,
+    birthDate,
+    gender,
+    photo,
+    dependents,
+    requestType,
+  ];
 }
 
 extension AccountApplicationStubs on AccountApplication {
