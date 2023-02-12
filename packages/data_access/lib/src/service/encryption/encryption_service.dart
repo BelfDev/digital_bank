@@ -10,6 +10,7 @@ import 'package:pointycastle/export.dart' as pc;
 enum CypherOperation { encrypt, decrypt }
 
 mixin EncryptionService {
+  @visibleForTesting
   @protected
   Future<String> encrypt(
     Object? object,
@@ -27,6 +28,7 @@ mixin EncryptionService {
     return base64Encode(encryptedData);
   }
 
+  @visibleForTesting
   @protected
   Future<String> decrypt(
     EncryptedData encryptedData,
