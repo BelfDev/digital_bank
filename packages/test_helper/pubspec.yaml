@@ -12,6 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # Internal packages
+  localization: any
+  ds_components: any
 
 dev_dependencies:
   flutter_test:
@@ -20,5 +23,3 @@ dev_dependencies:
   flutter_lints: ^2.0.1
 
 flutter:
-
-  uses-material-design: true
