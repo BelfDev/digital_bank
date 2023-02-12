@@ -35,14 +35,14 @@ class AccountApplication with EquatableMixin {
 
   @override
   List<Object?> get props => [
-    firstName,
-    lastName,
-    birthDate,
-    gender,
-    photo,
-    dependents,
-    requestType,
-  ];
+        firstName,
+        lastName,
+        birthDate,
+        gender,
+        photo,
+        dependents,
+        requestType,
+      ];
 }
 
 extension AccountApplicationStubs on AccountApplication {
