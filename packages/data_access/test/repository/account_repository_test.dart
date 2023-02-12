@@ -37,6 +37,9 @@ void main() {
             equals(expectedResult),
           ),
         );
+
+        verify(mockApiClient.createAccount(any)).called(1);
+        verifyNoMoreInteractions(mockApiClient);
       },
     );
 
@@ -60,6 +63,9 @@ void main() {
             equals(expectedResult),
           ),
         );
+
+        verify(mockApiClient.createAccount(any)).called(1);
+        verifyNoMoreInteractions(mockApiClient);
       },
     );
 
@@ -83,6 +89,9 @@ void main() {
             equals(expectedResult),
           ),
         );
+
+        verify(mockApiClient.createAccount(any)).called(1);
+        verifyNoMoreInteractions(mockApiClient);
       },
     );
 
@@ -106,6 +115,9 @@ void main() {
             equals(expectedResult),
           ),
         );
+
+        verify(mockApiClient.createAccount(any)).called(1);
+        verifyNoMoreInteractions(mockApiClient);
       },
     );
 
@@ -129,6 +141,9 @@ void main() {
             equals(expectedResult),
           ),
         );
+
+        verify(mockApiClient.createAccount(any)).called(1);
+        verifyNoMoreInteractions(mockApiClient);
       },
     );
   });
