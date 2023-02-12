@@ -74,12 +74,11 @@ void main() {
 
       await tester.pumpMaterialWidget(
         DSArtworkScaffold(
-          appBar: expectedAppBar,
           body: expectedBody,
         ),
       );
 
-      expect(find.byWidget(expectedAppBar), findsOneWidget);
+      expect(find.byWidget(expectedAppBar), findsNothing);
       expect(find.byWidget(expectedBody), findsOneWidget);
       expect(find.byWidget(expectedFloatingButton), findsNothing);
       expect(find.byWidgetPredicate((widget) {
