@@ -103,7 +103,7 @@ void main() {
         return false;
       }), findsOneWidget);
       expect(find.byType(SingleChildScrollView), findsOneWidget);
-      expect(find.byType(SafeArea), findsNWidgets(2));
+      expect(find.byType(SafeArea), findsOneWidget);
       expect(find.byWidgetPredicate((widget) {
         if (widget is Column) {
           return widget.crossAxisAlignment == CrossAxisAlignment.stretch &&
