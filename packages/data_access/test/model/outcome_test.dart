@@ -47,7 +47,7 @@ void main() {
     });
   });
 
-  group('DataResult', () {
+  group('Outcome comparison:', () {
     test('should be equal when two success objects have equal data', () {
       const data = 'Some data';
       final outcome = Outcome.success(data);
@@ -79,7 +79,7 @@ void main() {
     });
   });
 
-  group('Outcome fold', () {
+  group('Outcome fold:', () {
     test('transforms failure into a false bool', () {
       final result = Outcome.failure<String>(RemoteApiFailure.generic())
           .fold<bool>((failure) => false, (data) => true);
