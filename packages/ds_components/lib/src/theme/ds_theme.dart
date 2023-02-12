@@ -21,7 +21,7 @@ class DSTheme {
               color: DSColors.blue,
             ),
             textSelectionTheme: const TextSelectionThemeData(
-              cursorColor: DSColors.turquoise, //thereby
+              cursorColor: DSColors.gray, //thereby
             ),
             dialogBackgroundColor: DSColors.white,
             colorScheme: baseTheme.colorScheme.copyWith(
@@ -178,7 +178,7 @@ class DSTheme {
               color: DSColors.blue,
             ),
             textSelectionTheme: const TextSelectionThemeData(
-              cursorColor: DSColors.turquoise, //thereby
+              cursorColor: DSColors.gray, //thereby
             ),
             dialogBackgroundColor: DSColors.smoothBlueBlack,
             colorScheme: baseTheme.colorScheme.copyWith(
@@ -386,9 +386,4 @@ class DSTheme {
   static const defaultAppBarBorderRadius = BorderRadius.vertical(
     bottom: Radius.circular(24.0),
   );
-
-  @override
-  List<Object?> get props => [
-        data,
-      ];
 }
