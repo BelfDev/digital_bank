@@ -55,7 +55,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
           title: l10n.applicationFormBasicInfoSection,
           children: [
             DSPhotoInput(
-              hint: l10n.applicationFormPhotoInputHint,
+              hintText: l10n.applicationFormPhotoInputHint,
               onImageCaptured: (filePath) {
                 state.formData.photoPath = filePath;
               },

@@ -9,13 +9,13 @@ import '../../resources/ds_transparent_image.dart';
 class DSPhotoInput extends StatefulWidget {
   const DSPhotoInput({
     super.key,
-    required this.hint,
+    required this.hintText,
     this.onPressed,
     this.onImageCaptured,
   });
 
   final VoidCallback? onPressed;
-  final String hint;
+  final String hintText;
   final ValueChanged<String>? onImageCaptured;
 
   @override
@@ -58,7 +58,7 @@ class _DSPhotoInputState extends State<DSPhotoInput> {
         ),
         const SizedBox(height: 8.0),
         Text(
-          widget.hint,
+          widget.hintText,
           textAlign: TextAlign.center,
           style: styles.textTheme.bodyMedium?.copyWith(
             color: styles.inputDecorationTheme.labelStyle?.color,
