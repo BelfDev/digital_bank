@@ -4,22 +4,11 @@ import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
 import 'package:test_helper/test_helper.dart';
 
 void main() {
   const channel = MethodChannel('flutter_keyboard_visibility');
-
-  setUp(() async {
-    const dummyInteger = 1;
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      await ServicesBinding.instance.defaultBinaryMessenger
-          .handlePlatformMessage(
-        'flutter_keyboard_visibility',
-        const StandardMethodCodec().encodeSuccessEnvelope(dummyInteger),
-        (data) {},
-      );
-    });
-  });
 
   group('ApplicationFormPage:', () {
     testWidgets(
@@ -126,6 +115,16 @@ void main() {
     testWidgets(
       'when remove dependent field when remove button is pressed',
       (tester) async {
+        const dummyInteger = 1;
+        channel.setMockMethodCallHandler((MethodCall methodCall) async {
+          await ServicesBinding.instance.defaultBinaryMessenger
+              .handlePlatformMessage(
+            'flutter_keyboard_visibility',
+            const StandardMethodCodec().encodeSuccessEnvelope(dummyInteger),
+                (data) {},
+          );
+        });
+
         await tester.pumpPage(
           ApplicationFormPage(
             state: ApplicationFormPageState.initial(),
@@ -139,7 +138,7 @@ void main() {
         expect(find.byType(DSOutlinedButton), findsOneWidget);
         expect(find.byType(DSTextInput), findsNWidgets(3));
         expect(find.byType(AnimatedList), findsOneWidget);
-        expect(find.byType(SizedBox), findsNWidgets(17));
+        expect(find.byType(SizedBox), findsNWidgets(16));
 
         // Scroll to the bottom of the page
         final gesture = await tester.startGesture(Offset(0, 300));
@@ -178,6 +177,29 @@ void main() {
         expect(find.text('$baseDependentName 1'), findsOneWidget);
         expect(find.text('$baseDependentName 2'), findsOneWidget);
         expect(find.text('$baseDependentName 4'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'when submit button is pressed should trigger callback',
+      (tester) async {
+        final callback = MockCallback();
+
+        await tester.pumpPage(
+          ApplicationFormPage(
+            onSubmit: callback,
+            state: ApplicationFormPageState.initial(),
+          ),
+          config: WidgetTestConfig.defaultConfig(),
+        );
+
+        await tester.pumpAndSettle();
+
+        expect(find.byType(DSElevatedButton), findsOneWidget);
+        await tester.tap(find.byType(DSElevatedButton));
+
+        verify(callback.call()).called(1);
+        verifyNoMoreInteractions(callback);
       },
     );
   });
