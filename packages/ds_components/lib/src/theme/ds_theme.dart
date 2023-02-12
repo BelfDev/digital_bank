@@ -37,7 +37,7 @@ class DSTheme {
             appBarTheme: AppBarTheme(
               backgroundColor: DSColors.white,
               surfaceTintColor: DSColors.transparent,
-              titleTextStyle: DSTypography.semiBold18.copyWith(
+              titleTextStyle: DSTypography.regular20.copyWith(
                 color: DSColors.spaceBlack,
               ),
               foregroundColor:
@@ -195,7 +195,7 @@ class DSTheme {
             appBarTheme: AppBarTheme(
               backgroundColor: DSColors.spaceBlack,
               surfaceTintColor: DSColors.transparent,
-              titleTextStyle: DSTypography.semiBold18.copyWith(
+              titleTextStyle: DSTypography.regular20.copyWith(
                 color: DSColors.lightGrey,
               ),
               foregroundColor:
