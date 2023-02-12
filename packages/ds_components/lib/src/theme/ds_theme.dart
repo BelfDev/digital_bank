@@ -11,7 +11,7 @@ class DSTheme {
   /// Creates a [DSTheme] configured with a light [ThemeData].
   DSTheme.light()
       : this._(
-          data: _baseTheme.copyWith(
+          data: baseTheme.copyWith(
             brightness: Brightness.light,
             scaffoldBackgroundColor: DSColors.smoothWhite,
             canvasColor: DSColors.white,
@@ -24,7 +24,7 @@ class DSTheme {
               cursorColor: DSColors.turquoise, //thereby
             ),
             dialogBackgroundColor: DSColors.white,
-            colorScheme: _baseTheme.colorScheme.copyWith(
+            colorScheme: baseTheme.colorScheme.copyWith(
               primary: DSColors.darkBlue,
               onPrimary: DSColors.smoothWhite,
               onSurface: DSColors.smoothBlack,
@@ -137,28 +137,28 @@ class DSTheme {
               ),
             ),
             textTheme: TextTheme(
-              displayLarge: _baseTextTheme.displayLarge?.copyWith(
+              displayLarge: baseTextTheme.displayLarge?.copyWith(
                 color: DSColors.smoothBlack,
               ),
-              displayMedium: _baseTextTheme.displayMedium?.copyWith(
+              displayMedium: baseTextTheme.displayMedium?.copyWith(
                 color: DSColors.smoothBlack,
               ),
-              displaySmall: _baseTextTheme.displaySmall?.copyWith(
+              displaySmall: baseTextTheme.displaySmall?.copyWith(
                 color: DSColors.gray,
               ),
-              headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
+              headlineLarge: baseTextTheme.headlineLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
-              bodyLarge: _baseTextTheme.bodyLarge?.copyWith(
+              bodyLarge: baseTextTheme.bodyLarge?.copyWith(
                 color: DSColors.spaceBlack,
               ),
-              bodyMedium: _baseTextTheme.bodyMedium?.copyWith(
+              bodyMedium: baseTextTheme.bodyMedium?.copyWith(
                 color: DSColors.gray,
               ),
-              bodySmall: _baseTextTheme.bodySmall?.copyWith(
+              bodySmall: baseTextTheme.bodySmall?.copyWith(
                 color: DSColors.smoothBlack,
               ),
-              titleMedium: _baseTextTheme.titleMedium?.copyWith(
+              titleMedium: baseTextTheme.titleMedium?.copyWith(
                 color: DSColors.smoothBlack,
               ),
             ),
@@ -168,7 +168,7 @@ class DSTheme {
   /// Creates a [DSTheme] configured with a dark [ThemeData].
   DSTheme.dark()
       : this._(
-          data: _baseTheme.copyWith(
+          data: baseTheme.copyWith(
             brightness: Brightness.dark,
             scaffoldBackgroundColor: DSColors.smoothBlack,
             canvasColor: DSColors.spaceBlack,
@@ -181,7 +181,7 @@ class DSTheme {
               cursorColor: DSColors.turquoise, //thereby
             ),
             dialogBackgroundColor: DSColors.smoothBlueBlack,
-            colorScheme: _baseTheme.colorScheme.copyWith(
+            colorScheme: baseTheme.colorScheme.copyWith(
               primary: DSColors.darkBlue,
               onPrimary: DSColors.smoothWhite,
               surface: DSColors.darkBlue,
@@ -296,28 +296,28 @@ class DSTheme {
               ),
             ),
             textTheme: TextTheme(
-              displayLarge: _baseTextTheme.displayLarge?.copyWith(
+              displayLarge: baseTextTheme.displayLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
-              displayMedium: _baseTextTheme.displayMedium?.copyWith(
+              displayMedium: baseTextTheme.displayMedium?.copyWith(
                 color: DSColors.smoothWhite,
               ),
-              displaySmall: _baseTextTheme.displaySmall?.copyWith(
+              displaySmall: baseTextTheme.displaySmall?.copyWith(
                 color: DSColors.titaniumGray,
               ),
-              headlineLarge: _baseTextTheme.headlineLarge?.copyWith(
+              headlineLarge: baseTextTheme.headlineLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
-              bodyLarge: _baseTextTheme.bodyLarge?.copyWith(
+              bodyLarge: baseTextTheme.bodyLarge?.copyWith(
                 color: DSColors.smoothWhite,
               ),
-              bodyMedium: _baseTextTheme.bodyMedium?.copyWith(
+              bodyMedium: baseTextTheme.bodyMedium?.copyWith(
                 color: DSColors.smoothWhite,
               ),
-              bodySmall: _baseTextTheme.bodySmall?.copyWith(
+              bodySmall: baseTextTheme.bodySmall?.copyWith(
                 color: DSColors.smoothWhite,
               ),
-              titleMedium: _baseTextTheme.titleMedium?.copyWith(
+              titleMedium: baseTextTheme.titleMedium?.copyWith(
                 color: DSColors.smoothWhite,
               ),
             ),
@@ -326,7 +326,8 @@ class DSTheme {
 
   final ThemeData data;
 
-  static const _baseTextTheme = TextTheme(
+  @visibleForTesting
+  static const baseTextTheme = TextTheme(
     displayLarge: DSTypography.secondaryRegular38,
     displayMedium: DSTypography.secondaryRegular24,
     displaySmall: DSTypography.secondaryRegular18,
@@ -337,11 +338,12 @@ class DSTheme {
     titleMedium: DSTypography.regular16,
   );
 
-  static final ThemeData _baseTheme = ThemeData(
+  @visibleForTesting
+  static final ThemeData baseTheme = ThemeData(
     useMaterial3: true,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     fontFamily: DSTypography.primaryFontFamily,
-    textTheme: _baseTextTheme,
+    textTheme: baseTextTheme,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         shape: const RoundedRectangleBorder(
@@ -384,4 +386,9 @@ class DSTheme {
   static const defaultAppBarBorderRadius = BorderRadius.vertical(
     bottom: Radius.circular(24.0),
   );
+
+  @override
+  List<Object?> get props => [
+        data,
+      ];
 }
