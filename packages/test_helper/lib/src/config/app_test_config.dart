@@ -12,6 +12,8 @@ class AppTestConfig {
     required this.darkTheme,
     required this.locale,
     required this.supportedLocales,
+    required this.localizationsDelegates,
+    required this.routerConfig,
     this.themeMode = ThemeMode.light,
   });
 
@@ -21,12 +23,20 @@ class AppTestConfig {
   final ThemeMode themeMode;
   final Locale locale;
   final Iterable<Locale> supportedLocales;
+  final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
+  final RouterConfig<Object>? routerConfig;
 
-  factory AppTestConfig.defaultConfig({AppWrapper? wrapper}) => AppTestConfig(
+  factory AppTestConfig.defaultConfig({
+    AppWrapper? wrapper,
+    RouterConfig<Object>? routerConfig,
+  }) =>
+      AppTestConfig(
         wrapper: wrapper ?? (widget) => widget,
         theme: DSTheme.light().data,
         darkTheme: DSTheme.dark().data,
         locale: Locale('en'),
+        localizationsDelegates: FlowBankLocalizationsDelegate.globalDelegates,
         supportedLocales: FlowBankLocalizationsDelegate.supportedLocales,
+        routerConfig: routerConfig,
       );
 }

@@ -20,15 +20,31 @@ extension WidgetTesterExtension on WidgetTester {
       config.appTestConfig != null,
       'Must provide AppTestConfig to pump page widgets',
     );
+    await binding.setSurfaceSize(Size(750.0, 1334.0));
+    binding.window.devicePixelRatioTestValue = 1.0;
 
     await pumpWidget(
       _withAppConfig(page, config.appTestConfig!),
       config.duration,
       config.phase,
     );
+
+    addTearDown(binding.window.clearPhysicalSizeTestValue);
   }
 
   Widget _withAppConfig(Widget widget, AppTestConfig appTestConfig) {
+    if (appTestConfig.routerConfig != null) {
+      return MaterialApp.router(
+        themeMode: appTestConfig.themeMode,
+        theme: appTestConfig.theme,
+        darkTheme: appTestConfig.darkTheme,
+        locale: appTestConfig.locale,
+        supportedLocales: appTestConfig.supportedLocales,
+        localizationsDelegates: appTestConfig.localizationsDelegates,
+        routerConfig: appTestConfig.routerConfig!,
+      );
+    }
+
     return MaterialApp(
       themeMode: appTestConfig.themeMode,
       theme: appTestConfig.theme,
@@ -36,6 +52,7 @@ extension WidgetTesterExtension on WidgetTester {
       home: appTestConfig.wrapper(widget),
       locale: appTestConfig.locale,
       supportedLocales: appTestConfig.supportedLocales,
+      localizationsDelegates: appTestConfig.localizationsDelegates,
     );
   }
 
