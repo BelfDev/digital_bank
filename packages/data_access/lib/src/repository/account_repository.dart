@@ -1,6 +1,6 @@
 import 'package:data_access/src/model/account_application.dart';
 import 'package:data_access/src/model/account_application_feedback.dart';
-import 'package:data_access/src/model/failure/remore_api_failure.dart';
+import 'package:data_access/src/model/failure/remote_api_failure.dart';
 import 'package:data_access/src/service/api_client/flow_bank_api_client_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';
@@ -15,7 +15,7 @@ abstract class AccountRepositoryProtocol {
   );
 }
 
-final _accountRepositoryProvider = Provider((ref) {
+final _accountRepositoryProvider = Provider<AccountRepositoryProtocol>((ref) {
   final remoteDataSource = ref.watch(FlowBankApiClientService.provider);
   return AccountRepository(remoteDataSource);
 });

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:configs/configs.dart';
 import 'package:data_access/data_access.dart';
-import 'package:data_access/src/model/failure/remore_api_failure.dart';
+import 'package:data_access/src/service/api_client/flow_bank_api_client_service.dart';
 import 'package:data_access/src/service/http_client/http_client.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;

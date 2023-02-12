@@ -1,7 +1,7 @@
 import 'package:configs/configs.dart';
 import 'package:data_access/src/model/account_application.dart';
 import 'package:data_access/src/model/account_application_feedback.dart';
-import 'package:data_access/src/model/failure/remore_api_failure.dart';
+import 'package:data_access/src/model/failure/remote_api_failure.dart';
 import 'package:data_access/src/service/encryption/background_decryption.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta/meta.dart';

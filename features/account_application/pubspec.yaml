@@ -33,7 +33,10 @@ dev_dependencies:
     sdk: flutter
 
   test_helper: any
+  # Linting
   flutter_lints: ^2.0.1
+  # Mockito code generation
+  build_runner: ^2.3.3
 
 flutter:
 

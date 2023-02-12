@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'application_form_page_state.dart';
 
+typedef ValidateFormCallback = bool Function();
+
 final _stateManagerProvider = StateNotifierProvider.autoDispose<
     ApplicationFormStateManager, ApplicationFormPageState>((ref) {
   return ApplicationFormStateManager(
@@ -16,19 +18,19 @@ class ApplicationFormStateManager
     extends StateNotifier<ApplicationFormPageState> {
   ApplicationFormStateManager(
     super.state,
-    this.ref,
+    this._ref,
   );
 
-  final Ref ref;
+  final Ref _ref;
 
   AccountRepositoryProtocol get _accountRepository =>
-      ref.read(AccountRepository.provider);
+      _ref.read(AccountRepository.provider);
 
   static AutoDisposeStateNotifierProvider<ApplicationFormStateManager,
       ApplicationFormPageState> provider = _stateManagerProvider;
 
-  Future<void> submitForm() async {
-    final isValid = state.formKey.currentState?.validate();
+  Future<void> submitForm(ValidateFormCallback validate) async {
+    final isValid = validate();
     if (isValid != true) {
       return;
     }

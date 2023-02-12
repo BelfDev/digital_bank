@@ -9,7 +9,6 @@ class ApplicationFormPageState extends Equatable {
   const ApplicationFormPageState({
     required this.isLoading,
     required this.formData,
-    required this.formKey,
     this.errorFeedback,
     this.accountNumber,
   });
@@ -18,15 +17,14 @@ class ApplicationFormPageState extends Equatable {
       : this(
           isLoading: false,
           formData: ApplicationFormData(
-            validator: FormValidatorUserCase(),
+            validator: const FormValidatorUserCase(),
             dependents: [],
           ),
-          formKey: GlobalKey<FormState>(),
+          errorFeedback: null,
         );
 
   final bool isLoading;
   final ApplicationFormData formData;
-  final GlobalKey<FormState> formKey;
 
   final ErrorFeedbackType? errorFeedback;
   final String? accountNumber;
@@ -38,7 +36,6 @@ class ApplicationFormPageState extends Equatable {
   List<Object?> get props => [
         isLoading,
         formData,
-        formKey,
         errorFeedback,
         accountNumber,
       ];
@@ -53,7 +50,6 @@ class ApplicationFormPageState extends Equatable {
       ApplicationFormPageState(
         isLoading: isLoading ?? this.isLoading,
         formData: formData ?? this.formData,
-        formKey: formKey ?? this.formKey,
         errorFeedback: errorFeedback ?? this.errorFeedback,
         accountNumber: accountNumber ?? this.accountNumber,
       );
@@ -64,7 +60,6 @@ extension ApplicationFormStateStubs on ApplicationFormPageState {
     return ApplicationFormPageState(
       isLoading: false,
       formData: ApplicationFormDataStubs.defaultStub,
-      formKey: GlobalKey<FormState>(),
       errorFeedback: null,
       accountNumber: null,
     );

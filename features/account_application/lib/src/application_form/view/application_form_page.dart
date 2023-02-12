@@ -1,5 +1,6 @@
 import 'package:account_application/src/application_form/model/gender_option.dart';
 import 'package:account_application/src/application_form/state_management/application_form_page_state.dart';
+import 'package:account_application/src/application_form/state_management/application_form_state_manager.dart';
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
@@ -14,7 +15,7 @@ class ApplicationFormPage extends StatefulWidget {
   });
 
   final ApplicationFormPageState state;
-  final VoidCallback? onSubmit;
+  final void Function(ValidateFormCallback)? onSubmit;
 
   @override
   State<ApplicationFormPage> createState() => _ApplicationFormPageState();
@@ -23,6 +24,7 @@ class ApplicationFormPage extends StatefulWidget {
 class _ApplicationFormPageState extends State<ApplicationFormPage>
     with DynamicDependentListMixin {
   final _scrollController = ScrollController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -42,7 +44,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
     final state = widget.state;
 
     return DSFormScaffold(
-      formKey: state.formKey,
+      formKey: _formKey,
       padding: DSTheme.defaultPageMargin,
       controller: _scrollController,
       appBar: DSAppBar.title(
@@ -125,7 +127,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       floatingButton: DSElevatedButton(
         enabled: !state.isLoading,
         width: double.infinity,
-        onPressed: widget.onSubmit,
+        onPressed: () => widget.onSubmit?.call(_formKey.currentState!.validate),
         text: l10n.applicationFormSubmitApplicationFloatingButton,
       ),
     );

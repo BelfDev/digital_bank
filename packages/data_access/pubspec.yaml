@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   # Internal packages
-  configs:
+  configs: any
   # Annotations
   meta: ^1.8.0
   # Networking

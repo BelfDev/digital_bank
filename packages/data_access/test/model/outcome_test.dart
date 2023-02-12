@@ -1,5 +1,5 @@
-import 'package:data_access/data_access.dart';
-import 'package:data_access/src/model/failure/remore_api_failure.dart';
+import 'package:data_access/src/model/failure/remote_api_failure.dart';
+import 'package:data_access/src/model/outcome.dart';
 import 'package:test/test.dart';
 
 void main() {

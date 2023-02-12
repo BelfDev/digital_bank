@@ -12,6 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_test:
+    sdk: flutter
+
   # Internal packages
   localization: any
   ds_components: any
@@ -20,9 +23,8 @@ dependencies:
   # Testing
   mockito: ^5.3.2
 
+
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   # Linting
   flutter_lints: ^2.0.1
 

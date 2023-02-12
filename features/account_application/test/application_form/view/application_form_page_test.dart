@@ -5,7 +5,6 @@ import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 import 'package:test_helper/test_helper.dart';
 
 void main() {
@@ -189,11 +188,14 @@ void main() {
     testWidgets(
       'when submit button is pressed should trigger callback',
       (tester) async {
-        final callback = MockCallback();
+        int callbackCounter = 0;
+        void onSubmit(bool Function() validate) async {
+          callbackCounter++;
+        }
 
         await tester.pumpPage(
           ApplicationFormPage(
-            onSubmit: callback,
+            onSubmit: onSubmit,
             state: ApplicationFormPageState.initial(),
           ),
           config: WidgetTestConfig.defaultConfig(),
@@ -204,8 +206,7 @@ void main() {
         expect(find.byType(DSElevatedButton), findsOneWidget);
         await tester.tap(find.byType(DSElevatedButton));
 
-        verify(callback.call()).called(1);
-        verifyNoMoreInteractions(callback);
+        expect(callbackCounter, equals(1));
       },
     );
 
