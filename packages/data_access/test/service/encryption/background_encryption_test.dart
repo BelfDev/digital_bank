@@ -16,7 +16,7 @@ void main() {
     );
 
     test(
-      'encryptInBackground should expected EncryptedData',
+      'encryptInBackground should return expected EncryptedData',
       () async {
         const encryptedPayload =
             '2kT1OKWcpWrPv5qJTtFueMdPRax2AReYrZ8/3SpnGFh1lU8dPWYihWLB1MvFW2PTs/zEPOwiKDxGchY4TzlAkGgCJzbUnndtcAhgkweNq+82OIcv8SFW4lvjWx2fRKleMnhev0tNJMUQxlwBNrW1hAwA65+TvLbbS+TMzHTheHbVPVZSTBvFOlPQ97GIHVG6tZWlyO1OFYJRyGV7uN91+yMmaGs3kDTxqT6REty9vXkmCFw1BDKPccViNMLQ/iSBTD5StafilYVW8iSEK/urdjjd/l5xOwDDuL26cExg7+TvWdfjQZG1MnnhPFtxnC/v';
