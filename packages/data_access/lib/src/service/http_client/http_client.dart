@@ -15,6 +15,11 @@ abstract class HttpClientProtocol {
     Map<String, String>? headers,
     required Object? body,
   });
+
+  Uri buildUri(
+    String baseUrl,
+    String path,
+  );
 }
 
 class HttpClient implements HttpClientProtocol {
@@ -30,11 +35,7 @@ class HttpClient implements HttpClientProtocol {
     String path, {
     Map<String, String>? headers,
   }) {
-    return http
-        .get(
-          _buildUri(baseUrl, path),
-        )
-        .timeout(timeLimit);
+    return http.get(buildUri(baseUrl, path)).timeout(timeLimit);
   }
 
   @override
@@ -46,14 +47,15 @@ class HttpClient implements HttpClientProtocol {
   }) {
     return http
         .post(
-          _buildUri(baseUrl, path),
+          buildUri(baseUrl, path),
           headers: {'Content-Type': 'application/json; charset=UTF-8'},
           body: jsonEncode(body),
         )
         .timeout(timeLimit);
   }
 
-  Uri _buildUri(String baseUrl, String path) {
+  @override
+  Uri buildUri(String baseUrl, String path) {
     return Uri.parse('$baseUrl/$path');
   }
 }
