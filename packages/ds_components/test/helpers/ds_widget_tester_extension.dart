@@ -1,41 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../test_helper.dart';
-
 extension WidgetTesterExtension on WidgetTester {
-  Future<void> pumpMaterialWidget(
-    Widget widget, {
-    WidgetTestConfig? config,
-  }) async {
+  Future<void> pumpMaterialWidget(Widget widget) async {
     final tester = this;
-    await tester.pumpWidget(widget);
-  }
-
-  Future<void> pumpPage(
-    Widget page, {
-    required WidgetTestConfig config,
-  }) async {
-    assert(
-      config.appTestConfig != null,
-      'Must provide AppTestConfig to pump page widgets',
-    );
-
-    await pumpWidget(
-      _withAppConfig(page, config.appTestConfig!),
-      config.duration,
-      config.phase,
+    await tester.pumpWidget(
+      _withStandardMaterialApp(widget),
     );
   }
 
-  Widget _withAppConfig(Widget widget, AppTestConfig appTestConfig) {
+  Widget _withStandardMaterialApp(Widget widget) {
     return MaterialApp(
-      themeMode: appTestConfig.themeMode,
-      theme: appTestConfig.theme,
-      darkTheme: appTestConfig.darkTheme,
-      home: appTestConfig.wrapper(widget),
-      locale: appTestConfig.locale,
-      supportedLocales: appTestConfig.supportedLocales,
+      theme: ThemeData.light(),
+      locale: Locale('en'),
+      home: widget,
     );
   }
 
