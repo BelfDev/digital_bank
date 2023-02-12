@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-class EncryptedData {
+class EncryptedData with EquatableMixin {
   const EncryptedData({
     required this.payload,
   });
@@ -21,4 +22,7 @@ class EncryptedData {
       'encryptedRequest': payload,
     };
   }
+
+  @override
+  List<Object?> get props => [payload];
 }
