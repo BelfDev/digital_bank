@@ -1,5 +1,6 @@
 import 'package:data_access/data_access.dart';
 import 'package:data_access/src/model/failure/remore_api_failure.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
@@ -144,6 +145,18 @@ void main() {
 
         verify(mockApiClient.createAccount(any)).called(1);
         verifyNoMoreInteractions(mockApiClient);
+      },
+    );
+
+    test(
+      'should provide an Provider<AccountRepository>',
+      () async {
+        final provider = AccountRepository.provider;
+
+        expect(
+          provider,
+          isA<Provider<AccountRepository>>(),
+        );
       },
     );
   });

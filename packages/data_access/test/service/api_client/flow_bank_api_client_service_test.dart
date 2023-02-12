@@ -4,6 +4,7 @@ import 'package:configs/configs.dart';
 import 'package:data_access/data_access.dart';
 import 'package:data_access/src/model/failure/remore_api_failure.dart';
 import 'package:data_access/src/service/http_client/http_client.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -158,6 +159,18 @@ void main() {
 
         verify(mockHttpClient.post(any, any, body: anyNamed('body'))).called(1);
         verifyNoMoreInteractions(mockHttpClient);
+      },
+    );
+
+    test(
+      'should provide and Provider<FlowBankApiClientService>',
+      () async {
+        final provider = FlowBankApiClientService.provider;
+
+        expect(
+          provider,
+          isA<Provider<FlowBankApiClientService>>(),
+        );
       },
     );
   });
