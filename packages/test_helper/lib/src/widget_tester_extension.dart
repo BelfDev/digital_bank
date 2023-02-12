@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../test_helper.dart';
@@ -32,6 +33,25 @@ extension WidgetTesterExtension on WidgetTester {
     addTearDown(binding.window.clearPhysicalSizeTestValue);
   }
 
+  Future<void> pumpPageWithProviderScope(
+    Widget page, {
+    required WidgetTestConfig config,
+    required List<Override> overrides,
+  }) async {
+    assert(
+      config.appTestConfig != null,
+      'Must provide AppTestConfig to pump page widgets',
+    );
+
+    await pumpPage(
+      _withProviderOverrides(
+        overrides: overrides,
+        child: page,
+      ),
+      config: config,
+    );
+  }
+
   Widget _withAppConfig(Widget widget, AppTestConfig appTestConfig) {
     if (appTestConfig.routerConfig != null) {
       return MaterialApp.router(
@@ -53,6 +73,16 @@ extension WidgetTesterExtension on WidgetTester {
       locale: appTestConfig.locale,
       supportedLocales: appTestConfig.supportedLocales,
       localizationsDelegates: appTestConfig.localizationsDelegates,
+    );
+  }
+
+  static Widget _withProviderOverrides({
+    required List<Override> overrides,
+    required Widget child,
+  }) {
+    return ProviderScope(
+      overrides: overrides,
+      child: child,
     );
   }
 
