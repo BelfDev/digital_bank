@@ -1,3 +1,4 @@
+import 'package:account_application/src/application_form/model/gender_option.dart';
 import 'package:account_application/src/application_form/state_management/application_form_page_state.dart';
 import 'package:account_application/src/application_form/view/application_form_page.dart';
 import 'package:ds_components/ds_components.dart';
@@ -9,6 +10,18 @@ import 'package:test_helper/test_helper.dart';
 
 void main() {
   const channel = MethodChannel('flutter_keyboard_visibility');
+
+  void mockKeyboardVisibility() {
+    const dummyInteger = 1;
+    channel.setMockMethodCallHandler((MethodCall methodCall) async {
+      await ServicesBinding.instance.defaultBinaryMessenger
+          .handlePlatformMessage(
+        'flutter_keyboard_visibility',
+        const StandardMethodCodec().encodeSuccessEnvelope(dummyInteger),
+        (data) {},
+      );
+    });
+  }
 
   group('ApplicationFormPage:', () {
     testWidgets(
@@ -31,6 +44,7 @@ void main() {
         expect(find.byType(DSPhotoInput), findsOneWidget);
         expect(find.byType(DSTextInput), findsNWidgets(3));
         expect(find.byType(DSDatePickerInput), findsOneWidget);
+        expect(find.bySubtype<DSDropdownInput>(), findsOneWidget);
         expect(find.byType(AnimatedList), findsOneWidget);
         expect(find.byType(DSOutlinedButton), findsOneWidget);
         expect(find.byType(DSElevatedButton), findsOneWidget);
@@ -115,15 +129,7 @@ void main() {
     testWidgets(
       'when remove dependent field when remove button is pressed',
       (tester) async {
-        const dummyInteger = 1;
-        channel.setMockMethodCallHandler((MethodCall methodCall) async {
-          await ServicesBinding.instance.defaultBinaryMessenger
-              .handlePlatformMessage(
-            'flutter_keyboard_visibility',
-            const StandardMethodCodec().encodeSuccessEnvelope(dummyInteger),
-                (data) {},
-          );
-        });
+        mockKeyboardVisibility();
 
         await tester.pumpPage(
           ApplicationFormPage(
@@ -200,6 +206,78 @@ void main() {
 
         verify(callback.call()).called(1);
         verifyNoMoreInteractions(callback);
+      },
+    );
+
+    testWidgets(
+      'when enter input should update form state',
+      (tester) async {
+        mockKeyboardVisibility();
+        final state = ApplicationFormPageState.initial();
+
+        await tester.pumpPage(
+          ApplicationFormPage(
+            state: state,
+          ),
+          config: WidgetTestConfig.defaultConfig(),
+        );
+
+        await tester.pumpAndSettle();
+
+        // Scroll to the bottom of the page
+        final gesture = await tester.startGesture(Offset(0, 300));
+        await gesture.moveBy(Offset(0, -1000));
+        await tester.pump();
+
+        // Enter value on text input fields
+        const baseTextInput = 'Some input';
+
+        final textInputFinder = find.byType(DSTextInput);
+        await tester.runAsync(() async {
+          for (int i = 0; i < textInputFinder.evaluate().length; i++) {
+            await tester.enterText(
+                find.byType(DSTextInput).at(i), '$baseTextInput $i');
+            await tester.pumpAndSettle();
+          }
+        });
+
+        // Enter value on date input field
+        final dateInputFinder = find.byType(DSDatePickerInput);
+        await tester.tap(dateInputFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('OK'));
+        await tester.pumpAndSettle();
+
+        // Enter value on gender input field
+        final dropdownFinder = find.bySubtype<DSDropdownInput>();
+        await tester.tap(dropdownFinder);
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Male').last);
+        await tester.pumpAndSettle();
+
+        // Enter value on dependent input field
+        const dependentName = 'John Doe';
+        await tester.tap(find.byType(DSOutlinedButton));
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(DSTextInput).last, dependentName);
+        await tester.pumpAndSettle();
+
+        // Check if form state is updated
+        expect(state.isLoading, isFalse);
+        expect(state.accountNumber, isNull);
+        expect(state.errorFeedback, isNull);
+
+        final baseDate = DateTime.now();
+        final formData = state.formData;
+        expect(formData, isNotNull);
+        expect(formData.firstName, equals('$baseTextInput 0'));
+        expect(formData.lastName, equals('$baseTextInput 1'));
+        expect(
+          formData.birthDate,
+          equals(DateTime(baseDate.year - 18, baseDate.month, baseDate.day)),
+        );
+        expect(formData.gender, equals(GenderOption.male));
+        expect(formData.dependents, equals([dependentName]));
       },
     );
   });
