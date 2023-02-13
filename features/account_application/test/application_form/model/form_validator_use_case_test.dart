@@ -17,11 +17,11 @@ void main() {
   late L10n l10n;
 
   setUpAll(() async {
-    l10n = await L10n.delegate.load(Locale('en'));
+    l10n = await L10n.delegate.load(const Locale('en'));
   });
 
   setUp(() {
-    useCase = FormValidatorUseCase();
+    useCase = const FormValidatorUseCase();
     mockContext = MockBuildContext();
   });
 
@@ -30,7 +30,7 @@ void main() {
       test(
         'when value is empty validateNameInput should return l10n.validationFeedbackEmptyValue',
         () async {
-          final input = '   ';
+          const input = '   ';
           final result = useCase.validateNameInput(mockContext, input);
 
           expect(result, equals(l10n.validationFeedbackEmptyValue));
@@ -40,7 +40,7 @@ void main() {
       test(
         'when value is null validateNameInput should return l10n.validationFeedbackEmptyValue',
         () async {
-          final input = null;
+          const input = null;
           final result = useCase.validateNameInput(mockContext, input);
 
           expect(result, equals(l10n.validationFeedbackEmptyValue));
@@ -72,7 +72,7 @@ void main() {
       test(
         'when value is empty validateBirthDateInput should return l10n.validationFeedbackEmptyValue',
         () async {
-          final input = '   ';
+          const input = '   ';
           final result = useCase.validateBirthDateInput(mockContext, input);
 
           expect(result, equals(l10n.validationFeedbackEmptyValue));
@@ -82,7 +82,7 @@ void main() {
       test(
         'when value is null validateBirthDateInput should return l10n.validationFeedbackEmptyValue',
         () async {
-          final input = null;
+          const input = null;
           final result = useCase.validateBirthDateInput(mockContext, input);
 
           expect(result, equals(l10n.validationFeedbackEmptyValue));
@@ -92,7 +92,7 @@ void main() {
       test(
         'when date is malformed validateBirthDateInput should return l10n.validationFeedbackInvalidDate',
         () async {
-          final input = '36-3989-398';
+          const input = '36-3989-398';
           final result = useCase.validateBirthDateInput(mockContext, input);
 
           expect(result, equals(l10n.validationFeedbackInvalidDate));
@@ -103,7 +103,7 @@ void main() {
         'when date is after now validateBirthDateInput should return l10n.validationFeedbackInvalidDate',
         () async {
           final input =
-              DateTime.now().add(Duration(days: 100)).toIso8601String();
+              DateTime.now().add(const Duration(days: 100)).toIso8601String();
           final result = useCase.validateBirthDateInput(mockContext, input);
 
           expect(result, equals(l10n.validationFeedbackInvalidDate));
@@ -114,7 +114,7 @@ void main() {
         'when date is valid validateBirthDateInput should return null',
         () async {
           final input = DateFormat.yMd().format(
-            DateTime.now().subtract(Duration(days: 7000)),
+            DateTime.now().subtract(const Duration(days: 7000)),
           );
 
           final result = useCase.validateBirthDateInput(mockContext, input);
@@ -128,7 +128,7 @@ void main() {
       test(
         'when value is null validateGenderInput should return l10n.validationFeedbackEmptyValue',
         () async {
-          final input = null;
+          const input = null;
           final result = useCase.validateGenderInput(mockContext, input);
 
           expect(result, equals(l10n.validationFeedbackEmptyValue));
@@ -138,7 +138,7 @@ void main() {
       test(
         'when gender is valid validateGenderInput should return null',
         () async {
-          final input = GenderOption.female;
+          const input = GenderOption.female;
           final result = useCase.validateGenderInput(mockContext, input);
 
           expect(result, isNull);

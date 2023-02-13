@@ -10,7 +10,7 @@ void main() {
       'should render all core widgets and properties',
       (tester) async {
         await tester.pumpPage(
-          WelcomePage(),
+          const WelcomePage(),
           config: WidgetTestConfig.defaultConfig(),
         );
 

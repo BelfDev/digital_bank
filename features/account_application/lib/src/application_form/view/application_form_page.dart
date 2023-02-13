@@ -49,7 +49,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
       controller: _scrollController,
       appBar: DSAppBar.title(
         l10n.applicationFormAppBarTitle,
-        leading: DSBackButton(),
+        leading: const DSBackButton(),
       ),
       bodyChildren: [
         const SizedBox(height: 32.0),
@@ -100,7 +100,7 @@ class _ApplicationFormPageState extends State<ApplicationFormPage>
           children: [
             AnimatedList(
               key: listKey,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               initialItemCount: dependents.length,
               itemBuilder: (_, index, animation) {

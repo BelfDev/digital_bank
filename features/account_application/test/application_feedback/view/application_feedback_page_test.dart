@@ -12,7 +12,7 @@ void main() {
       'should render all core widgets and properties',
       (tester) async {
         await tester.pumpPage(
-          ApplicationFeedbackPage(
+          const ApplicationFeedbackPage(
             accountNumberCode: accountNumberCode,
           ),
           config: WidgetTestConfig.defaultConfig(),

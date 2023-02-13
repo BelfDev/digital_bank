@@ -9,7 +9,7 @@ void main() {
       "should render WelcomePage",
       (tester) async {
         await tester.pumpPage(
-          WelcomePageController(),
+          const WelcomePageController(),
           config: WidgetTestConfig.defaultConfig(),
         );
 

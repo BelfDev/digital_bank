@@ -18,7 +18,7 @@ class WelcomePage extends StatelessWidget {
 
     return DSArtworkScaffold(
       padding: DSTheme.defaultPageMargin.add(
-        EdgeInsets.only(top: 24.0),
+        const EdgeInsets.only(top: 24.0),
       ),
       imageProvider: const AssetImage(
         DSImages.bankingApp,

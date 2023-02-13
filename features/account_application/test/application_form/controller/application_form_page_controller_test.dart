@@ -27,7 +27,7 @@ void main() {
     testWidgets(
       "when submit with empty fields should display error feedback",
       (tester) async {
-        final l10n = await L10n.delegate.load(Locale('en'));
+        final l10n = await L10n.delegate.load(const Locale('en'));
 
         await tester.pumpPageController();
         await tester.pumpAndSettle();
@@ -90,7 +90,7 @@ extension _PumpApplicationFormPageController on WidgetTester {
     AppTestConfig? appTestConfig,
   }) async {
     await pumpPageWithProviderScope(
-      ApplicationFormPageController(),
+      const ApplicationFormPageController(),
       overrides: [
         if (state != null)
           ApplicationFormStateManager.provider.overrideWith(

@@ -106,8 +106,8 @@ void main() {
         expect(find.byType(SizedBox), findsNWidgets(16));
 
         // Scroll to the bottom of the page
-        final gesture = await tester.startGesture(Offset(0, 300));
-        await gesture.moveBy(Offset(0, -1000));
+        final gesture = await tester.startGesture(const Offset(0, 300));
+        await gesture.moveBy(const Offset(0, -1000));
         await tester.pump();
 
         // Add a new dependent
@@ -146,8 +146,8 @@ void main() {
         expect(find.byType(SizedBox), findsNWidgets(16));
 
         // Scroll to the bottom of the page
-        final gesture = await tester.startGesture(Offset(0, 300));
-        await gesture.moveBy(Offset(0, -1000));
+        final gesture = await tester.startGesture(const Offset(0, 300));
+        await gesture.moveBy(const Offset(0, -1000));
         await tester.pump();
 
         // Add a new dependent
@@ -226,8 +226,8 @@ void main() {
         await tester.pumpAndSettle();
 
         // Scroll to the bottom of the page
-        final gesture = await tester.startGesture(Offset(0, 300));
-        await gesture.moveBy(Offset(0, -1000));
+        final gesture = await tester.startGesture(const Offset(0, 300));
+        await gesture.moveBy(const Offset(0, -1000));
         await tester.pump();
 
         // Enter value on text input fields

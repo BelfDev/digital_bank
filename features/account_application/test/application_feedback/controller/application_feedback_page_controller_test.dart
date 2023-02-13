@@ -11,7 +11,7 @@ void main() {
       "should render ApplicationFeedbackPage",
       (tester) async {
         await tester.pumpPage(
-          ApplicationFeedbackPageController(
+          const ApplicationFeedbackPageController(
             accountNumberCode: accountNumberCode,
           ),
           config: WidgetTestConfig.defaultConfig(),

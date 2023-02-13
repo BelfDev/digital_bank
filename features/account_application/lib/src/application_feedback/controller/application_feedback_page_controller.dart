@@ -31,6 +31,8 @@ class ApplicationFeedbackPageController extends StatelessWidget {
     await Clipboard.setData(
       ClipboardData(text: code),
     );
+
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Container(
