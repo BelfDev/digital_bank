@@ -11,8 +11,10 @@ abstract class DSAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleWidget,
     this.bottom,
     this.systemUiOverlayStyle,
-    this.leadingWidget,
+    this.leading,
     this.shape,
+    this.backgroundColor,
+    this.leadingWidth,
   });
 
   const factory DSAppBar.title(
@@ -25,6 +27,8 @@ abstract class DSAppBar extends StatelessWidget implements PreferredSizeWidget {
     String? title,
     Widget? titleWidget,
     SystemUiOverlayStyle? systemUiOverlayStyle,
+    Widget? leading,
+    double? leadingWidth,
     Key? key,
   }) = _TransparentAppBar;
 
@@ -35,8 +39,10 @@ abstract class DSAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool transparent;
   final Widget? titleWidget;
   final SystemUiOverlayStyle? systemUiOverlayStyle;
-  final Widget? leadingWidget;
+  final Widget? leading;
   final ShapeBorder? shape;
+  final Color? backgroundColor;
+  final double? leadingWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +54,10 @@ abstract class DSAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       elevation: transparent ? 0.0 : 16.0,
       toolbarHeight: preferredSize.height,
-      leading: leadingWidget,
+      leading: leading,
       shape: shape,
+      backgroundColor: backgroundColor,
+      leadingWidth: leadingWidth,
       centerTitle: true,
       titleSpacing: 0.0,
       title: title != null
@@ -83,7 +91,7 @@ class _TitleAppBar extends DSAppBar {
   }) : super(
           preferredSize: const PreferredAppBarSize(DSTheme.defaultAppBarHeight),
           title: title,
-          leadingWidget: leading,
+          leading: leading,
           shape: const RoundedRectangleBorder(
             borderRadius: DSTheme.defaultAppBarBorderRadius,
           ),
@@ -96,14 +104,19 @@ class _TransparentAppBar extends DSAppBar {
     Widget? titleWidget,
     bool? transparent,
     SystemUiOverlayStyle? systemUiOverlayStyle,
+    Widget? leading,
+    double? leadingWidth,
     Key? key,
   }) : super(
-          preferredSize: const PreferredAppBarSize(DSTheme.defaultAppBarHeight),
+          preferredSize:
+              const PreferredAppBarSize(DSTheme.defaultAppBarHeight - 16.0),
           transparent: transparent ?? true,
           title: title ?? '',
-          leadingWidget: const DSCloseButton(),
+          leading: leading,
           titleWidget: titleWidget,
           systemUiOverlayStyle: systemUiOverlayStyle,
+          leadingWidth: leadingWidth,
+          backgroundColor: DSColors.transparent,
           key: key,
         );
 }

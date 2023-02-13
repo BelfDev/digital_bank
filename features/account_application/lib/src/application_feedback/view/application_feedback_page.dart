@@ -1,6 +1,5 @@
 import 'package:ds_components/ds_components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:localization/localization.dart';
 
 class ApplicationFeedbackPage extends StatelessWidget {
@@ -18,21 +17,15 @@ class ApplicationFeedbackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context);
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final styles = Theme.of(context).textTheme;
 
     return DSArtworkScaffold(
       padding: DSTheme.defaultPageMargin,
-      appBar: AppBar(
+      appBar: DSAppBar.transparent(
         leading: DSCloseButton(
           onPressed: onClosePressed,
         ),
         leadingWidth: 64.0,
-        backgroundColor: DSColors.transparent,
-        elevation: 0.0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarBrightness: isDarkMode ? Brightness.dark : Brightness.light,
-        ),
       ),
       imageProvider: const AssetImage(DSImages.applicationInProgress),
       body: Column(

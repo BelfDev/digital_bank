@@ -35,6 +35,7 @@ class DSArtworkScaffold extends StatelessWidget {
 
     return Scaffold(
       appBar: appBar,
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         padding: padding,
         child: SafeArea(
