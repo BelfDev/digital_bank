@@ -156,7 +156,7 @@ void main() {
 
         expect(
           provider,
-          isA<Provider<AccountRepository>>(),
+          isA<Provider<AccountRepositoryProtocol>>(),
         );
       },
     );
