@@ -4,11 +4,6 @@
   <br>
 </h1>
 
-<p align="middle">
-  <img src=".github/ios-app-result.jpeg" width="200" height="430" hspace="24" />
-  <img src=".github/android-app-result.jpg" width="200" height="430"/>
-</p>
-
 ## Running the project
 
 ### Pre-requisites
@@ -56,14 +51,22 @@ The graphical user interface and experience were tailored with the [Material](ht
 > “It is not enough for code to work.”
 As [uncle Bob](https://books.google.com.br/books?id=_i6bDeoCQzsC&printsec=frontcover&dq=inauthor:%22Robert+C.+Martin%22&hl=pt-BR&sa=X&ved=2ahUKEwjy-tSez7frAhXsLLkGHU41CLMQ6AEwAHoECAQQAg#v=onepage&q&f=false) said, **even bad code can function**. To make sure it is also clean, this project's code is divided into four layers: `Presentation`, `Business Logic`, `Repository`, and `Data Source`.
 
-- **Presentation layer** => Contains reactive [widgets](https://flutter.dev/docs/development/ui/widgets) which draw visual components to the screen (e.g. `OfferCard`).
-- **Business Logic** => Is implemented via the [BLoC](https://www.didierboelens.com/2018/08/reactive-programming-streams-bloc/) design pattern, where a middleware listens to streams of events and output states mapped according to some business logic.
-- **Repository** => Encapsulates data access logic and exposes a single source of truth. Data _could_ be retrieved from either a local or remote source.
-- **Data Source** => Persistence or networking logic to retrieve data.
+This project follows a multi-layered architecture inspired by Clean and MVVM, where the presentation layer is detached from the business logic. To enforce SOLID and DRY principles, it is divided into multiple packages, each with its own responsibility. My motivation is to demonstrate how to build a scalable Flutter project which is easy to maintain and extend even if the company grows exponentially.
 
-<p align="middle">
-<img width="400" src=".github/frontend-architecture.png">
-</p>
+#### Relevant package types
+- `app` => Contains the `main.dart` file and the app's entry point.
+- `features` => Each feature is a package that contains all the code related to a specific feature.
+- `packages` => Contains packages that are shared across multiple features. For example, a `ds_components` package that contains all the custom, design-system widgets used in the app.
+
+#### Architecture overview
+- **Presentation layer** => Contains reactive [widgets](https://flutter.dev/docs/development/ui/widgets) that draw visual components to the screen.
+  - Pages and Components are implemented as Widgets and are responsible for rendering the UI with composition.
+  - Controller classes are responsible for interpreting the state emitted by the State Manager and returning the Widget that correctly represents that state. They also connect user interactions to the State Manager or side effects such as navigation.
+- **Business Logic layer** => Is implemented via the [BLoC](https://www.didierboelens.com/2018/08/reactive-programming-streams-bloc/) design pattern, where a middleware listens to streams of events and output states mapped according to some business logic.
+    - State Management via [riverpod](https://docs-v2.riverpod.dev/) StateNotifiers. May contain business logic and communicates with the Data Access layer via a repository.
+    - Use Cases are responsible for executing a specific business logic.
+- **Data Access layer** => Contains a set of abstractions responsible for accessing data, whether from a local or remote data source.
+  - Repository is the single source of truth to access data from the Business Logic Layer. Data _could_ be retrieved from either a local or remote source. 
 
 ### Highlights
 
