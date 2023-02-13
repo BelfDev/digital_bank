@@ -8,11 +8,11 @@
 
 ### Pre-requisites
 
-This project requires Flutter to be installed on your machine. If you don't already have it, please follow this amazing official [guide](https://flutter.dev/docs/get-started/install). Due to its multi-package nature, after installing Flutter and Dart, you will need to activate `melos` globally. See the sections below for more details on how to run the project.
+This project requires Flutter to be installed on your machine. If you don't have it already, please follow this amazing official [guide](https://flutter.dev/docs/get-started/install). Due to this project's multi-package nature, after installing Flutter and Dart, you will need to activate `melos` globally. See the sections below for more details.
 
-### Fast setup
+### Fast-track setup
 
-For your convenience, a `Makefile` is provided to automate the setup process. Simply choose a directory and run the following command from the root:
+For your convenience, a `Makefile` was created to automate the setup process. Simply choose a directory, clone the project, and run the following command from the workspace root:
 
 ```bash
 make take-off
@@ -35,16 +35,6 @@ flutter run
 ```
 
 ## Implementation
-
-### Design
-
-The app's primary goal is to **display a list of contacts** provided by either a local or remote data source. Users also have the ability to **search** for specific contacts from the list or tap on tiles to **access further information**.
-
-The graphical user interface and experience were tailored with the [Material](https://material.io/design/foundation-overview) design system in mind. Rather than adapting interface components to each platform's native look, a customized app theme was created to convey a unified look and feel of the *product*'s brand. Certain platform-defining characteristics were preserved (e.g. back button icons and transitions).
-
-<p align="middle">
-<img width="400" src=".github/theme-overview.png">
-</p>
 
 ### Architecture
 
