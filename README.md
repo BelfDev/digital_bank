@@ -39,9 +39,9 @@ flutter run
 ### Architecture
 
 > “It is not enough for code to work.”
-As [uncle Bob](https://books.google.com.br/books?id=_i6bDeoCQzsC&printsec=frontcover&dq=inauthor:%22Robert+C.+Martin%22&hl=pt-BR&sa=X&ved=2ahUKEwjy-tSez7frAhXsLLkGHU41CLMQ6AEwAHoECAQQAg#v=onepage&q&f=false) said, **even bad code can function**. To make sure it is also clean, this project's code is divided into four layers: `Presentation`, `Business Logic`, `Repository`, and `Data Source`.
+As [uncle Bob](https://books.google.com.br/books?id=_i6bDeoCQzsC&printsec=frontcover&dq=inauthor:%22Robert+C.+Martin%22&hl=pt-BR&sa=X&ved=2ahUKEwjy-tSez7frAhXsLLkGHU41CLMQ6AEwAHoECAQQAg#v=onepage&q&f=false) said, **even bad code can function**.
 
-This project follows a multi-layered architecture inspired by Clean and MVVM, where the presentation layer is detached from the business logic. To enforce SOLID and DRY principles, it is divided into multiple packages, each with its own responsibility. My motivation is to demonstrate how to build a scalable Flutter project which is easy to maintain and extend even if the company grows exponentially.
+This project follows a multi-layered architecture inspired by Clean and MVVM, where the presentation layer is detached from the business logic. To enforce SOLID and DRY principles, it is divided into nine packages, each with its own responsibility. My motivation was to demonstrate how to build a scalable Flutter project which is easy to maintain and extend, even if the company grows rapidly.
 
 #### Relevant package types
 - `app` => Contains the `main.dart` file and the app's entry point.
@@ -52,11 +52,12 @@ This project follows a multi-layered architecture inspired by Clean and MVVM, wh
 - **Presentation layer** => Contains reactive [widgets](https://flutter.dev/docs/development/ui/widgets) that draw visual components to the screen.
   - Pages and Components are implemented as Widgets and are responsible for rendering the UI with composition.
   - Controller classes are responsible for interpreting the state emitted by the State Manager and returning the Widget that correctly represents that state. They also connect user interactions to the State Manager or side effects such as navigation.
-- **Business Logic layer** => Is implemented via the [BLoC](https://www.didierboelens.com/2018/08/reactive-programming-streams-bloc/) design pattern, where a middleware listens to streams of events and output states mapped according to some business logic.
-    - State Management via [riverpod](https://docs-v2.riverpod.dev/) StateNotifiers. May contain business logic and communicates with the Data Access layer via a repository.
-    - Use Cases are responsible for executing a specific business logic.
+- **Business Logic layer** => A middleware reacts to events and output states mapped according to some business logic.
+    - State Managers via [riverpod](https://docs-v2.riverpod.dev/) StateNotifiers. May contain business logic and communicates with the Data Access layer via a repository.
+    - Use Cases are often used for executing specific (and reusable) business logic.
 - **Data Access layer** => Contains a set of abstractions responsible for accessing data, whether from a local or remote data source.
-  - Repository is the single source of truth to access data from the Business Logic Layer. Data _could_ be retrieved from either a local or remote source. 
+  - Repository is the single source of truth to access data from the Business Logic Layer. Data _could_ be retrieved from either a local or remote source.
+  - Services are responsible for wrapping functionality such as fetching data from a remote source.
 
 ### Highlights
 
