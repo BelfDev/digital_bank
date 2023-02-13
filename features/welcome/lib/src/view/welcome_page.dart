@@ -17,7 +17,9 @@ class WelcomePage extends StatelessWidget {
     final sloganParts = l10n.welcomeSlogan.split('\n');
 
     return DSArtworkScaffold(
-      padding: DSTheme.defaultPageMargin,
+      padding: DSTheme.defaultPageMargin.add(
+        EdgeInsets.only(top: 24.0),
+      ),
       imageProvider: const AssetImage(DSImages.bankingApp),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
