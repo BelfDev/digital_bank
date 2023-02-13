@@ -22,6 +22,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  test_helper: any
   # Linting
   flutter_lints: ^2.0.1
 
