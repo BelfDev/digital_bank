@@ -27,7 +27,10 @@ class ApplicationFeedbackPage extends StatelessWidget {
         ),
         leadingWidth: 64.0,
       ),
-      imageProvider: const AssetImage(DSImages.applicationInProgress),
+      imageProvider: const AssetImage(
+        DSImages.applicationInProgress,
+        package: 'account_application',
+      ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
