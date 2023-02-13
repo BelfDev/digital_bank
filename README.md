@@ -96,6 +96,7 @@ This project follows a multi-layered architecture inspired by Clean and MVVM, wh
 - I don't have anything against code generation, but I did try to keep it to a minimum this time due to the current size of the project. In the future I would consider adding [freezed](https://pub.dev/packages/freezed) for immutability and union types (and drop [equatable](https://pub.dev/packages/equatable) as it can be relatively vulnerable to human error).
 - I'd have written way more tests if I had more time, specially for the `ds_components` package. I focused on showcasing what I consider good practices in `dart`/`flutter`.
 - Even though I believe that good code should "document itself", I left some doc comments on certain DS components (e.g., `DSArtworkScaffold`). It could be a good idea to add written documentation to foundation API. If this project were to go open-source, then documentation would be non-negotiable.
+- The app is optimized for iOS and Andoroid.
 
 ## Troubleshooting
 
