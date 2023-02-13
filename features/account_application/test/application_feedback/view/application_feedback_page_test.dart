@@ -30,6 +30,7 @@ void main() {
         expect(find.byType(DSCodeContainer), findsOneWidget);
         expect(find.byType(DSElevatedButton), findsOneWidget);
         expect(find.byType(SizedBox), findsNWidgets(7));
+        expect(find.byType(Image), findsOneWidget);
       },
     );
   });

@@ -28,6 +28,8 @@ void main() {
         );
         expect(find.byType(Text), findsOneWidget);
         expect(find.byType(DSElevatedButton), findsOneWidget);
+        expect(find.byType(SizedBox), findsOneWidget);
+        expect(find.byType(Image), findsOneWidget);
       },
     );
   });
