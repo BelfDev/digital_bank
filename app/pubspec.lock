@@ -644,6 +644,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  test_helper:
+    dependency: "direct dev"
+    description:
+      path: "../packages/test_helper"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   typed_data:
     dependency: transitive
     description:

@@ -9,7 +9,6 @@ void main() {
     testWidgets(
       'should render all core widgets and properties',
       (tester) async {
-        await tester.precacheImages();
         await tester.pumpPage(
           WelcomePage(),
           config: WidgetTestConfig.defaultConfig(),
