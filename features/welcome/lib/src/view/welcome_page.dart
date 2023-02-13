@@ -20,7 +20,10 @@ class WelcomePage extends StatelessWidget {
       padding: DSTheme.defaultPageMargin.add(
         EdgeInsets.only(top: 24.0),
       ),
-      imageProvider: const AssetImage(DSImages.bankingApp),
+      imageProvider: const AssetImage(
+        DSImages.bankingApp,
+        package: 'welcome',
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: RichText(
