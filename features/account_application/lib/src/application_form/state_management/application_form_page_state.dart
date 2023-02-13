@@ -17,7 +17,7 @@ class ApplicationFormPageState extends Equatable {
       : this(
           isLoading: false,
           formData: ApplicationFormData(
-            validator: const FormValidatorUserCase(),
+            validator: const FormValidatorUseCase(),
             dependents: [],
           ),
           errorFeedback: null,

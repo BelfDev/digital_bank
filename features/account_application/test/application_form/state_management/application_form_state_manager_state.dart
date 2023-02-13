@@ -52,7 +52,7 @@ void main() {
     test('should start with formData empty', () {
       final stateManager = setupStateManager(MockAccountRepository());
       final expectedFormData = ApplicationFormData(
-        validator: const FormValidatorUserCase(),
+        validator: const FormValidatorUseCase(),
         dependents: [],
       );
 

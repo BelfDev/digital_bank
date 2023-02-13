@@ -18,7 +18,7 @@ class ApplicationFormData with EquatableMixin {
     this.gender,
   });
 
-  final FormValidatorUserCase validator;
+  final FormValidatorUseCase validator;
   String? firstName;
   String? lastName;
   String? photoBase64Encoded;
@@ -68,7 +68,7 @@ extension AccountApplicationAdapter on ApplicationFormData {
 extension ApplicationFormDataStubs on ApplicationFormData {
   static ApplicationFormData get defaultStub {
     return ApplicationFormData(
-      validator: const FormValidatorUserCase(),
+      validator: const FormValidatorUseCase(),
       dependents: [
         "Maggie Doe",
         "William Doe",

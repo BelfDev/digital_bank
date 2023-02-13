@@ -4,11 +4,11 @@ import 'package:intl/intl.dart';
 import 'package:localization/localization.dart';
 
 @immutable
-class FormValidatorUserCase {
-  const FormValidatorUserCase();
+class FormValidatorUseCase {
+  const FormValidatorUseCase();
 
   String? validateNameInput(BuildContext context, String? value) {
-    if (value?.isEmpty ?? true) {
+    if (value?.trim().isEmpty ?? true) {
       return context.l10n.validationFeedbackEmptyValue;
     } else if (value!.length > 200) {
       return context.l10n.validationFeedbackInputLength;
@@ -18,7 +18,7 @@ class FormValidatorUserCase {
   }
 
   String? validateBirthDateInput(BuildContext context, String? value) {
-    if (value?.isEmpty ?? true) {
+    if (value?.trim().isEmpty ?? true) {
       return context.l10n.validationFeedbackEmptyValue;
     }
 
