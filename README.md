@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  Flow Bank Challenge
+  Flow Bank PoC
   <br>
 </h1>
 
